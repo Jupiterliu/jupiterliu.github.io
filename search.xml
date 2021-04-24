@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hexo博客搭建记录</title>
+    <url>/2021/04/24/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="用于记录搭建Hexo过程中遇到的问题以及如何解决，希望对看到这篇文章的你有用"><a href="#用于记录搭建Hexo过程中遇到的问题以及如何解决，希望对看到这篇文章的你有用" class="headerlink" title="用于记录搭建Hexo过程中遇到的问题以及如何解决，希望对看到这篇文章的你有用"></a>用于记录搭建Hexo过程中遇到的问题以及如何解决，希望对看到这篇文章的你有用</h2>]]></content>
+      <tags>
+        <tag>blog</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Paper Reading: Scalable Scanning and Automatic Classification of TLS Padding Oracle Vulnerabilities</title>
     <url>/2021/04/24/Paper-Reading-Scalable-Scanning-and-Automatic-Classification-of-TLS-Padding-Oracle-Vulnerabilities/</url>
     <content><![CDATA[<h1 id="《Scalable-Scanning-and-Automatic-Classification-of-TLS-Padding-Oracle-Vulnerabilities》（TLS-Padding-Oracle漏洞的可拓展扫描和自动分类）"><a href="#《Scalable-Scanning-and-Automatic-Classification-of-TLS-Padding-Oracle-Vulnerabilities》（TLS-Padding-Oracle漏洞的可拓展扫描和自动分类）" class="headerlink" title="《Scalable Scanning and Automatic Classification of TLS Padding Oracle Vulnerabilities》（TLS Padding Oracle漏洞的可拓展扫描和自动分类）"></a>《Scalable Scanning and Automatic Classification of TLS Padding Oracle Vulnerabilities》（TLS Padding Oracle漏洞的可拓展扫描和自动分类）</h1><p>该论文发表在第28次USS会议上，<a href="https://www.youtube.com/results?search_query=Scalable+Scanning+and+Automatic+Classification+of+TLS+Padding+Oracle+Vulnerabilities">USS会议演讲视频</a>，<a href="https://www.youtube.com/results?search_query=Scalable+Scanning+and+Automatic+Classification+of+TLS+Padding+Oracle+Vulnerabilities">国际密码研究协会演讲视频</a></p>
@@ -32,13 +40,13 @@
 ]]></content>
   </entry>
   <entry>
-    <title>archives</title>
-    <url>/archives/index.html</url>
+    <title>categories</title>
+    <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>categories</title>
-    <url>/categories/index.html</url>
+    <title>archives</title>
+    <url>/archives/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
