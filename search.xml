@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hexo博客搭建记录</title>
-    <url>/Jupiterliu.github.io/2021/04/24/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>blog</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Paper Reading: Scalable Scanning and Automatic Classification of TLS Padding Oracle Vulnerabilities</title>
     <url>/Jupiterliu.github.io/2021/04/24/Paper-Reading-Scalable-Scanning-and-Automatic-Classification-of-TLS-Padding-Oracle-Vulnerabilities/</url>
     <content><![CDATA[<h1 id="《Scalable-Scanning-and-Automatic-Classification-of-TLS-Padding-Oracle-Vulnerabilities》（TLS-Padding-Oracle漏洞的可拓展扫描和自动分类）"><a href="#《Scalable-Scanning-and-Automatic-Classification-of-TLS-Padding-Oracle-Vulnerabilities》（TLS-Padding-Oracle漏洞的可拓展扫描和自动分类）" class="headerlink" title="《Scalable Scanning and Automatic Classification of TLS Padding Oracle Vulnerabilities》（TLS Padding Oracle漏洞的可拓展扫描和自动分类）"></a>《Scalable Scanning and Automatic Classification of TLS Padding Oracle Vulnerabilities》（TLS Padding Oracle漏洞的可拓展扫描和自动分类）</h1><p>该论文发表在第28次USS会议上，<a href="https://www.youtube.com/results?search_query=Scalable+Scanning+and+Automatic+Classification+of+TLS+Padding+Oracle+Vulnerabilities">USS会议演讲视频</a>，<a href="https://www.youtube.com/results?search_query=Scalable+Scanning+and+Automatic+Classification+of+TLS+Padding+Oracle+Vulnerabilities">国际密码研究协会演讲视频</a></p>
@@ -21,6 +13,14 @@
 <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><h1 id="Padding-Oracle漏洞的历史"><a href="#Padding-Oracle漏洞的历史" class="headerlink" title="Padding Oracle漏洞的历史"></a>Padding Oracle漏洞的历史</h1><h1 id="扫描与评估的方法论"><a href="#扫描与评估的方法论" class="headerlink" title="扫描与评估的方法论"></a>扫描与评估的方法论</h1><h1 id="大规模TLS扫描"><a href="#大规模TLS扫描" class="headerlink" title="大规模TLS扫描"></a>大规模TLS扫描</h1><h1 id="评估"><a href="#评估" class="headerlink" title="评估"></a>评估</h1><h1 id="现实可利用的-Padding-Oracle漏洞"><a href="#现实可利用的-Padding-Oracle漏洞" class="headerlink" title="现实可利用的 Padding Oracle漏洞"></a>现实可利用的 Padding Oracle漏洞</h1><h1 id="发现"><a href="#发现" class="headerlink" title="发现"></a>发现</h1><h1 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h1><h1 id="总结和未来工作"><a href="#总结和未来工作" class="headerlink" title="总结和未来工作"></a>总结和未来工作</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1>]]></content>
       <tags>
         <tag>paper</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo博客搭建记录</title>
+    <url>/Jupiterliu.github.io/2021/04/24/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -40,13 +40,13 @@
 ]]></content>
   </entry>
   <entry>
-    <title>archives</title>
-    <url>/Jupiterliu.github.io/archives/index.html</url>
+    <title>categories</title>
+    <url>/Jupiterliu.github.io/categories/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>categories</title>
-    <url>/Jupiterliu.github.io/categories/index.html</url>
+    <title>archives</title>
+    <url>/Jupiterliu.github.io/archives/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
