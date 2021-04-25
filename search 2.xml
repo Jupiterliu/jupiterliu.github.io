@@ -3,7 +3,7 @@
   <entry>
     <title>Hexo博客搭建记录</title>
     <url>/2021/04/24/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h2 id="用于记录搭建Hexo过程中遇到的问题以及如何解决，希望对看到这篇文章的你有用"><a href="#用于记录搭建Hexo过程中遇到的问题以及如何解决，希望对看到这篇文章的你有用" class="headerlink" title="用于记录搭建Hexo过程中遇到的问题以及如何解决，希望对看到这篇文章的你有用"></a>用于记录搭建Hexo过程中遇到的问题以及如何解决，希望对看到这篇文章的你有用</h2>]]></content>
       <tags>
         <tag>blog</tag>
       </tags>
@@ -32,6 +32,14 @@
       </tags>
   </entry>
   <entry>
+    <title>about</title>
+    <url>/about/index.html</url>
+    <content><![CDATA[<p>关于我：</p>
+<p>一名在读的打工人，每天的事就是科研科研</p>
+<p>同时分享自己在读的生活和一些日常</p>
+]]></content>
+  </entry>
+  <entry>
     <title>categories</title>
     <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
@@ -45,18 +53,5 @@
     <title>tags</title>
     <url>/tags/index.html</url>
     <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>about</title>
-    <url>/about/index.html</url>
-    <content><![CDATA[<p>关于我：</p>
-<p>一名在读的打工人，每天的事就是科研科研</p>
-<p>同时分享自己在读的生活和一些日常</p>
-]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/baidu_verify_code-UdmZjGJsUj.html</url>
-    <content><![CDATA[654a1f75112f70a6684cbdbc455f54d2]]></content>
   </entry>
 </search>
