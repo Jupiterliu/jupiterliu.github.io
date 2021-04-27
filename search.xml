@@ -187,17 +187,70 @@
 <li><strong>响应图的细分：</strong>图4直观地显示了各种密码套件指纹的流行情况。大多数易受攻击的主机都是由几个非常常见的漏洞造成的。Amazon/OpenSSL和Citrix中新发现的漏洞占所有易受攻击主机的一半多一点。它们被列为#15和#84，并在第8.2节中进行了更详细的描述。此外，响应图#41和#75可能源自基于未打补丁的OpenSSL版本的实现，约占易受攻击主机的三分之一。在上述Czech托管公司中可以找到响应图#23。</li>
 </ul>
 <p><img src="/images/USS-2020-paper/Figure-4.jpg" alt="Figure-4：密码套件指纹流行程度的可视化。大多数易受攻击的主机都是由少数几个普遍存在的漏洞造成的。在上述密码套件指纹中，#84和#15是可利用的。在第8.2节中对它们进行了更详细的描述。"></p>
-<h1 id="七、现实可利用的-Padding-Oracle漏洞"><a href="#七、现实可利用的-Padding-Oracle漏洞" class="headerlink" title="七、现实可利用的 Padding Oracle漏洞"></a>七、现实可利用的 Padding Oracle漏洞</h1><h1 id="发现"><a href="#发现" class="headerlink" title="发现"></a>发现</h1><h1 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h1><h1 id="总结和未来工作"><a href="#总结和未来工作" class="headerlink" title="总结和未来工作"></a>总结和未来工作</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1>]]></content>
+<h1 id="七、现实可利用的-Padding-Oracle漏洞"><a href="#七、现实可利用的-Padding-Oracle漏洞" class="headerlink" title="七、现实可利用的 Padding Oracle漏洞"></a>七、现实可利用的 Padding Oracle漏洞</h1><p>并非所有我们确定的Oracle都能启用有效的解密攻击。 本节的其余部分将更详细地说明开发。 我们发现的Padding Oracle基于直接消息侧信道，即基于TLS实现，其中两个错误状态触发来自TLS服务器的不同错误响应。 它们可以在BEAST攻击者模型中被利用，BEAST攻击者模型基于两个假设：（a）受害者客户端在攻击者的控制下访问网站，该网站触发对受害者服务器的HTTPS请求，并且（b）攻击者是MitM，并且可以 观察会话并修改传输的密文。 除了这些标准假设外，如果一个球满足两个附加要求：（R1）可观察性和（R2）完美的填充区分性。</p>
+<p><img src="/images/USS-2020-paper/Figure-5.jpg" alt="Figure-5：在BEAST场景中利用可观察到的基于错误的Padding Oracle。发送的TLS警报数量不同导致密文总长度不同。"></p>
+<h2 id="（R1）可观察性"><a href="#（R1）可观察性" class="headerlink" title="（R1）可观察性"></a>（R1）可观察性</h2><p>与计时侧信道不同，在TLS的情况下，很少关注直接消息侧信道，而且通常的智慧似乎假设攻击者看不到它们。实际上，对于在所有错误情况下都发送单个警报的实现来说，情况确实如此，行为是相同的，可能只是警报消息的内容不同。因为警报消息是加密的，所以攻击者无法利用此类行为来创建旁路。然而，我们确定了许多实现确实在行为上表现出明显差异的情况。这些可观察到的差异大致可以分为两类：</p>
+<ul>
+<li><strong>TCP层：</strong>我们发现TCP层中的实现泄露了有关填充有效性的信息。例如，在Amazon的例子中，大多数带有无效填充的测试向量都会导致服务器立即关闭TCP连接。但是，精心设计的特定测试向量导致服务器在保持TCP连接打开的同时中止TLS会话。</li>
+<li><strong>TLS记录数：</strong>我们观察到TLS服务器根据填充有效性使用不同数量的记录进行响应。虽然攻击者无法解密这些记录，但他能够观察到密文的总长度。例如，在有效填充的情况下，来自组23(参见表2)的服务器以一个TLS警报响应，而对于无效的填充，它们以两个TLS警报响应。</li>
+</ul>
+<p>假设攻击者A可以根据最后一个填充字节的有效性区分VALID_PADDING和INVALID_PADDING两种情况(参见图6)。攻击者按如下方式解密HTTPS会话Cookie：</p>
+<ol>
+<li>A引诱受害者客户端加载他控制的网页。此网页包含向受攻击服务器发送HTTPS请求的JavaScript代码，带有A选择的URL。</li>
+<li>A观察第一次TLS握手，并确定协商的密码套件是否易受填充预言攻击。<br>如果没有，他就放弃。</li>
+<li>如果使用了易受攻击的密码套件，则A指示客户端发送另一个HTTPS请求，修改URL，使得会话cookie的第一个字符是密码块Ci中的最后一个字节。</li>
+<li>作为MITM，A截取密文(C1，…，Ci，…，Cn)并对其进行修改，使得Ci成为最后的密文块，例如通过用Ci替换Cn。</li>
+<li>最后一个块的解密是伪随机变换，因此填充可能是无效的，从而触发可观察到的INVALID_PADDING错误事件。</li>
+<li>在256个请求中，约有1个请求的填充将随机有效。当填充有效时，它最有可能是一个字节的长度，如图6所示。前面的字节将被TLS服务器解析为MAC数据，并且将以压倒性的概率无效。在本例中，A观察到VALID_PADDING错误事件，并将HTTPS会话Cookie的第一个字符计算为C(n−1)[−1]⊕C(i−1)[−1]，其中[−1]运算符表示获取块的最后一个字节。</li>
+<li>然后，A准备另一个HTTPS URL，其中会话cookie的第二个字符被移位到Ci的最后一个字节，并且再次从步骤3开始。</li>
+</ol>
+<p><img src="/images/USS-2020-paper/Figure-6.jpg" alt="Figure-6：我们的攻击依赖于一个易受攻击的服务器，该服务器根据最后一个填充字节的有效性提供不同的响应。"></p>
+<h2 id="（R2）完美填充区分性"><a href="#（R2）完美填充区分性" class="headerlink" title="（R2）完美填充区分性"></a>（R2）完美填充区分性</h2><p>在上面的示例中，我们考虑了一个简单的Oracle，它允许根据最后一个填充字节的有效性区分VALIDATE_PADDING和INVALID_PADDING。然而，即使在提供不同的响应时，实现也不一定公开这样简单的Oracle。例如，较早的OpenSSL版本仅在包含至少两个完整有效填充块的空记录的特定情况下才以不同的警报消息响应[37]。我们发现了仅对包含几个有效填充或MAC字节的密文作出不同响应的易受攻击的实现。这样的漏洞不太可能被利用，因为使用上面的算法，攻击者需要执行256个以上的Oracle查询才能解密每个字节。攻击者可以通过在Cookie值后面直接插入他选择的字节来克服此限制。由于CBC的延展性，只能插入一个连续选择的数据块。因此，如果选择的填充字节数小于块大小，则CBC允许创建实际利用漏洞。</p>
+<p>因此，在我们的影响评估中，我们采取了保守的方式。要将易受攻击的实现视为可利用的，我们要求它以VALID_PADDING响应最多具有一块有效填充的密文。我们称这样的Oracle为<em>strong</em>称其他Oracle为<em>weak</em>。除了这两个Oracle之外，我们还考虑不正确验证完整的CBC填充而只验证MAC的Oracle。我们称这样的Oracle为POODLE Oracle。这些Oracle也可以通过应用类似POODLE的攻击来攻击。</p>
+<p>表2中的列R2标识了Oracle强度。例如，具有第二流行的密码套件指纹(#41)的服务器使用RECORD_OVERFLOW响应表1中格式错误的记录#6和#7。在所有其他情况下，服务器发送BAD_RECORD_MAC警报。我们认为该组是薄弱的，因为攻击者需要发送一个以上的有效填充块来触发具有错误记录#6或#7的RECORD_OVERFLOW警报。</p>
+<p>我们认为具有密码套件指纹#2的服务器是<em>strong</em> Oracle。此组中的服务器以TCP连接重置响应。如果他们接收到具有有效填充的格式错误的记录(参见格式错误的记录#20和#21)。还有几个群体的行为类似于POODLE。这些组忽略MAC字节中的修改，并以不同方式响应格式错误的记录#8、#9、#17和#18。</p>
+<h2 id="可利用性"><a href="#可利用性" class="headerlink" title="可利用性"></a>可利用性</h2><p>我们认为看得见的POODLE和看得见的<em>strong</em> Oracle是可以开发的。我们认为所有其他的Oracle都是不可利用的。但是，请注意，可以使用更高级的技术来利用<em>weak</em> Oracle。因此，我们对可利用主机数量的估计是保守的较低估计。</p>
+<ul>
+<li><strong>可利用主机的估计：</strong>我们的扫描发现18,257台主机易受Padding Oracle攻击。其中，11225条(61.4%)表现出可观察到的漏洞，使得攻击者能够区分两条格式错误的记录。另请参见表2中的列R1。至少有10,688台主机提供了<em>strong</em>或POODLE样式的Oracle，占易受攻击主机的58%。另请参见表2中的列R2。总共有10,501台主机实际上是可利用的，即它们同时满足这两个要求。</li>
+<li>CBC密码套件协商好了吗？大多数现代浏览器都支持AEAD密码套件。如果易受攻击的服务器偏爱AEAD密码套件，则它们可能会被协商，从而阻止CBC攻击。31651台主机(4.03%)仅支持RC4或CBC密码套件。由于[30]的原因，大多数现代浏览器都禁用了对RC4密码套件的支持，因此现代浏览器可能会与这些主机协商CBC密码套件。在这些主机中，有1400台容易受到Padding Oracle攻击。</li>
+</ul>
+<h1 id="八、发现"><a href="#八、发现" class="headerlink" title="八、发现"></a>八、发现</h1><p>在本节中，我们将回顾我们的假设，并介绍我们在不同实现中发现的值得注意的漏洞。</p>
+<h2 id="我们最初的假设成立吗？"><a href="#我们最初的假设成立吗？" class="headerlink" title="我们最初的假设成立吗？"></a>我们最初的假设成立吗？</h2><p>我们执行扫描的前提是，为了检测易受攻击的主机，必须使用不同的密码套件和协议版本进行扫描。如下所述，我们的发现证实了这一假设。</p>
+<ul>
+<li><p><strong>是否有必要使用不同的协议版本进行扫描？</strong>Böck等人发现一些服务器仅在其支持的某些协议版本上表现出RSA Padding Oracle漏洞[9]。如第3.5节所述，我们怀疑CBC Padding漏洞也是如此。我们的发现证实了这一假设：我们发现至少有744台主机在TLS 1.0和1.2中都支持相同的密码套件，但仅在其中一个版本中使用该密码套件时易受攻击。在某些情况下，易受攻击的协议版本是较新的版本，而在其他情况下，则是较旧的版本。作为前一种情况的示例，vine.co在使用TLS 1.2和TLS_RSA_WITH_3DES_EDE_CBC_SHA密码套件时容易受到攻击，但在TLS 1.0中使用相同的密码套件时不会受到攻击。</p>
+<p>令人惊讶的是，当只有一个协议版本使用相同的密码套件易受攻击时，新版本易受攻击的情况会更多。在这744台主机中，120台主机在TLS 1.0中易受攻击，但在TLS 1.2中不易受攻击；624台主机在TLS 1.2中易受攻击，但在TLS 1.0中不易受攻击。</p>
+</li>
+<li><p><strong>有必要使用不同的密码套件进行扫描吗？</strong>Böck等人还发现，为了检测出尽可能多的漏洞，有必要使用不同的密码套件进行扫描[9]。在上面的工作中，即使在使用不同的对称密码扫描密码套件时，这一发现仍然成立，而漏洞存在于(理论上无关的)RSA实现中。</p>
+<p>我们在我们的结果中发现了类似的行为。我们发现至少601台主机具有两个密码套件，一个是易受攻击的，一个是安全的，两个密码套件之间唯一的区别是密钥交换算法。这一发现是不直观的，因为人们会认为一个实现在使用相同对称密码的所有密码套件上都是统一易受攻击或安全的。举个例子，当将TLS_RSA_WITH_AES_256_CBC_SHA256与TLS 1.2一起使用时，一个网站是安全的，但当将TLS_DHE_RSA_WITH_AES_256_CBC_SHA256与TLS 1.2一起使用时，网站容易受到攻击。</p>
+</li>
+<li><p><strong>服务器行为背后的基本原理：</strong>这两种行为看起来都不直观，但实际上都是意料之中的。许多实现采用完全不同的代码路径，具体取决于协商的密码套件或协议版本。例如，这些代码路径可能依赖于硬件加速，或者在可能的情况下使用优化的程序集实现。因此，即使使用相同的对称密码，也很可能(如我们所见，这很常见)发现仅在某些受支持的密码套件和协议版本中显示漏洞的实现。</p>
+</li>
+</ul>
+<h2 id="值得注意的漏洞"><a href="#值得注意的漏洞" class="headerlink" title="值得注意的漏洞"></a>值得注意的漏洞</h2><p>在我们的扫描中，我们识别了来自Cisco的多个设备、两个不同的IBM服务器以及来自SonicWall和Oracle的多个设备。在下面，我们将描述我们在Citrix、OpenSSL和IBM服务器中发现并负责任地披露的特定漏洞。我们的披露仍在进行中。在<a href="https://github.com/RUB-NDS/TLS-Padding-Oracles">https://github.com/RUB-NDS/TLS-Padding-Oracles</a> 上总结了我们的最新发现和受影响供应商实施的对策的现状。</p>
+<ul>
+<li><p><strong>Amazon/OpenSSL：</strong>在Amazon安全团队的帮助下，我们发现了一个漏洞(密码套件指纹#15)，该漏洞主要存在于Amazon服务器和Amazon网络服务(Amazon Web Services，AWS)上。受此漏洞影响的主机会立即使用BAD_RECORD_MAC和CLOSE_NOTIFY警报响应大多数记录，然后关闭连接。但是，如果主机遇到具有有效填充和MAC的零长度记录，则无论MAC的有效性如何，它们都不会立即关闭TCP连接。相反，它们在发送CLOSE_NOTIFY警报后使连接保持活动状态超过4秒。这种行为差异在网络上很容易观察到。请注意，触发此超时不需要MAC值正确，只需创建导致解密数据长度为零的有效填充即可。因此，我们把它归类为一个<em>strong</em> Oracle，也是可以利用的。</p>
+<p>进一步调查发现，Amazon服务器正在运行一个使用OpenSSL 1.0.2 API的实现。在某些情况下，根据发生的是MAC错误还是填充错误，对API的函数调用会返回不同的错误代码。然后，Amazon应用程序根据这些错误代码采用不同的代码路径，不同的路径会在TCP层产生明显的差异。仅当未使用AES-NI时，才会出现易受攻击的行为。</p>
+<p>事实上，我们之前已经在实验室环境中手动测试了易受攻击的OpenSSL代码，但没有发现此漏洞。这是因为该漏洞仅在特定条件的组合下表现出来：OpenSSL和外部代码之间的微妙交互，并且仅在不使用AES-NI的情况下才会出现，这在当今是很少见的。我们认为这是一个例证，说明了大规模扫描在检测实验室测试有时可能会遗漏的漏洞方面的用处。</p>
+<p>我们怀疑此OpenSSL行为是我们发现的许多类似漏洞的基础，而不仅仅是漏洞#15。因此，我们希望一旦OpenSSL发布修补程序，其他漏洞也会因此得到修复。该漏洞被分配到CVE-2019-1559。</p>
+</li>
+<li><p><strong>IBM的漏洞：</strong>我们在IBM托管的服务器中发现了多个漏洞。表2中的密码套件指纹#77描述了其中一个漏洞。如果MAC或填充不正确，受影响的服务器会发出BAD_RECORD_MAC警报。如果填充正确且MAC不完整或不存在，服务器将以DECODE_ERROR警报响应。即使记录太短而不能包含MAC，也会发生后一种行为，只要记录包含至少两个密文块，而与使用的MAC算法无关。攻击者只能使用IV发送两个块，这保证没有足够的空间容纳MAC。这为攻击者提供了典型的CBC Padding Oracle。因此，我们认为这是一个<em>strong</em> Oracle。由于警报是加密的，因此我们将此漏洞归类为不可察觉，因此无法利用Oracle。IBM安全团队决定在受影响的服务器上禁用CBC密码套件，只支持AES-GCM。</p>
+</li>
+<li><p><strong>Citrix：</strong>表2中的密码套件指纹#84标识了描述的漏洞。易受攻击的实现首先检查最后一个填充字节，然后验证MAC。如果MAC无效，服务器将关闭连接。这是通过连接超时或RST来完成的，具体取决于剩余填充字节的有效性。但是，如果MAC有效，服务器会检查其余所有填充字节是否正确。如果它们不是，则服务器以BAD_RECORD_MAC和RST作为响应(如果它们有效，则记录格式良好并被接受)。我们在图7中可视化了这种行为。可以通过类似于POODLE的攻击来利用这种行为。因为Oracle也是可以观察到的，所以我们认为这个群体是可以利用的。我们首先在Amazon Web服务中检测到此漏洞。我们与亚马逊安全团队合作，确定Citrix Application Delivery Controller(ADC)和NetScaler Gateway应对此行为负责。该漏洞被指定为CVE-2019-6485。</p>
+</li>
+</ul>
+<p><img src="/images/USS-2020-paper/Figure-7.jpg" alt="Figure-7：使用密码套件指纹#84的Citrix实施的行为。"></p>
+<h1 id="九、相关工作"><a href="#九、相关工作" class="headerlink" title="九、相关工作"></a>九、相关工作</h1><p>现在，我们重点介绍过去的工作，这些工作侧重于对现代Internet上的漏洞进行大规模扫描。对于有关padding oracle攻击的相关工作的调查，我们请读者参考第3节。ZMap [18]是一种能够达到较高扫描速度的网络扫描仪。 Durumeric等人[17]使用ZMap扫描IPv4地址空间以量化Heartbleed漏洞[32]的影响。 Heninger等人[19]扫描TLS和SSH，以查找由于熵不足而产生的弱密钥。Adrian等人[2]引入了Logjam漏洞，并根据攻击者的计算资源，使用Internet范围内的扫描来量化其影响。 Aviram等人[5]引入了DROWN漏洞，并类似地使用了Internet范围内的扫描来量化其影响。 Böck等人[9]像我们在这里一样，对Bleichenbacher的漏洞进行了大规模扫描，同时还观察了诸如TCP连接状态变化之类的侧信道。 Valenta等人[38]扫描了椭圆曲线实施中的已知漏洞，寻找可以启用强大攻击的组合CurveSwap。</p>
+<h1 id="十、总结和未来工作"><a href="#十、总结和未来工作" class="headerlink" title="十、总结和未来工作"></a>十、总结和未来工作</h1><p>这项工作表明，现代Internet上仍然存在padding oracle漏洞，并且很可能继续威胁用户的安全。 这些漏洞通常很难被发现：它们可能依赖于细微的侧信道或需要专门设计的输入才能触发。</p>
+<p>过去，新的重大TLS攻击对生态系统产生了积极影响。 例如，Adrian等人的工作[2]导致了“enforcement”工作，主要的浏览器改变了行为并拒绝连接到具有弱DH参数的服务器。 安全社区如何更好地帮助服务器操作员检测和补救更细微的漏洞（尤其是CBC oracle和一般的其他类别的漏洞）是一个有趣的开放问题。</p>
+<p>在CBC oracle的上下文中，一种解决方案是完全禁止CBC密码套件。 最近，主要的浏览器供应商已经宣布打算删除对旧的1.0和1.1 TLS版本的支持。 这迫使许多服务器操作员升级其实现或更改配置。 确实，浏览器供应商也可以取消对CBC密码套件的支持，再次迫使服务器运营商进行升级。 这些变化并非没有代价。 它们通常需要提前几个月通知，可能需要浏览器供应商之间进行协调，并且显然会为服务器操作者增加工作量。</p>
+<p>我们的结果再次证实，大规模扫描使发现以前在实验室测试中未发现的各种安全漏洞变得可行。 我们相信，在执行大规模扫描时，不仅在TLS上下文中，我们的方法引起了广泛关注。 一个未解决的问题是如何确定易受攻击的实现版本及其供应商。 在SSH和IPsec协议中，这些数据通常作为协议中的消息字段进行传输。在TLS中传输此类数据将使披露更容易，但另一方面将导致隐私问题和更容易的指纹识别。</p>
+<h1 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h1><p>我们要感谢Dennis Felsch，他在我们的硬件和网络基础设施方面为我们提供了帮助，以及我们的匿名评论者提供了许多有洞察力的意见。此外，我们要感谢Amazon、Citrix和OpenSSL团队的专业回应和对信息披露的帮助。</p>
+<p>Nimrod Aviram得到了以色列科技部的奖学金、Check Point信息安全研究所的奖学金以及Yitzhak和Chaya Weinstein信号处理研究所的奖学金。Juraj Somorovsky通过未来信托项目得到欧盟委员会的支持(赠款700542-未来-信托-H2020-DS2015-1)。Robert Merget通过SIWECOS项目得到了德国联邦经济事务和能源部的支持，该项目名为“IT-Sinherheit in der Wirtschaft”(IT-Silherheit in der Wirtschaft)计划。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[1] Openssl security advisory. CVE-2018-0733.</span><br><span class="line">[2] ADRIAN, D., BHARGAVAN, K., DURUMERIC, Z., GAUDRY, P., GREEN, M., HALDERMAN, J. A., HENINGER, N., SPRINGALL, D., THOMÉ, E., VALENTA, L., ET AL. Imperfect forward secrecy: How diffie-hellman fails in practice. In Proceedings of the 22nd ACM SIGSAC Conference on Computer and Communications Security (2015), ACM, pp. 5–17.</span><br><span class="line">[3] ALBRECHT, M. R., AND PATERSON, K. G. Lucky microseconds: A timing attack on amazon’s s2n implementation of TLS. In Advances in Cryptology - EUROCRYPT 2016 - 35th Annual International Conference on the Theory and Applications of Cryptographic Techniques, Vienna, Austria, May 8-12, 2016, Proceedings, Part I (2016), pp. 622–643.</span><br><span class="line">[4] ALFARDAN, N. J., AND PATERSON, K. G. Lucky Thirteen: Breaking the TLS and DTLS Record Protocols. 2013 IEEE Symposium on Security and Privacy 0 (2013), 526–540.</span><br><span class="line">http:&#x2F;&#x2F;www.isg.rhul.ac.uk&#x2F;tls&#x2F;TLStiming.pdf.</span><br><span class="line">[5] AVIRAM, N., SCHINZEL, S., SOMOROVSKY, J., HENINGER, N., DANKEL, M., STEUBE, J., VALENTA, L., ADRIAN, D., HALDERMAN, J. A., DUKHOVNI, V., KÄSPER, E., COHNEY, S., ENGELS, S., PAAR, C., AND SHAVITT, Y. DROWN: Breaking TLS Using SSLv2. In 25th USENIX Security Symposium (USENIX Security 16) (Austin, TX, Aug. 2016), pp. 689–706.</span><br><span class="line">[6] BARDOU, R., FOCARDI, R., KAWAMOTO, Y., STEEL, G., AND TSAY, J.-K. Efficient Padding Oracle Attacks on Cryptographic Hardware. In Advances in Cryptology – CRYPTO (2012), Canetti and R. Safavi-Naini, Eds.</span><br><span class="line">[7] BENJAMIN, D. Tls ecosystem woes, Jan. 2018. Real World Crypto Symposium.</span><br><span class="line">[8] BLEICHENBACHER, D.</span><br><span class="line">Chosen ciphertext attacks against protocols based on the RSA encryption standard PKCS #1.</span><br><span class="line">In Advances in Cryptology — CRYPTO ’98, vol. 1462 of Lecture Notes in Computer Science. Springer Berlin &#x2F; Heidelberg, 1998.</span><br><span class="line">[9] BÖCK, H., SOMOROVSKY, J., AND YOUNG, C. Return of bleichenbacher’s oracle threat (ROBOT). In 27th USENIX Security Symposium (USENIX Security 18) (Baltimore, MD, 2018), USENIX Association, pp. 817–849.</span><br><span class="line">[10] BÖCK, H.</span><br><span class="line">A little POODLE left in GnuTLS (old versions), Nov. 2015. https:&#x2F;&#x2F;blog.hboeck.de&#x2F;archives&#x2F; 877-A-little-POODLE-left-in-GnuTLS-old-versions.</span><br><span class="line">html.</span><br><span class="line">[11] CANVEL, B., HILTGEN, A., VAUDENAY, S., AND VUAGNOUX, M. Password Interception in a SSL&#x2F;TLS Channel. In Advances in Cryptology - CRYPTO 2003, vol. 2729 of Lecture Notes in Computer Science. Springer Berlin &#x2F; Heidelberg, Aug. 2003.</span><br><span class="line">[12] DIERKS, T., AND ALLEN, C. The TLS Protocol Version 1.0.</span><br><span class="line">RFC 2246 (Proposed Standard), Jan. 1999. Obsoleted by RFC 4346, updated by RFCs 3546, 5746, 6176, 7465, 7507.</span><br><span class="line">[13] DIERKS, T., AND RESCORLA, E. The Transport Layer Security (TLS) Protocol Version 1.1. RFC 4346 (Proposed Standard), Apr. 2006. Obsoleted by RFC 5246, updated by RFCs 4366, 4680, 4681, 5746, 6176, 7465, 7507.</span><br><span class="line">[14] DIERKS, T., AND RESCORLA, E. The Transport Layer Security (TLS) Protocol Version 1.2. RFC 5246 (Proposed Standard), Aug. 2008. Updated by RFCs 5746, 5878, 6176, 7465, 7507, 7568, 7627, 7685.</span><br><span class="line">[15] DUONG, T., AND RIZZO, J. Cryptography in the web: The case of cryptographic design flaws in ASP.NET. In IEEE Symposium on Security and Privacy (2011).</span><br><span class="line">[16] DURUMERIC, Z., ADRIAN, D., MIRIAN, A., BAILEY, M., AND HALDERMAN, J. A.</span><br><span class="line">A search engine backed by Internet-wide scanning. In 22nd ACM Conference on Computer and Communications Security (Oct. 2015).</span><br><span class="line">[17] DURUMERIC, Z., LI, F., KASTEN, J., AMANN, J., BEEKMAN, J., PAYER, M., WEAVER, N., ADRIAN, D., PAXSON, V., BAILEY, M., ET AL. The matter of heartbleed. In Proceedings of the 2014 conference on internet measurement conference (2014), ACM, pp. 475–488.</span><br><span class="line">[18] DURUMERIC, Z., WUSTROW, E., AND HALDERMAN, J. A.</span><br><span class="line">Zmap: Fast internet-wide scanning and its security applications.</span><br><span class="line">[19] HENINGER, N., DURUMERIC, Z., WUSTROW, E., AND HALDERMAN, J. A. Mining your ps and qs: Detection of widespread weak keys in network devices.</span><br><span class="line">[20] IRAZOQUI, G., INCI, M. S., EISENBARTH, T., AND SUNAR, B. Lucky 13 strikes back. In Proceedings of the 10th ACM Symposium on Information, Computer and Communications Security (New York, NY, USA, 2015), ASIA CCS ’15, ACM, pp. 85–96.</span><br><span class="line">[21] JACOMY, M., VENTURINI, T., HEYMANN, S., AND BASTIAN, M. Forceatlas2, a continuous graph layout algorithm for handy network visualization designed for the gephi software. PLOS ONE 9, 6 (06 2014), 1–12.</span><br><span class="line">[22] JAGER, T., SCHINZEL, S., AND SOMOROVSKY, J. Bleichenbacher’s attack strikes again: breaking PKCS#1 v1.5 in XML Encryption. In Computer Security - ESORICS 2012 - 17th European Symposium on Research in Computer Security, Pisa, Italy, September 10-14, 2012. Proceedings (2012), S. Foresti and M. Yung, Eds., LNCS, Springer.</span><br><span class="line">[23] JAGER, T., AND SOMOROVSKY, J. How To Break XML Encryption. In The 18th ACM Conference on Computer and Communications Security (CCS) (Oct. 2011).</span><br><span class="line">[24] LABS, A. W. S. s2n: An implementation of the tls&#x2F;ssl protocols.</span><br><span class="line">[25] LANGLEY, A.</span><br><span class="line">The POODLE bites again, Nov. 2014.</span><br><span class="line">https:&#x2F;&#x2F;www.imperialviolet.org&#x2F;2014&#x2F;12&#x2F;08&#x2F; poodleagain.html.</span><br><span class="line">[26] MEYER, C., SOMOROVSKY, J., WEISS, E., SCHWENK, J., SCHINZEL, S., AND TEWS, E. Revisiting SSL&#x2F;TLS Implementations: New Bleichenbacher Side Channels and Attacks.</span><br><span class="line">In 23rd USENIX Security Symposium, San Diego, USA (August 2014).</span><br><span class="line">[27] MÖLLER, B., DUONG, T., AND KOTOWICZ, K. This POODLE bites: exploiting the SSL 3.0 fallback, 2014.</span><br><span class="line">[28] PETTERSSEN, Y. The POODLE has friends.</span><br><span class="line">[29] PETTERSSEN, Y. There are more POODLEs in the forest.</span><br><span class="line">[30] POPOV, A. Prohibiting RC4 Cipher Suites. RFC 7465 (Proposed Standard), Feb. 2015.</span><br><span class="line">[31] RESCORLA, E. The Transport Layer Security (TLS) Protocol Version 1.3. RFC 8446, 2018.</span><br><span class="line">[32] RIKU, ANTTI, MATTI, AND MEHTA. Heartbleed, cve-20140160, 2015. http:&#x2F;&#x2F;heartbleed.com&#x2F;.</span><br><span class="line">[33] RIZZO, J., AND DUONG, T.</span><br><span class="line">Practical padding oracle attacks. In Proceedings of the 4th USENIX conference on Offensive technologies (Berkeley, CA, USA, 2010), WOOT’10, USENIX Association, pp. 1–8.</span><br><span class="line">[34] RIZZO, J., AND DUONG, T. Here Come The XOR Ninjas, May 2011.</span><br><span class="line">[35] RONEN, E., PATERSON, K. G., AND SHAMIR, A. Pseudo constant time implementations of tls are only pseudo secure. In Proceedings of the 2018 ACM SIGSAC Conference on Computer and Communications Security (2018), ACM, pp. 1397–1414.</span><br><span class="line">[36] SCHEITLE, Q., HOHLFELD, O., GAMBA, J., JELTEN, J., ZIMMERMANN, T., STROWES, S. D., AND VALLINARODRIGUEZ, N. A Long Way to the Top: Significance, Structure, and Stability of Internet Top Lists. In Internet Measurement Conference (IMC’18), IMC’18 Community Contribution Award (Boston, USA, Nov. 2018), ACM, pp. 478–493.</span><br><span class="line">[37] SOMOROVSKY, J. Systematic fuzzing and testing of tls libraries. In Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security (2016), ACM, pp. 1492–1504.</span><br><span class="line">[38] VALENTA, L., SULLIVAN, N., SANSO, A., AND HENINGER, N. In search of curveswap: Measuring elliptic curve implementations in the wild. In 2018 IEEE European Symposium on Security and Privacy (EuroS&amp;P) (2018), IEEE, pp. 384–398.</span><br><span class="line">[39] VAUDENAY, S. Security Flaws Induced by CBC Padding —Applications to SSL, IPSEC, WTLS... In Advances in Cryptology — EUROCRYPT 2002, vol. 2332 of Lecture Notes in Computer Science. Springer Berlin &#x2F; Heidelberg, Apr. 2002.</span><br></pre></td></tr></table></figure>
+
+]]></content>
       <tags>
         <tag>paper</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>TLS-Attacker框架：项目复现</title>
-    <url>/2021/04/24/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>github project</tag>
       </tags>
   </entry>
   <entry>
@@ -210,9 +263,22 @@
       </tags>
   </entry>
   <entry>
+    <title>TLS-Attacker框架：项目复现</title>
+    <url>/2021/04/24/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>github project</tag>
+      </tags>
+  </entry>
+  <entry>
     <title></title>
     <url>/manifest.json</url>
     <content><![CDATA[{"name":"Koper","short_name":"Koper","start_url":"/","icons":[{"src":"/images/siteicon/android-chrome-36x36.png","sizes":"36x36","type":"image/png"},{"src":"/images/siteicon/android-chrome-48x48.png","sizes":"48x48","type":"image/png"},{"src":"/images/siteicon/android-chrome-72x72.png","sizes":"72x72","type":"image/png"},{"src":"/images/siteicon/android-chrome-96x96.png","sizes":"96x96","type":"image/png"},{"src":"/images/siteicon/android-chrome-144x144.png","sizes":"144x144","type":"image/png"},{"src":"/images/siteicon/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/images/siteicon/android-chrome-256x256.png","sizes":"256x256","type":"image/png"},{"src":"/images/siteicon/android-chrome-384x384.png","sizes":"384x384","type":"image/png"},{"src":"/images/siteicon/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#ffffff","background_color":"#ffffff","display":"standalone"}]]></content>
+  </entry>
+  <entry>
+    <title>categories</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>about</title>
@@ -221,11 +287,6 @@
 <p>一名在读的打工人，每天的事就是科研科研</p>
 <p>同时分享自己在读的生活和一些日常</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>categories</title>
-    <url>/categories/index.html</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>archives</title>
