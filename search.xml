@@ -8,7 +8,7 @@
 <ol>
 <li>首先是在本地deploy之前，先执行<strong>hexo clean</strong>，来清除相关缓存，然后hexo g &amp;&amp; hexo d（可以多执行几遍）</li>
 <li>在之前搭建github主页时，github默认给我设置的分支是main，看到过网上的一个解决方案是将分支名从main改成master（github权限问题？？？）</li>
-<li><strong>清除浏览器的缓存</strong>，在我的实际刷新来看，这个办法应该是最有用的，我用chrome和safari都验证过了。</li>
+<li><strong>清除浏览器的缓存</strong>，在我的实际刷新来看，这个办法应该是最有用的，我用chrome和safari都验证过了。<a href="https://www.cnblogs.com/Chesky/p/chrome_disabling_cache.html">清除Chrome浏览器指定网页缓存</a>，每次加载网站都能重新载入。</li>
 <li>Hexo本地网站根目录下面的_config.yml文件配置不对。在deploy设置中branch选项的值应该和你在github项目的分支保持一致。至于配置文件的url设置，个人认为没影响，在我的使用来看，这个url主要是影响网站sitemap.xml文件的生成和有效性。</li>
 </ol>
 <h1 id="问题2-Hexo博客页面加载缓慢或者卡顿"><a href="#问题2-Hexo博客页面加载缓慢或者卡顿" class="headerlink" title="问题2:Hexo博客页面加载缓慢或者卡顿"></a>问题2:Hexo博客页面加载缓慢或者卡顿</h1><p>参考：</p>
@@ -320,13 +320,13 @@
 ]]></content>
   </entry>
   <entry>
-    <title>categories</title>
-    <url>/categories/index.html</url>
+    <title>archives</title>
+    <url>/archives/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>archives</title>
-    <url>/archives/index.html</url>
+    <title>categories</title>
+    <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
