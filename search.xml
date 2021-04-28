@@ -38,7 +38,7 @@
     <url>/2021/04/27/LeetCode/</url>
     <content><![CDATA[<h1 id="Array-35（search-insert-position）"><a href="#Array-35（search-insert-position）" class="headerlink" title="Array_35（search-insert-position）"></a>Array_35（search-insert-position）</h1><p>先确认查找算法是二分查找（binary-search），将<a href="https://leetcode-cn.com/problems/binary-search/">二分查找的算法</a>解了一次。问题：执行用时很少，但内存占用多</p>
 <p>当没找到index后，比较target和nums[pivot]，返回插入位置就行。问题：空间复杂度高</p>
-<p><img src="../images/LeetCode/search-insert-position-1.jpg" alt="search-insert-position-1"></p>
+<p><img src="/images/LeetCode/search-insert-position-1.jpg"></p>
 ]]></content>
       <tags>
         <tag>leetcode</tag>
@@ -56,8 +56,8 @@
   <entry>
     <title>「送你一朵小红花」</title>
     <url>/2021/04/26/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/</url>
-    <content><![CDATA[<p><img src="https://img0.utuku.china.com/550x0/ent/20200612/8f5ba9c8-3738-4c6f-bc10-9c64c27d1c58.jpg" alt="老婆老婆"></p>
-<p><img src="../images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC6.jpg" alt="LHC11"></p>
+    <content><![CDATA[<p><img src="https://img0.utuku.china.com/550x0/ent/20200612/8f5ba9c8-3738-4c6f-bc10-9c64c27d1c58.jpg"></p>
+<p><img src="../images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC6.jpg"></p>
 ]]></content>
       <tags>
         <tag>movie</tag>
@@ -320,13 +320,13 @@
 ]]></content>
   </entry>
   <entry>
-    <title>archives</title>
-    <url>/archives/index.html</url>
+    <title>categories</title>
+    <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>categories</title>
-    <url>/categories/index.html</url>
+    <title>archives</title>
+    <url>/archives/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
