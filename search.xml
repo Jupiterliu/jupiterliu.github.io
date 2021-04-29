@@ -3,7 +3,7 @@
   <entry>
     <title>Hexo博客搭建记录</title>
     <url>/2021/04/24/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h1 id="问题1-Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）"><a href="#问题1-Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）" class="headerlink" title="问题1:Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）"></a>问题1:Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）</h1><p>我用的是Next主题，在网上找过许多答案，其中一种针对Next主题以前的一个问题所进行的修改：<a href="https://github.com/iissnan/hexo-theme-next/issues/1214">vendors文件修改</a>，但是vendors文件夹问题在随后的Next版本中得到了解决。</p>
+    <content><![CDATA[<h1 id="问题1-Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）"><a href="#问题1-Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）" class="headerlink" title="问题1:Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）"></a>问题1:Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）</h1><p>最开始，我使用的是Next主题，在网上找过许多答案，其中一种针对Next主题以前的一个问题所进行的修改：<a href="https://github.com/iissnan/hexo-theme-next/issues/1214">vendors文件修改</a>，但是vendors文件夹问题在随后的Next版本中得到了解决。</p>
 <p>如今又出现这样的问题，我根据网上的各种回答进行了许多地方的一个修改，这里做个总结：</p>
 <ol>
 <li>首先是在本地deploy之前，先执行<strong>hexo clean</strong>，来清除相关缓存，然后hexo g &amp;&amp; hexo d（可以多执行几遍）</li>
@@ -11,15 +11,7 @@
 <li><strong>清除浏览器的缓存</strong>，在我的实际刷新来看，这个办法应该是最有用的，我用chrome和safari都验证过了。<a href="https://www.cnblogs.com/Chesky/p/chrome_disabling_cache.html">清除Chrome浏览器指定网页缓存</a>，每次加载网站都能重新载入。</li>
 <li>Hexo本地网站根目录下面的_config.yml文件配置不对。在deploy设置中branch选项的值应该和你在github项目的分支保持一致。至于配置文件的url设置，个人认为没影响，在我的使用来看，这个url主要是影响网站sitemap.xml文件的生成和有效性。</li>
 </ol>
-<h1 id="问题2-Hexo博客页面加载缓慢或者卡顿"><a href="#问题2-Hexo博客页面加载缓慢或者卡顿" class="headerlink" title="问题2:Hexo博客页面加载缓慢或者卡顿"></a>问题2:Hexo博客页面加载缓慢或者卡顿</h1><p>参考：</p>
-<ol>
-<li><a href="https://www.jianshu.com/p/c9d3a53fb8e3">Hexo页面加载性能优化</a></li>
-<li><a href="https://link.jianshu.com/?t=http://www.ieclipse.cn/2016/08/29/Web/Hexo-deploy-lines/">Hexo博客双线部署</a></li>
-<li><a href="https://gaomf.cn/2015/11/01/Hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6/">Hexo博客优化加载速度</a></li>
-<li><a href="https://blog.csdn.net/weixin_44676935/article/details/107440479">Hexo博客因图标失效导致加载过慢（icarus主题）</a></li>
-</ol>
-<p>做个总结：</p>
-<p>我是用的是<a href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly主题</a>，所做的更改基本都是<a href="https://butterfly.js.org/">Jerry的教程</a>建议的</p>
+<h1 id="问题2-Hexo博客页面加载缓慢或者卡顿"><a href="#问题2-Hexo博客页面加载缓慢或者卡顿" class="headerlink" title="问题2:Hexo博客页面加载缓慢或者卡顿"></a>问题2:Hexo博客页面加载缓慢或者卡顿</h1><p>现在，我使用的是<a href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly主题</a>，所做的更改基本都是<a href="https://butterfly.js.org/">Jerry的教程</a>建议的</p>
 <ol>
 <li><p>最直观的方法就是在加载网页后，F12打开浏览器的开发者模式，选到Console，然后就能看到加载Hexo网页时出现了哪些错误。下图是我第一次打开Console时出现的错误图：</p>
 <p><img src="/images/Hexo-blog-build-record/chrome-F12-Console-errors.jpg"></p>
@@ -27,6 +19,13 @@
 </li>
 <li><p>删除一些无关的插件，<a href="https://www.dazhuanlan.com/2019/10/12/5da110cdd9a7b/">卸载 hexo 插件</a></p>
 </li>
+</ol>
+<p>参考：</p>
+<ol>
+<li><a href="https://www.jianshu.com/p/c9d3a53fb8e3">Hexo页面加载性能优化</a></li>
+<li><a href="https://link.jianshu.com/?t=http://www.ieclipse.cn/2016/08/29/Web/Hexo-deploy-lines/">Hexo博客双线部署</a></li>
+<li><a href="https://gaomf.cn/2015/11/01/Hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6/">Hexo博客优化加载速度</a></li>
+<li><a href="https://blog.csdn.net/weixin_44676935/article/details/107440479">Hexo博客因图标失效导致加载过慢（icarus主题）</a></li>
 </ol>
 ]]></content>
       <tags>
@@ -51,6 +50,62 @@
     <content><![CDATA[]]></content>
       <tags>
         <tag>github project</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>「送你一朵小红花」</title>
+    <url>/2021/04/26/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/</url>
+    <content><![CDATA[<p><img src="https://img0.utuku.china.com/550x0/ent/20200612/8f5ba9c8-3738-4c6f-bc10-9c64c27d1c58.jpg"></p>
+<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC2.jpg"></p>
+<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC3.jpg"></p>
+<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC4.JPG"></p>
+<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC5.jpg"></p>
+<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC6.GIF"></p>
+<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC8.jpg"></p>
+<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC9.jpg"></p>
+<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC10.JPG"></p>
+<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC11.jpg"></p>
+<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC12.jpg"></p>
+<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC13.jpg"></p>
+<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC14.JPG"></p>
+<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC15.JPG"></p>
+<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC16.JPG"></p>
+<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC17.JPG"></p>
+]]></content>
+      <tags>
+        <tag>movie</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>国密算法/协议/工控</title>
+    <url>/2021/04/28/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95-%E5%8D%8F%E8%AE%AE-%E5%B7%A5%E6%8E%A7/</url>
+    <content><![CDATA[<h1 id="国密SSL-TLS"><a href="#国密SSL-TLS" class="headerlink" title="国密SSL/TLS"></a>国密SSL/TLS</h1><p>🌟🌟🌟<a href="https://www.gmssl.cn/gmssl/index.jsp?go=down">国密SSL实验室</a>（重点）：好多使用的工具，包括国密Web浏览器、国密Web服务器、国密性能测试、国密工具箱等等。可以从这里面下载Web服务器，搭建并进行TLS-Attacker的测试。一个<a href="https://developer.aliyun.com/article/770830">阿里云的实战博客</a>，该博客实战了GMSSL的Nginx安装和使用。一个相关测试的专栏文章-<a href="https://segmentfault.com/a/1190000024448440">国密SSL之性能测试</a>。</p>
+<p>一个在线工具：<a href="https://myssl.com/">SSL/TLS安全评估报告-在线网站检测</a>。其支持国密HTTPS的检测分析。</p>
+<p>江南天安<a href="https://github.com/jntass">Github主页-jntass</a>：提供源码下载和Nginx服务器的安装。</p>
+<p><a href="http://gmssl.org/">GmSSL</a>：支持国密的密码工具箱，GmSSL作者的Github主页：<a href="https://github.com/guanzhi">GmSSL-guanzhi</a>。</p>
+<h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><p>所有的实验都在Windows的Ubuntu20虚拟机上进行：</p>
+<ol>
+<li>先在国密SSL实验室官网下载国密Web服务器</li>
+</ol>
+<h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><p><a href="https://zhuanlan.zhihu.com/p/132352160">知乎回答：国密算法介绍</a>；</p>
+<p><a href="https://juejin.cn/post/6844904114879463438">掘金：浅谈国密算法</a>；</p>
+<p><a href="https://www.jianshu.com/p/3ac6d7b3cf02">简书：国密算法</a>；</p>
+<p><a href="https://github.com/PopezLotado/SM2Java">SM2的Java算法实现</a></p>
+<p><a href="https://github.com/windard/sm4/blob/master/README.md">SM4：Github的一个项目</a>；</p>
+<p><a href="https://www.huaweicloud.com/theme/484689-1-G">华为云：国产密码算法</a>；</p>
+<p><a href="https://github.com/hwyqb/SM2_SM3_SM4Encrypt">SM2/SM3/SM4的Java算法实现-Github</a>；</p>
+<p><a href="https://www.wosign.com/FAQ/faq_2019062501.htm">国密SSL协议</a>；</p>
+<p><a href="https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/articles/3_features/36_cryptographic/index.html">国密算法和协议</a>；</p>
+<p><a href="https://patents.google.com/patent/CN106656939A/zh">专利：国密SSL协议和标准SSL协议转发系统及方法</a>；</p>
+<p><a href="https://patents.google.com/patent/CN104394179A/zh">专利：支持国密算法的安全套接层协议扩展方法</a>；</p>
+<p><a href="https://blog.csdn.net/mrpre/article/details/78015580">CSDN：国密SSL协议</a>；CSDN的源码：<a href="https://github.com/mrpre/atls">Github：ATls</a></p>
+<p><a href="https://blog.csdn.net/WoTrusCA/article/details/108440658">关于国密HTTPS的那些事</a></p>
+<p><a href="https://blog.csdn.net/upset_ming/article/details/79880688">国密SSL协议开发总结（附报文详细分析）</a></p>
+]]></content>
+      <tags>
+        <tag>algorithm</tag>
+        <tag>protocol</tag>
+        <tag>Industrial control</tag>
       </tags>
   </entry>
   <entry>
@@ -294,47 +349,6 @@
 ]]></content>
       <tags>
         <tag>paper</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>「送你一朵小红花」</title>
-    <url>/2021/04/26/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/</url>
-    <content><![CDATA[<p><img src="https://img0.utuku.china.com/550x0/ent/20200612/8f5ba9c8-3738-4c6f-bc10-9c64c27d1c58.jpg"></p>
-<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC43.jpg"></p>
-]]></content>
-      <tags>
-        <tag>movie</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>国密算法/协议/工控</title>
-    <url>/2021/04/28/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95-%E5%8D%8F%E8%AE%AE-%E5%B7%A5%E6%8E%A7/</url>
-    <content><![CDATA[<h1 id="国密SSL-TLS"><a href="#国密SSL-TLS" class="headerlink" title="国密SSL/TLS"></a>国密SSL/TLS</h1><p>🌟🌟🌟<a href="https://www.gmssl.cn/gmssl/index.jsp?go=down">国密SSL实验室</a>（重点）：好多使用的工具，包括国密Web浏览器、国密Web服务器、国密性能测试、国密工具箱等等。可以从这里面下载Web服务器，搭建并进行TLS-Attacker的测试。一个<a href="https://developer.aliyun.com/article/770830">阿里云的实战博客</a>，该博客实战了GMSSL的Nginx安装和使用。一个相关测试的专栏文章-<a href="https://segmentfault.com/a/1190000024448440">国密SSL之性能测试</a>。</p>
-<p>一个在线工具：<a href="https://myssl.com/">SSL/TLS安全评估报告-在线网站检测</a>。其支持国密HTTPS的检测分析。</p>
-<p>江南天安<a href="https://github.com/jntass">Github主页-jntass</a>：提供源码下载和Nginx服务器的安装。</p>
-<p><a href="http://gmssl.org/">GmSSL</a>：支持国密的密码工具箱，GmSSL作者的Github主页：<a href="https://github.com/guanzhi">GmSSL-guanzhi</a>。</p>
-<h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><ol>
-<li>现在国密SSL实验室官网下载国密Web服务器</li>
-</ol>
-<h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><p><a href="https://zhuanlan.zhihu.com/p/132352160">知乎回答：国密算法介绍</a>；</p>
-<p><a href="https://juejin.cn/post/6844904114879463438">掘金：浅谈国密算法</a>；</p>
-<p><a href="https://www.jianshu.com/p/3ac6d7b3cf02">简书：国密算法</a>；</p>
-<p><a href="https://github.com/PopezLotado/SM2Java">SM2的Java算法实现</a></p>
-<p><a href="https://github.com/windard/sm4/blob/master/README.md">SM4：Github的一个项目</a>；</p>
-<p><a href="https://www.huaweicloud.com/theme/484689-1-G">华为云：国产密码算法</a>；</p>
-<p><a href="https://github.com/hwyqb/SM2_SM3_SM4Encrypt">SM2/SM3/SM4的Java算法实现-Github</a>；</p>
-<p><a href="https://www.wosign.com/FAQ/faq_2019062501.htm">国密SSL协议</a>；</p>
-<p><a href="https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/articles/3_features/36_cryptographic/index.html">国密算法和协议</a>；</p>
-<p><a href="https://patents.google.com/patent/CN106656939A/zh">专利：国密SSL协议和标准SSL协议转发系统及方法</a>；</p>
-<p><a href="https://patents.google.com/patent/CN104394179A/zh">支持国密算法的安全套接层协议扩展方法</a>；</p>
-<p><a href="https://blog.csdn.net/mrpre/article/details/78015580">CSDN：国密SSL协议</a>；CSDN的源码：<a href="https://github.com/mrpre/atls">Github：ATls</a></p>
-<p><a href="https://blog.csdn.net/WoTrusCA/article/details/108440658">关于国密HTTPS的那些事</a></p>
-<p><a href="https://blog.csdn.net/upset_ming/article/details/79880688">国密SSL协议开发总结（附报文详细分析）</a></p>
-]]></content>
-      <tags>
-        <tag>algorithm</tag>
-        <tag>protocol</tag>
-        <tag>Industrial control</tag>
       </tags>
   </entry>
   <entry>
