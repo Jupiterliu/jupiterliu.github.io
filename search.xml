@@ -46,24 +46,6 @@
       </tags>
   </entry>
   <entry>
-    <title>TLS-Attacker框架：项目复现</title>
-    <url>/2021/04/24/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>github project</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>「送你一朵小红花」</title>
-    <url>/2021/04/26/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/</url>
-    <content><![CDATA[<p><img src="https://img0.utuku.china.com/550x0/ent/20200612/8f5ba9c8-3738-4c6f-bc10-9c64c27d1c58.jpg"></p>
-<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC43.jpg"></p>
-]]></content>
-      <tags>
-        <tag>movie</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Paper Reading: Scalable Scanning and Automatic Classification of TLS Padding Oracle Vulnerabilities</title>
     <url>/2021/04/24/Paper-Reading-Scalable-Scanning-and-Automatic-Classification-of-TLS-Padding-Oracle-Vulnerabilities/</url>
     <content><![CDATA[<h1 id="「TLS-Padding-Oracle漏洞的可拓展扫描和自动分类」"><a href="#「TLS-Padding-Oracle漏洞的可拓展扫描和自动分类」" class="headerlink" title="「TLS Padding Oracle漏洞的可拓展扫描和自动分类」"></a>「TLS Padding Oracle漏洞的可拓展扫描和自动分类」</h1><p>该论文发表在第28次USS会议上，<a href="https://www.youtube.com/results?search_query=Scalable+Scanning+and+Automatic+Classification+of+TLS+Padding+Oracle+Vulnerabilities">USS会议演讲视频</a>，<a href="https://www.youtube.com/results?search_query=Scalable+Scanning+and+Automatic+Classification+of+TLS+Padding+Oracle+Vulnerabilities">国际密码研究协会演讲视频</a></p>
@@ -307,23 +289,47 @@
       </tags>
   </entry>
   <entry>
+    <title>TLS-Attacker框架：项目复现</title>
+    <url>/2021/04/24/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>github project</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>「送你一朵小红花」</title>
+    <url>/2021/04/26/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/</url>
+    <content><![CDATA[<p><img src="https://img0.utuku.china.com/550x0/ent/20200612/8f5ba9c8-3738-4c6f-bc10-9c64c27d1c58.jpg"></p>
+<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC43.jpg"></p>
+]]></content>
+      <tags>
+        <tag>movie</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>国密算法/协议/工控</title>
     <url>/2021/04/28/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95-%E5%8D%8F%E8%AE%AE-%E5%B7%A5%E6%8E%A7/</url>
-    <content><![CDATA[<p><a href="https://zhuanlan.zhihu.com/p/132352160">知乎回答：国密算法介绍</a></p>
-<p><a href="https://juejin.cn/post/6844904114879463438">掘金：浅谈国密算法</a></p>
-<p><a href="https://www.jianshu.com/p/3ac6d7b3cf02">简书：国密算法</a></p>
+    <content><![CDATA[<h1 id="国密SSL-TLS"><a href="#国密SSL-TLS" class="headerlink" title="国密SSL/TLS"></a>国密SSL/TLS</h1><p>🌟🌟🌟<a href="https://www.gmssl.cn/gmssl/index.jsp?go=down">国密SSL实验室</a>（重点）：好多使用的工具，包括国密Web浏览器、国密Web服务器、国密性能测试、国密工具箱等等。可以从这里面下载Web服务器，搭建并进行TLS-Attacker的测试。一个<a href="https://developer.aliyun.com/article/770830">阿里云的实战博客</a>，该博客实战了GMSSL的Nginx安装和使用。</p>
+<p>一个在线工具：<a href="https://myssl.com/">SSL/TLS安全评估报告-在线网站检测</a>。其支持国密HTTPS的检测分析</p>
+<p>江南天安<a href="https://github.com/jntass">Github主页-jntass</a>：提供源码下载和Nginx服务器的安装</p>
+<h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><ol>
+<li>现在国密SSL实验室官网下载国密Web服务器</li>
+</ol>
+<h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><p><a href="https://zhuanlan.zhihu.com/p/132352160">知乎回答：国密算法介绍</a>；</p>
+<p><a href="https://juejin.cn/post/6844904114879463438">掘金：浅谈国密算法</a>；</p>
+<p><a href="https://www.jianshu.com/p/3ac6d7b3cf02">简书：国密算法</a>；</p>
 <p><a href="https://github.com/PopezLotado/SM2Java">SM2的Java算法实现</a></p>
 <p>GmSSL官网中有许多有用的东西，可以多看看</p>
-<p><a href="http://gmssl.org/">GmSSL：支持国密的密码工具箱</a></p>
-<p><a href="https://github.com/guanzhi">GmSSL作者的Github主页-GM标准-GmSSL</a></p>
-<p><a href="https://github.com/windard/sm4/blob/master/README.md">SM4：Github的一个项目</a></p>
-<p><a href="https://www.huaweicloud.com/theme/484689-1-G">华为云：国产密码算法</a></p>
-<p><a href="https://github.com/hwyqb/SM2_SM3_SM4Encrypt">SM2/SM3/SM4的Java算法实现-Github</a></p>
-<p><a href="https://www.wosign.com/FAQ/faq_2019062501.htm">国密SSL协议</a></p>
-<p><a href="https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/articles/3_features/36_cryptographic/index.html">国密算法和协议</a></p>
-<p><a href="https://patents.google.com/patent/CN106656939A/zh">专利：国密SSL协议和标准SSL协议转发系统及方法</a></p>
-<p><a href="https://patents.google.com/patent/CN104394179A/zh">支持国密算法的安全套接层协议扩展方法</a></p>
-<p><a href="https://blog.csdn.net/mrpre/article/details/78015580">CSDN：国密SSL协议</a></p>
+<p><a href="http://gmssl.org/">GmSSL：支持国密的密码工具箱</a>；</p>
+<p><a href="https://github.com/guanzhi">GmSSL作者的Github主页-GM标准-GmSSL</a>；</p>
+<p><a href="https://github.com/windard/sm4/blob/master/README.md">SM4：Github的一个项目</a>；</p>
+<p><a href="https://www.huaweicloud.com/theme/484689-1-G">华为云：国产密码算法</a>；</p>
+<p><a href="https://github.com/hwyqb/SM2_SM3_SM4Encrypt">SM2/SM3/SM4的Java算法实现-Github</a>；</p>
+<p><a href="https://www.wosign.com/FAQ/faq_2019062501.htm">国密SSL协议</a>；</p>
+<p><a href="https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/articles/3_features/36_cryptographic/index.html">国密算法和协议</a>；</p>
+<p><a href="https://patents.google.com/patent/CN106656939A/zh">专利：国密SSL协议和标准SSL协议转发系统及方法</a>；</p>
+<p><a href="https://patents.google.com/patent/CN104394179A/zh">支持国密算法的安全套接层协议扩展方法</a>；</p>
+<p><a href="https://blog.csdn.net/mrpre/article/details/78015580">CSDN：国密SSL协议</a>；</p>
 <p>上面CSDN的源码：<a href="https://github.com/mrpre/atls">Github：ATls</a></p>
 ]]></content>
       <tags>
