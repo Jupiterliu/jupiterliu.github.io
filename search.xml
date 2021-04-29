@@ -85,7 +85,11 @@
 <p><a href="http://gmssl.org/">GmSSL</a>：支持国密的密码工具箱，GmSSL作者的Github主页：<a href="https://github.com/guanzhi">GmSSL-guanzhi</a>。</p>
 <h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><p>所有的实验都在Windows的Ubuntu20虚拟机上进行：</p>
 <ol>
-<li>先在国密SSL实验室官网下载国密Web服务器</li>
+<li>先在国密SSL实验室官网下载国密Web服务器：gmssl_openssl_1.1_b4.tar.gz</li>
+<li>在CentOS8虚拟机中，解压文件到/usr/local目录下面，解压后文件为/gmssl</li>
+<li>从Nginx官网下载Nginx：nginx-1.18.0.tar.gz，将conf中的OPENSSL位置进行更改（这里改文件出了一点小差错，还好看出来并解决了）</li>
+<li>从GMSSL中生成证书，然后开启nginx服务</li>
+<li>下载360极速浏览器，访问centos服务器的地址</li>
 </ol>
 <h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><p><a href="https://zhuanlan.zhihu.com/p/132352160">知乎回答：国密算法介绍</a>；</p>
 <p><a href="https://juejin.cn/post/6844904114879463438">掘金：浅谈国密算法</a>；</p>
