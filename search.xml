@@ -88,7 +88,13 @@
 <li>在CentOS8虚拟机中，解压文件到/usr/local目录下面，解压后文件为/gmssl</li>
 <li>从Nginx官网下载Nginx：nginx-1.18.0.tar.gz，将conf中的OPENSSL位置进行更改（这里改文件出了一点小差错，还好看出来并解决了）</li>
 <li>从GMSSL中生成证书，然后开启nginx服务</li>
-<li>下载360极速浏览器，访问centos服务器的地址</li>
+<li>下载360极速浏览器，访问centos服务器的地址。出错误了，在这里访问CentOS的IP地址并不能成功进行访问。这里能正常访问http但是不能访问https，无论如何都不行，也不知道是不是浏览器的问题。无法解决，换一个环境。</li>
+</ol>
+<p>第二次实验：</p>
+<ol>
+<li>决定换一个，换成guanzhi的GmSSL环境搭建，试一下有无用，如果在不行，就换成TaSSL的环境。</li>
+<li>先安装CentOS 7，接下来安装相关软件，Openssl、Gcc、GmSSL，环境都搭建好了，且都能成功运行测试。</li>
+<li>接下来进行server的创建，然后本地连接服务器，进行国密SSL测试</li>
 </ol>
 <h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><p><a href="https://zhuanlan.zhihu.com/p/132352160">知乎回答：国密算法介绍</a>；</p>
 <p><a href="https://juejin.cn/post/6844904114879463438">掘金：浅谈国密算法</a>；</p>
@@ -360,14 +366,6 @@
     <content><![CDATA[{"name":"Koper","short_name":"Koper","start_url":"/","icons":[{"src":"/images/siteicon/android-chrome-36x36.png","sizes":"36x36","type":"image/png"},{"src":"/images/siteicon/android-chrome-48x48.png","sizes":"48x48","type":"image/png"},{"src":"/images/siteicon/android-chrome-72x72.png","sizes":"72x72","type":"image/png"},{"src":"/images/siteicon/android-chrome-96x96.png","sizes":"96x96","type":"image/png"},{"src":"/images/siteicon/android-chrome-144x144.png","sizes":"144x144","type":"image/png"},{"src":"/images/siteicon/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/images/siteicon/android-chrome-256x256.png","sizes":"256x256","type":"image/png"},{"src":"/images/siteicon/android-chrome-384x384.png","sizes":"384x384","type":"image/png"},{"src":"/images/siteicon/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#ffffff","background_color":"#ffffff","display":"standalone"}]]></content>
   </entry>
   <entry>
-    <title>about</title>
-    <url>/about/index.html</url>
-    <content><![CDATA[<p>关于我：</p>
-<p>一名在读的打工人，每天的事就是科研科研</p>
-<p>同时分享自己在读的生活和一些日常</p>
-]]></content>
-  </entry>
-  <entry>
     <title>archives</title>
     <url>/archives/index.html</url>
     <content><![CDATA[]]></content>
@@ -381,6 +379,14 @@
     <title>tags</title>
     <url>/tags/index.html</url>
     <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>about</title>
+    <url>/about/index.html</url>
+    <content><![CDATA[<p>关于我：</p>
+<p>一名在读的打工人，每天的事就是科研科研</p>
+<p>同时分享自己在读的生活和一些日常</p>
+]]></content>
   </entry>
   <entry>
     <title></title>
