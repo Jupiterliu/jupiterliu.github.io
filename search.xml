@@ -53,6 +53,67 @@
       </tags>
   </entry>
   <entry>
+    <title>国密算法/协议/工控</title>
+    <url>/2021/04/28/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95-%E5%8D%8F%E8%AE%AE-%E5%B7%A5%E6%8E%A7/</url>
+    <content><![CDATA[<h1 id="国密SSL-TLS"><a href="#国密SSL-TLS" class="headerlink" title="国密SSL/TLS"></a>国密SSL/TLS</h1><p>🌟🌟🌟<a href="https://www.gmssl.cn/gmssl/index.jsp?go=down">国密SSL实验室</a>（重点）：好多使用的工具，包括国密Web浏览器、国密Web服务器、国密性能测试、国密工具箱等等。可以从这里面下载Web服务器，搭建并进行TLS-Attacker的测试。一个<a href="https://developer.aliyun.com/article/770830">阿里云的实战博客</a>，该博客实战了GMSSL的Nginx安装和使用。一个相关测试的专栏文章-<a href="https://segmentfault.com/a/1190000024448440">国密SSL之性能测试</a>。</p>
+<p>一个在线工具：<a href="https://myssl.com/">SSL/TLS安全评估报告-在线网站检测</a>。其支持国密HTTPS的检测分析。</p>
+<p>江南天安<a href="https://github.com/jntass">Github主页-jntass</a>：提供源码下载和Nginx服务器的安装。</p>
+<p><a href="http://gmssl.org/">GmSSL</a>：支持国密的密码工具箱，GmSSL作者关志教授的Github主页：<a href="https://github.com/guanzhi">GmSSL-guanzhi</a>。其中关志教授将<a href="https://github.com/guanzhi/GM-Standards">GM-Standards</a>都列了出来，所有国密行业的标准pdf。</p>
+<h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><p>所有的实验都在Windows的Ubuntu20虚拟机上进行</p>
+<p>第一次GmSSL环境搭建实验：</p>
+<ol>
+<li>先在国密SSL实验室官网下载国密Web服务器：gmssl_openssl_1.1_b4.tar.gz</li>
+<li>在CentOS8虚拟机中，解压文件到/usr/local目录下面，解压后文件为/gmssl</li>
+<li>从Nginx官网下载Nginx：nginx-1.18.0.tar.gz，将conf中的OPENSSL位置进行更改（这里改文件出了一点小差错，还好看出来并解决了）</li>
+<li>从GMSSL中生成证书，然后开启nginx服务</li>
+<li>下载360极速浏览器，访问centos服务器的地址。出错误了，在这里访问CentOS的IP地址并不能成功进行访问。这里能正常访问http但是不能访问https，无论如何都不行，也不知道是不是浏览器的问题。无法解决，换一个环境。</li>
+</ol>
+<p>第二次GmSSL环境搭建实验：</p>
+<ol>
+<li>决定换一个，换成guanzhi的GmSSL环境搭建，试一下有无用，如果在不行，就换成TaSSL的环境。</li>
+<li>先安装CentOS 7，接下来安装相关软件，Openssl、Gcc、GmSSL，环境都搭建好了，且都能成功运行测试。</li>
+<li>接下来进行server的创建，然后本地连接服务器，进行国密SSL测试</li>
+<li>出了一个问题，就是提示libcrypto.so.1.1和libssl.so.1.1文件有问题。这里打算重新安装d版本的openssl试一下是否有错误。这次重装了一次GmSSL之后，就没有出现错误了。</li>
+<li>开始打开GmSSL的服务端，试一下国密浏览器是否能连接。</li>
+<li>又出现了一个问题，就是主机上并不能访问虚拟机openssl的ip地址，这就很奇怪了，能相互ping通，但是不能在主机浏览器上进行访问，但是能在虚拟机上对本地进行连接。尝试关闭虚拟机的防火墙之后，主机能对虚拟机进行正常访问。</li>
+<li>通过在Mac上下载GmBrowser并且访问CentOS服务器的地址，成功进行国密连接。</li>
+<li>接下来，使用TLS-Attacker和TLS-Scnner对本地环境进行测试。开始着手TLS-Attacker和TLS-Scanner的熟悉和编程修改优化。</li>
+</ol>
+<p>正式实验：</p>
+<ol>
+<li><p>先熟悉GmSSL的生成证书以及国密算法组件</p>
+<ul>
+<li>新增国密密码套件如下，有对应的16进制表示</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 ECDHE-SM1-SM3   0xE001</span><br><span class="line"> 2 ECC-SM1-SM3     0xE003</span><br><span class="line"> 3 IBSDH-SM1-SM3   0xE005</span><br><span class="line"> 4 IBC-SM1-SM3     0xE007</span><br><span class="line"> 5 RSA-SM1-SM3     0xE009</span><br><span class="line"> 6 RSA-SM1-SHA1    0xE00A</span><br><span class="line"> 7 ECDHE-SM4-SM3   0xE011</span><br><span class="line"> 8 ECC-SM4-SM3     0xE013</span><br><span class="line"> 9 IBSDH-SM4-SM3   0xE015</span><br><span class="line">10 IBC-SM4-SM3     0xE017</span><br><span class="line">11 RSA-SM4-SM3     0xE019</span><br><span class="line">12 RSA-SM4-SHA1    0xE01A</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gmssl对国标支持</span><br><span class="line"></span><br><span class="line">gmssl ciphers -V |grep GMTLS</span><br><span class="line">0xE0,0x17 - SM9-WITH-SMS4-SM3 GMTLSv1.1 Kx&#x3D;SM9 Au&#x3D;SM9 Enc&#x3D;SMS4(128) Mac&#x3D;SM3</span><br><span class="line">0xE0,0x15 - SM9DHE-WITH-SMS4-SM3 GMTLSv1.1 Kx&#x3D;SM9DHE Au&#x3D;SM9 Enc&#x3D;SMS4(128) Mac&#x3D;SM3</span><br><span class="line">0xE0,0x13 - SM2-WITH-SMS4-SM3 GMTLSv1.1 Kx&#x3D;SM2 Au&#x3D;SM2 Enc&#x3D;SMS4(128) Mac&#x3D;SM3</span><br><span class="line">0xE0,0x11 - SM2DHE-WITH-SMS4-SM3 GMTLSv1.1 Kx&#x3D;SM2DHE Au&#x3D;SM2 Enc&#x3D;SMS4(128) Mac&#x3D;SM3</span><br><span class="line">0xE0,0x1A - RSA-WITH-SMS4-SHA1 GMTLSv1.1 Kx&#x3D;RSA Au&#x3D;RSA Enc&#x3D;SMS4(128) Mac&#x3D;SHA1</span><br><span class="line">0xE0,0x19 - RSA-WITH-SMS4-SM3 GMTLSv1.1 Kx&#x3D;RSA Au&#x3D;RSA Enc&#x3D;SMS4(128) Mac&#x3D;SM3</span><br></pre></td></tr></table></figure>
+
+<p>GMBroswer链接GM服务器之后网页显示的内容：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">s_server -key user.key -cert user_cert.pem -port 44330 -www -debug </span><br><span class="line">Secure Renegotiation IS supported</span><br><span class="line">Ciphers supported in s_server binary</span><br><span class="line">TLSv1.2    :ECDHE-ECDSA-AES256-GCM-SHA384 TLSv1.2    :ECDHE-RSA-AES256-GCM-SHA384 </span><br><span class="line">TLSv1.2    :DHE-RSA-AES256-GCM-SHA384 TLSv1.2    :ECDHE-ECDSA-CHACHA20-POLY1305 </span><br><span class="line">TLSv1.2    :ECDHE-RSA-CHACHA20-POLY1305 TLSv1.2    :DHE-RSA-CHACHA20-POLY1305 </span><br><span class="line">TLSv1.2    :ECDHE-ECDSA-AES128-GCM-SHA256 TLSv1.2    :ECDHE-RSA-AES128-GCM-SHA256 </span><br><span class="line">TLSv1.2    :DHE-RSA-AES128-GCM-SHA256 TLSv1.2    :ECDHE-SM2-WITH-SMS4-GCM-SM3 </span><br><span class="line">TLSv1.2    :ECDHE-ECDSA-AES256-SHA384 TLSv1.2    :ECDHE-RSA-AES256-SHA384   </span><br><span class="line">TLSv1.2    :DHE-RSA-AES256-SHA256     TLSv1.2    :ECDHE-ECDSA-AES128-SHA256 </span><br><span class="line">TLSv1.2    :ECDHE-RSA-AES128-SHA256   TLSv1.2    :DHE-RSA-AES128-SHA256     </span><br><span class="line">TLSv1.2    :ECDHE-SM2-WITH-SMS4-SM3   SSLv3      :ECDHE-ECDSA-AES256-SHA    </span><br><span class="line">SSLv3      :ECDHE-RSA-AES256-SHA      SSLv3      :DHE-RSA-AES256-SHA        </span><br><span class="line">SSLv3      :ECDHE-ECDSA-AES128-SHA    SSLv3      :ECDHE-RSA-AES128-SHA      </span><br><span class="line">SSLv3      :DHE-RSA-AES128-SHA        TLSv1.2    :RSA-PSK-AES256-GCM-SHA384 </span><br><span class="line">TLSv1.2    :DHE-PSK-AES256-GCM-SHA384 TLSv1.2    :RSA-PSK-CHACHA20-POLY1305 </span><br><span class="line">TLSv1.2    :DHE-PSK-CHACHA20-POLY1305 TLSv1.2    :ECDHE-PSK-CHACHA20-POLY1305 </span><br><span class="line">TLSv1.2    :AES256-GCM-SHA384         TLSv1.2    :PSK-AES256-GCM-SHA384     </span><br><span class="line">TLSv1.2    :PSK-CHACHA20-POLY1305     TLSv1.2    :RSA-PSK-AES128-GCM-SHA256 </span><br><span class="line">TLSv1.2    :DHE-PSK-AES128-GCM-SHA256 TLSv1.2    :AES128-GCM-SHA256         </span><br><span class="line">TLSv1.2    :PSK-AES128-GCM-SHA256     TLSv1.2    :AES256-SHA256             </span><br><span class="line">TLSv1.2    :AES128-SHA256             TLSv1.0    :ECDHE-PSK-AES256-CBC-SHA384 </span><br><span class="line">SSLv3      :ECDHE-PSK-AES256-CBC-SHA  SSLv3      :SRP-RSA-AES-256-CBC-SHA   </span><br><span class="line">SSLv3      :SRP-AES-256-CBC-SHA       TLSv1.0    :RSA-PSK-AES256-CBC-SHA384 </span><br><span class="line">TLSv1.0    :DHE-PSK-AES256-CBC-SHA384 SSLv3      :RSA-PSK-AES256-CBC-SHA    </span><br><span class="line">SSLv3      :DHE-PSK-AES256-CBC-SHA    SSLv3      :AES256-SHA                </span><br><span class="line">TLSv1.0    :PSK-AES256-CBC-SHA384     SSLv3      :PSK-AES256-CBC-SHA        </span><br><span class="line">TLSv1.0    :ECDHE-PSK-AES128-CBC-SHA256 SSLv3      :ECDHE-PSK-AES128-CBC-SHA  </span><br><span class="line">SSLv3      :SRP-RSA-AES-128-CBC-SHA   SSLv3      :SRP-AES-128-CBC-SHA       </span><br><span class="line">TLSv1.0    :RSA-PSK-AES128-CBC-SHA256 TLSv1.0    :DHE-PSK-AES128-CBC-SHA256 </span><br><span class="line">SSLv3      :RSA-PSK-AES128-CBC-SHA    SSLv3      :DHE-PSK-AES128-CBC-SHA    </span><br><span class="line">TLSv1.0    :ECDHE-PSK-WITH-SMS4-CBC-SM3 GMTLSv1.1  :SM9-WITH-SMS4-SM3         </span><br><span class="line">GMTLSv1.1  :SM9DHE-WITH-SMS4-SM3      GMTLSv1.1  :SM2-WITH-SMS4-SM3         </span><br><span class="line">GMTLSv1.1  :SM2DHE-WITH-SMS4-SM3      SSLv3      :AES128-SHA                </span><br><span class="line">GMTLSv1.1  :RSA-WITH-SMS4-SHA1        GMTLSv1.1  :RSA-WITH-SMS4-SM3         </span><br><span class="line">TLSv1.0    :PSK-AES128-CBC-SHA256     SSLv3      :PSK-AES128-CBC-SHA        </span><br><span class="line">SSLv3      :PSK-WITH-SMS4-CBC-SM3     </span><br><span class="line">---</span><br><span class="line">Ciphers common between both SSL end points:</span><br><span class="line">ECDHE-ECDSA-AES128-GCM-SHA256 ECDHE-RSA-AES128-GCM-SHA256 ECDHE-ECDSA-AES256-GCM-SHA384</span><br><span class="line">ECDHE-RSA-AES256-GCM-SHA384 ECDHE-ECDSA-CHACHA20-POLY1305 ECDHE-RSA-CHACHA20-POLY1305</span><br><span class="line">ECDHE-RSA-AES128-SHA       ECDHE-RSA-AES256-SHA       ECDHE-SM2-WITH-SMS4-SM3   </span><br><span class="line">AES128-GCM-SHA256          AES256-GCM-SHA384          AES128-SHA                </span><br><span class="line">AES256-SHA</span><br><span class="line">Signature Algorithms: ECDSA+SHA256:0x04+0x08:RSA+SHA256:SM2+SM3:ECDSA+SHA384:0x05+0x08:RSA+SHA384:0x06+0x08:RSA+SHA512:RSA+SHA1</span><br><span class="line">Shared Signature Algorithms: ECDSA+SHA256:RSA+SHA256:SM2+SM3:ECDSA+SHA384:RSA+SHA384:RSA+SHA512:RSA+SHA1</span><br><span class="line">Supported Elliptic Curves: 0x7A7A:X25519:P-256:P-384:SM2</span><br><span class="line">Shared Elliptic curves: X25519:P-256:P-384:SM2</span><br><span class="line">---</span><br><span class="line">New, TLSv1.2, Cipher is ECDHE-SM2-WITH-SMS4-SM3</span><br><span class="line">SSL-Session:</span><br><span class="line">    Protocol  : TLSv1.2</span><br><span class="line">    Cipher    : ECDHE-SM2-WITH-SMS4-SM3</span><br><span class="line">    Session-ID: </span><br><span class="line">    Session-ID-ctx: 01000000</span><br><span class="line">    Master-Key: 7C4F28BB5846F9DFE42BFD295E441A8520D50A3FA0E9D6C51C31AA3C153A69C46126ADE3CC77D6074F8127B2C93043A6</span><br><span class="line">    PSK identity: None</span><br><span class="line">    PSK identity hint: None</span><br><span class="line">    SRP username: None</span><br><span class="line">    Start Time: 1620646292</span><br><span class="line">    Timeout   : 7200 (sec)</span><br><span class="line">    Verify return code: 0 (ok)</span><br><span class="line">    Extended master secret: yes</span><br><span class="line">---</span><br><span class="line">   0 items in the session cache</span><br><span class="line">   0 client connects (SSL_connect())</span><br><span class="line">   0 client renegotiates (SSL_connect())</span><br><span class="line">   0 client connects that finished</span><br><span class="line">   1 server accepts (SSL_accept())</span><br><span class="line">   0 server renegotiates (SSL_accept())</span><br><span class="line">   1 server accepts that finished</span><br><span class="line">   0 session cache hits</span><br><span class="line">   1 session cache misses</span><br><span class="line">   0 session cache timeouts</span><br><span class="line">   0 callback cache hits</span><br><span class="line">   0 cache full overflows (128 allowed)</span><br><span class="line">---</span><br><span class="line">no client certificate available</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><h2 id="国密SSL-HTTP"><a href="#国密SSL-HTTP" class="headerlink" title="国密SSL/HTTP"></a>国密SSL/HTTP</h2><p><a href="https://blog.csdn.net/WoTrusCA/article/details/108366659?spm=1001.2014.3001.5501">沃通：关于国密HTTPS的那些事（一）</a>：国密SSL的协议过程的图解分析</p>
+<h2 id="初期资料"><a href="#初期资料" class="headerlink" title="初期资料"></a>初期资料</h2><p><a href="https://juejin.cn/post/6844904114879463438">掘金：浅谈国密算法</a>；</p>
+<p><a href="https://www.jianshu.com/p/3ac6d7b3cf02">简书：国密算法</a>；</p>
+<p><a href="https://github.com/PopezLotado/SM2Java">SM2的Java算法实现</a></p>
+<p><a href="https://github.com/windard/sm4/blob/master/README.md">SM4：Github的一个项目</a>；</p>
+<p><a href="https://www.huaweicloud.com/theme/484689-1-G">华为云：国产密码算法</a>；</p>
+<p><a href="https://github.com/hwyqb/SM2_SM3_SM4Encrypt">SM2/SM3/SM4的Java算法实现-Github</a>；</p>
+<p><a href="https://www.wosign.com/FAQ/faq_2019062501.htm">国密SSL协议</a>；</p>
+<p><a href="https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/articles/3_features/36_cryptographic/index.html">国密算法和协议</a>；</p>
+<p><a href="https://patents.google.com/patent/CN106656939A/zh">专利：国密SSL协议和标准SSL协议转发系统及方法</a>；</p>
+<p><a href="https://patents.google.com/patent/CN104394179A/zh">专利：支持国密算法的安全套接层协议扩展方法</a>；</p>
+<p><a href="https://blog.csdn.net/mrpre/article/details/78015580">CSDN：国密SSL协议</a>；CSDN的源码：<a href="https://github.com/mrpre/atls">Github：ATls</a></p>
+<p><a href="https://blog.csdn.net/WoTrusCA/article/details/108440658">关于国密HTTPS的那些事</a></p>
+<p><a href="https://blog.csdn.net/upset_ming/article/details/79880688">国密SSL协议开发总结（附报文详细分析）</a></p>
+]]></content>
+      <tags>
+        <tag>algorithm</tag>
+        <tag>protocol</tag>
+        <tag>Industrial control</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>「送你一朵小红花」</title>
     <url>/2021/04/26/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/</url>
     <content><![CDATA[<p><img src="https://img0.utuku.china.com/550x0/ent/20200612/8f5ba9c8-3738-4c6f-bc10-9c64c27d1c58.jpg"></p>
@@ -319,67 +380,6 @@
       </tags>
   </entry>
   <entry>
-    <title>国密算法/协议/工控</title>
-    <url>/2021/04/28/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95-%E5%8D%8F%E8%AE%AE-%E5%B7%A5%E6%8E%A7/</url>
-    <content><![CDATA[<h1 id="国密SSL-TLS"><a href="#国密SSL-TLS" class="headerlink" title="国密SSL/TLS"></a>国密SSL/TLS</h1><p>🌟🌟🌟<a href="https://www.gmssl.cn/gmssl/index.jsp?go=down">国密SSL实验室</a>（重点）：好多使用的工具，包括国密Web浏览器、国密Web服务器、国密性能测试、国密工具箱等等。可以从这里面下载Web服务器，搭建并进行TLS-Attacker的测试。一个<a href="https://developer.aliyun.com/article/770830">阿里云的实战博客</a>，该博客实战了GMSSL的Nginx安装和使用。一个相关测试的专栏文章-<a href="https://segmentfault.com/a/1190000024448440">国密SSL之性能测试</a>。</p>
-<p>一个在线工具：<a href="https://myssl.com/">SSL/TLS安全评估报告-在线网站检测</a>。其支持国密HTTPS的检测分析。</p>
-<p>江南天安<a href="https://github.com/jntass">Github主页-jntass</a>：提供源码下载和Nginx服务器的安装。</p>
-<p><a href="http://gmssl.org/">GmSSL</a>：支持国密的密码工具箱，GmSSL作者的Github主页：<a href="https://github.com/guanzhi">GmSSL-guanzhi</a>。</p>
-<h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><p>所有的实验都在Windows的Ubuntu20虚拟机上进行</p>
-<p>第一次GmSSL环境搭建实验：</p>
-<ol>
-<li>先在国密SSL实验室官网下载国密Web服务器：gmssl_openssl_1.1_b4.tar.gz</li>
-<li>在CentOS8虚拟机中，解压文件到/usr/local目录下面，解压后文件为/gmssl</li>
-<li>从Nginx官网下载Nginx：nginx-1.18.0.tar.gz，将conf中的OPENSSL位置进行更改（这里改文件出了一点小差错，还好看出来并解决了）</li>
-<li>从GMSSL中生成证书，然后开启nginx服务</li>
-<li>下载360极速浏览器，访问centos服务器的地址。出错误了，在这里访问CentOS的IP地址并不能成功进行访问。这里能正常访问http但是不能访问https，无论如何都不行，也不知道是不是浏览器的问题。无法解决，换一个环境。</li>
-</ol>
-<p>第二次GmSSL环境搭建实验：</p>
-<ol>
-<li>决定换一个，换成guanzhi的GmSSL环境搭建，试一下有无用，如果在不行，就换成TaSSL的环境。</li>
-<li>先安装CentOS 7，接下来安装相关软件，Openssl、Gcc、GmSSL，环境都搭建好了，且都能成功运行测试。</li>
-<li>接下来进行server的创建，然后本地连接服务器，进行国密SSL测试</li>
-<li>出了一个问题，就是提示libcrypto.so.1.1和libssl.so.1.1文件有问题。这里打算重新安装d版本的openssl试一下是否有错误。这次重装了一次GmSSL之后，就没有出现错误了。</li>
-<li>开始打开GmSSL的服务端，试一下国密浏览器是否能连接。</li>
-<li>又出现了一个问题，就是主机上并不能访问虚拟机openssl的ip地址，这就很奇怪了，能相互ping通，但是不能在主机浏览器上进行访问，但是能在虚拟机上对本地进行连接。尝试关闭虚拟机的防火墙之后，主机能对虚拟机进行正常访问。</li>
-<li>通过在Mac上下载GmBrowser并且访问CentOS服务器的地址，成功进行国密连接。</li>
-<li>接下来，使用TLS-Attacker和TLS-Scnner对本地环境进行测试。开始着手TLS-Attacker和TLS-Scanner的熟悉和编程修改优化。</li>
-</ol>
-<p>正式实验：</p>
-<ol>
-<li><p>先熟悉GmSSL的生成证书以及国密算法组件</p>
-<ul>
-<li>新增国密密码套件如下，有对应的16进制表示</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 ECDHE-SM1-SM3   0xE001</span><br><span class="line"> 2 ECC-SM1-SM3     0xE003</span><br><span class="line"> 3 IBSDH-SM1-SM3   0xE005</span><br><span class="line"> 4 IBC-SM1-SM3     0xE007</span><br><span class="line"> 5 RSA-SM1-SM3     0xE009</span><br><span class="line"> 6 RSA-SM1-SHA1    0xE00A</span><br><span class="line"> 7 ECDHE-SM4-SM3   0xE011</span><br><span class="line"> 8 ECC-SM4-SM3     0xE013</span><br><span class="line"> 9 IBSDH-SM4-SM3   0xE015</span><br><span class="line">10 IBC-SM4-SM3     0xE017</span><br><span class="line">11 RSA-SM4-SM3     0xE019</span><br><span class="line">12 RSA-SM4-SHA1    0xE01A</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gmssl对国标支持</span><br><span class="line"></span><br><span class="line">gmssl ciphers -V |grep GMTLS</span><br><span class="line">0xE0,0x17 - SM9-WITH-SMS4-SM3 GMTLSv1.1 Kx&#x3D;SM9 Au&#x3D;SM9 Enc&#x3D;SMS4(128) Mac&#x3D;SM3</span><br><span class="line">0xE0,0x15 - SM9DHE-WITH-SMS4-SM3 GMTLSv1.1 Kx&#x3D;SM9DHE Au&#x3D;SM9 Enc&#x3D;SMS4(128) Mac&#x3D;SM3</span><br><span class="line">0xE0,0x13 - SM2-WITH-SMS4-SM3 GMTLSv1.1 Kx&#x3D;SM2 Au&#x3D;SM2 Enc&#x3D;SMS4(128) Mac&#x3D;SM3</span><br><span class="line">0xE0,0x11 - SM2DHE-WITH-SMS4-SM3 GMTLSv1.1 Kx&#x3D;SM2DHE Au&#x3D;SM2 Enc&#x3D;SMS4(128) Mac&#x3D;SM3</span><br><span class="line">0xE0,0x1A - RSA-WITH-SMS4-SHA1 GMTLSv1.1 Kx&#x3D;RSA Au&#x3D;RSA Enc&#x3D;SMS4(128) Mac&#x3D;SHA1</span><br><span class="line">0xE0,0x19 - RSA-WITH-SMS4-SM3 GMTLSv1.1 Kx&#x3D;RSA Au&#x3D;RSA Enc&#x3D;SMS4(128) Mac&#x3D;SM3</span><br></pre></td></tr></table></figure>
-
-<p>GMBroswer链接GM服务器之后网页显示的内容：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">s_server -key user.key -cert user_cert.pem -port 44330 -www -debug </span><br><span class="line">Secure Renegotiation IS supported</span><br><span class="line">Ciphers supported in s_server binary</span><br><span class="line">TLSv1.2    :ECDHE-ECDSA-AES256-GCM-SHA384 TLSv1.2    :ECDHE-RSA-AES256-GCM-SHA384 </span><br><span class="line">TLSv1.2    :DHE-RSA-AES256-GCM-SHA384 TLSv1.2    :ECDHE-ECDSA-CHACHA20-POLY1305 </span><br><span class="line">TLSv1.2    :ECDHE-RSA-CHACHA20-POLY1305 TLSv1.2    :DHE-RSA-CHACHA20-POLY1305 </span><br><span class="line">TLSv1.2    :ECDHE-ECDSA-AES128-GCM-SHA256 TLSv1.2    :ECDHE-RSA-AES128-GCM-SHA256 </span><br><span class="line">TLSv1.2    :DHE-RSA-AES128-GCM-SHA256 TLSv1.2    :ECDHE-SM2-WITH-SMS4-GCM-SM3 </span><br><span class="line">TLSv1.2    :ECDHE-ECDSA-AES256-SHA384 TLSv1.2    :ECDHE-RSA-AES256-SHA384   </span><br><span class="line">TLSv1.2    :DHE-RSA-AES256-SHA256     TLSv1.2    :ECDHE-ECDSA-AES128-SHA256 </span><br><span class="line">TLSv1.2    :ECDHE-RSA-AES128-SHA256   TLSv1.2    :DHE-RSA-AES128-SHA256     </span><br><span class="line">TLSv1.2    :ECDHE-SM2-WITH-SMS4-SM3   SSLv3      :ECDHE-ECDSA-AES256-SHA    </span><br><span class="line">SSLv3      :ECDHE-RSA-AES256-SHA      SSLv3      :DHE-RSA-AES256-SHA        </span><br><span class="line">SSLv3      :ECDHE-ECDSA-AES128-SHA    SSLv3      :ECDHE-RSA-AES128-SHA      </span><br><span class="line">SSLv3      :DHE-RSA-AES128-SHA        TLSv1.2    :RSA-PSK-AES256-GCM-SHA384 </span><br><span class="line">TLSv1.2    :DHE-PSK-AES256-GCM-SHA384 TLSv1.2    :RSA-PSK-CHACHA20-POLY1305 </span><br><span class="line">TLSv1.2    :DHE-PSK-CHACHA20-POLY1305 TLSv1.2    :ECDHE-PSK-CHACHA20-POLY1305 </span><br><span class="line">TLSv1.2    :AES256-GCM-SHA384         TLSv1.2    :PSK-AES256-GCM-SHA384     </span><br><span class="line">TLSv1.2    :PSK-CHACHA20-POLY1305     TLSv1.2    :RSA-PSK-AES128-GCM-SHA256 </span><br><span class="line">TLSv1.2    :DHE-PSK-AES128-GCM-SHA256 TLSv1.2    :AES128-GCM-SHA256         </span><br><span class="line">TLSv1.2    :PSK-AES128-GCM-SHA256     TLSv1.2    :AES256-SHA256             </span><br><span class="line">TLSv1.2    :AES128-SHA256             TLSv1.0    :ECDHE-PSK-AES256-CBC-SHA384 </span><br><span class="line">SSLv3      :ECDHE-PSK-AES256-CBC-SHA  SSLv3      :SRP-RSA-AES-256-CBC-SHA   </span><br><span class="line">SSLv3      :SRP-AES-256-CBC-SHA       TLSv1.0    :RSA-PSK-AES256-CBC-SHA384 </span><br><span class="line">TLSv1.0    :DHE-PSK-AES256-CBC-SHA384 SSLv3      :RSA-PSK-AES256-CBC-SHA    </span><br><span class="line">SSLv3      :DHE-PSK-AES256-CBC-SHA    SSLv3      :AES256-SHA                </span><br><span class="line">TLSv1.0    :PSK-AES256-CBC-SHA384     SSLv3      :PSK-AES256-CBC-SHA        </span><br><span class="line">TLSv1.0    :ECDHE-PSK-AES128-CBC-SHA256 SSLv3      :ECDHE-PSK-AES128-CBC-SHA  </span><br><span class="line">SSLv3      :SRP-RSA-AES-128-CBC-SHA   SSLv3      :SRP-AES-128-CBC-SHA       </span><br><span class="line">TLSv1.0    :RSA-PSK-AES128-CBC-SHA256 TLSv1.0    :DHE-PSK-AES128-CBC-SHA256 </span><br><span class="line">SSLv3      :RSA-PSK-AES128-CBC-SHA    SSLv3      :DHE-PSK-AES128-CBC-SHA    </span><br><span class="line">TLSv1.0    :ECDHE-PSK-WITH-SMS4-CBC-SM3 GMTLSv1.1  :SM9-WITH-SMS4-SM3         </span><br><span class="line">GMTLSv1.1  :SM9DHE-WITH-SMS4-SM3      GMTLSv1.1  :SM2-WITH-SMS4-SM3         </span><br><span class="line">GMTLSv1.1  :SM2DHE-WITH-SMS4-SM3      SSLv3      :AES128-SHA                </span><br><span class="line">GMTLSv1.1  :RSA-WITH-SMS4-SHA1        GMTLSv1.1  :RSA-WITH-SMS4-SM3         </span><br><span class="line">TLSv1.0    :PSK-AES128-CBC-SHA256     SSLv3      :PSK-AES128-CBC-SHA        </span><br><span class="line">SSLv3      :PSK-WITH-SMS4-CBC-SM3     </span><br><span class="line">---</span><br><span class="line">Ciphers common between both SSL end points:</span><br><span class="line">ECDHE-ECDSA-AES128-GCM-SHA256 ECDHE-RSA-AES128-GCM-SHA256 ECDHE-ECDSA-AES256-GCM-SHA384</span><br><span class="line">ECDHE-RSA-AES256-GCM-SHA384 ECDHE-ECDSA-CHACHA20-POLY1305 ECDHE-RSA-CHACHA20-POLY1305</span><br><span class="line">ECDHE-RSA-AES128-SHA       ECDHE-RSA-AES256-SHA       ECDHE-SM2-WITH-SMS4-SM3   </span><br><span class="line">AES128-GCM-SHA256          AES256-GCM-SHA384          AES128-SHA                </span><br><span class="line">AES256-SHA</span><br><span class="line">Signature Algorithms: ECDSA+SHA256:0x04+0x08:RSA+SHA256:SM2+SM3:ECDSA+SHA384:0x05+0x08:RSA+SHA384:0x06+0x08:RSA+SHA512:RSA+SHA1</span><br><span class="line">Shared Signature Algorithms: ECDSA+SHA256:RSA+SHA256:SM2+SM3:ECDSA+SHA384:RSA+SHA384:RSA+SHA512:RSA+SHA1</span><br><span class="line">Supported Elliptic Curves: 0x7A7A:X25519:P-256:P-384:SM2</span><br><span class="line">Shared Elliptic curves: X25519:P-256:P-384:SM2</span><br><span class="line">---</span><br><span class="line">New, TLSv1.2, Cipher is ECDHE-SM2-WITH-SMS4-SM3</span><br><span class="line">SSL-Session:</span><br><span class="line">    Protocol  : TLSv1.2</span><br><span class="line">    Cipher    : ECDHE-SM2-WITH-SMS4-SM3</span><br><span class="line">    Session-ID: </span><br><span class="line">    Session-ID-ctx: 01000000</span><br><span class="line">    Master-Key: 7C4F28BB5846F9DFE42BFD295E441A8520D50A3FA0E9D6C51C31AA3C153A69C46126ADE3CC77D6074F8127B2C93043A6</span><br><span class="line">    PSK identity: None</span><br><span class="line">    PSK identity hint: None</span><br><span class="line">    SRP username: None</span><br><span class="line">    Start Time: 1620646292</span><br><span class="line">    Timeout   : 7200 (sec)</span><br><span class="line">    Verify return code: 0 (ok)</span><br><span class="line">    Extended master secret: yes</span><br><span class="line">---</span><br><span class="line">   0 items in the session cache</span><br><span class="line">   0 client connects (SSL_connect())</span><br><span class="line">   0 client renegotiates (SSL_connect())</span><br><span class="line">   0 client connects that finished</span><br><span class="line">   1 server accepts (SSL_accept())</span><br><span class="line">   0 server renegotiates (SSL_accept())</span><br><span class="line">   1 server accepts that finished</span><br><span class="line">   0 session cache hits</span><br><span class="line">   1 session cache misses</span><br><span class="line">   0 session cache timeouts</span><br><span class="line">   0 callback cache hits</span><br><span class="line">   0 cache full overflows (128 allowed)</span><br><span class="line">---</span><br><span class="line">no client certificate available</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><p><a href="https://zhuanlan.zhihu.com/p/132352160">知乎回答：国密算法介绍</a>；</p>
-<p><a href="https://juejin.cn/post/6844904114879463438">掘金：浅谈国密算法</a>；</p>
-<p><a href="https://www.jianshu.com/p/3ac6d7b3cf02">简书：国密算法</a>；</p>
-<p><a href="https://github.com/PopezLotado/SM2Java">SM2的Java算法实现</a></p>
-<p><a href="https://github.com/windard/sm4/blob/master/README.md">SM4：Github的一个项目</a>；</p>
-<p><a href="https://www.huaweicloud.com/theme/484689-1-G">华为云：国产密码算法</a>；</p>
-<p><a href="https://github.com/hwyqb/SM2_SM3_SM4Encrypt">SM2/SM3/SM4的Java算法实现-Github</a>；</p>
-<p><a href="https://www.wosign.com/FAQ/faq_2019062501.htm">国密SSL协议</a>；</p>
-<p><a href="https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/articles/3_features/36_cryptographic/index.html">国密算法和协议</a>；</p>
-<p><a href="https://patents.google.com/patent/CN106656939A/zh">专利：国密SSL协议和标准SSL协议转发系统及方法</a>；</p>
-<p><a href="https://patents.google.com/patent/CN104394179A/zh">专利：支持国密算法的安全套接层协议扩展方法</a>；</p>
-<p><a href="https://blog.csdn.net/mrpre/article/details/78015580">CSDN：国密SSL协议</a>；CSDN的源码：<a href="https://github.com/mrpre/atls">Github：ATls</a></p>
-<p><a href="https://blog.csdn.net/WoTrusCA/article/details/108440658">关于国密HTTPS的那些事</a></p>
-<p><a href="https://blog.csdn.net/upset_ming/article/details/79880688">国密SSL协议开发总结（附报文详细分析）</a></p>
-]]></content>
-      <tags>
-        <tag>algorithm</tag>
-        <tag>protocol</tag>
-        <tag>Industrial control</tag>
-      </tags>
-  </entry>
-  <entry>
     <title></title>
     <url>/manifest.json</url>
     <content><![CDATA[{"name":"Koper","short_name":"Koper","start_url":"/","icons":[{"src":"/images/siteicon/android-chrome-36x36.png","sizes":"36x36","type":"image/png"},{"src":"/images/siteicon/android-chrome-48x48.png","sizes":"48x48","type":"image/png"},{"src":"/images/siteicon/android-chrome-72x72.png","sizes":"72x72","type":"image/png"},{"src":"/images/siteicon/android-chrome-96x96.png","sizes":"96x96","type":"image/png"},{"src":"/images/siteicon/android-chrome-144x144.png","sizes":"144x144","type":"image/png"},{"src":"/images/siteicon/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/images/siteicon/android-chrome-256x256.png","sizes":"256x256","type":"image/png"},{"src":"/images/siteicon/android-chrome-384x384.png","sizes":"384x384","type":"image/png"},{"src":"/images/siteicon/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#ffffff","background_color":"#ffffff","display":"standalone"}]]></content>
@@ -393,18 +393,8 @@
 ]]></content>
   </entry>
   <entry>
-    <title>archives</title>
-    <url>/archives/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>categories</title>
     <url>/categories/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>tags</title>
-    <url>/tags/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -428,5 +418,15 @@
 </code></pre>
 <p><em>Optional</em> - Check your favicon with the <a href="https://realfavicongenerator.net/favicon_checker">favicon checker</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>archives</title>
+    <url>/archives/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>tags</title>
+    <url>/tags/index.html</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
