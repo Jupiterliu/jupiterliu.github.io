@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>LeetCode</title>
+    <url>/2021/04/27/LeetCode/</url>
+    <content><![CDATA[<h1 id="Array-35（search-insert-position）"><a href="#Array-35（search-insert-position）" class="headerlink" title="Array_35（search-insert-position）"></a>Array_35（search-insert-position）</h1><p>先确认查找算法是二分查找（binary-search），将<a href="https://leetcode-cn.com/problems/binary-search/">二分查找的算法</a>解了一次。问题：执行用时很少，但内存占用多</p>
+<p>当没找到index后，比较target和nums[pivot]，返回插入位置就行。问题：空间复杂度高</p>
+<p><img src="/images/LeetCode/search-insert-position-1.jpg"></p>
+]]></content>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo博客搭建记录</title>
     <url>/2021/04/24/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h1 id="问题1-Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）"><a href="#问题1-Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）" class="headerlink" title="问题1:Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）"></a>问题1:Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）</h1><p>最开始，我使用的是Next主题，在网上找过许多答案，其中一种针对Next主题以前的一个问题所进行的修改：<a href="https://github.com/iissnan/hexo-theme-next/issues/1214">vendors文件修改</a>，但是vendors文件夹问题在随后的Next版本中得到了解决。</p>
@@ -33,18 +45,6 @@
       </tags>
   </entry>
   <entry>
-    <title>LeetCode</title>
-    <url>/2021/04/27/LeetCode/</url>
-    <content><![CDATA[<h1 id="Array-35（search-insert-position）"><a href="#Array-35（search-insert-position）" class="headerlink" title="Array_35（search-insert-position）"></a>Array_35（search-insert-position）</h1><p>先确认查找算法是二分查找（binary-search），将<a href="https://leetcode-cn.com/problems/binary-search/">二分查找的算法</a>解了一次。问题：执行用时很少，但内存占用多</p>
-<p>当没找到index后，比较target和nums[pivot]，返回插入位置就行。问题：空间复杂度高</p>
-<p><img src="/images/LeetCode/search-insert-position-1.jpg"></p>
-]]></content>
-      <tags>
-        <tag>leetcode</tag>
-        <tag>algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>TLS-Attacker框架：项目复现</title>
     <url>/2021/04/24/TLS-Attacker%E6%A1%86%E6%9E%B6%EF%BC%9A%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%8E%B0/</url>
     <content><![CDATA[]]></content>
@@ -73,6 +73,106 @@
 ]]></content>
       <tags>
         <tag>movie</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>国密算法/协议/工控</title>
+    <url>/2021/04/28/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95-%E5%8D%8F%E8%AE%AE-%E5%B7%A5%E6%8E%A7/</url>
+    <content><![CDATA[<h1 id="国密SSL-TLS"><a href="#国密SSL-TLS" class="headerlink" title="国密SSL/TLS"></a>国密SSL/TLS</h1><p>🌟🌟🌟<a href="https://www.gmssl.cn/gmssl/index.jsp?go=down">国密SSL实验室</a>（重点）：好多使用的工具，包括国密Web浏览器、国密Web服务器、国密性能测试、国密工具箱等等。可以从这里面下载Web服务器，搭建并进行TLS-Attacker的测试。一个<a href="https://developer.aliyun.com/article/770830">阿里云的实战博客</a>，该博客实战了GMSSL的Nginx安装和使用。一个相关测试的专栏文章-<a href="https://segmentfault.com/a/1190000024448440">国密SSL之性能测试</a>。</p>
+<p>一个在线工具：<a href="https://myssl.com/">SSL/TLS安全评估报告-在线网站检测</a>。其支持国密HTTPS的检测分析。</p>
+<p>江南天安<a href="https://github.com/jntass">Github主页-jntass</a>：提供源码下载和Nginx服务器的安装。</p>
+<p><a href="http://gmssl.org/">GmSSL</a>：支持国密的密码工具箱，GmSSL作者关志教授的Github主页：<a href="https://github.com/guanzhi">GmSSL-guanzhi</a>。其中关志教授将<a href="https://github.com/guanzhi/GM-Standards">GM-Standards</a>都列了出来，所有国密行业的标准pdf。</p>
+<p><a href="https://www.doubleca.com/test_toIndexPage.action">大宝CA数字证书测试平台</a>（工具平台/Java/服务器）：该平台有Java国密算法基本组件（JSE），有Java国密SSL算法基础套件，有国密SSL规范的Tomcat组件，有国密SSL规范Nginx服务器。</p>
+<h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><h2 id="第一次GmSSL环境搭建实验（国密SSL实验室）："><a href="#第一次GmSSL环境搭建实验（国密SSL实验室）：" class="headerlink" title="第一次GmSSL环境搭建实验（国密SSL实验室）："></a>第一次GmSSL环境搭建实验（国密SSL实验室）：</h2><ul>
+<li><a href="https://developer.aliyun.com/article/770830">国密SSL协议之Nginx集成</a>：结合前面的<em>国密SSL实验室</em>进行，在CentOS 7环境上实验<del>（失败）</del></li>
+</ul>
+<ol>
+<li>先在国密SSL实验室官网下载国密Web服务器：gmssl_openssl_1.1_b4.tar.gz</li>
+<li>在CentOS8虚拟机中，解压文件到/usr/local目录下面，解压后文件为/gmssl</li>
+<li>从Nginx官网下载Nginx：nginx-1.18.0.tar.gz，将conf中的OPENSSL位置进行更改（这里改文件出了一点小差错，还好看出来并解决了）</li>
+<li>从GMSSL中生成证书，然后开启nginx服务</li>
+<li>下载360极速浏览器，访问centos服务器的地址。出错误了，在这里访问CentOS的IP地址并不能成功进行访问。这里能正常访问http但是不能访问https，无论如何都不行，也不知道是不是浏览器的问题。无法解决，换一个环境。</li>
+</ol>
+<h2 id="第二次GmSSL环境搭建实验（GmSSL-关志教授）："><a href="#第二次GmSSL环境搭建实验（GmSSL-关志教授）：" class="headerlink" title="第二次GmSSL环境搭建实验（GmSSL-关志教授）："></a>第二次GmSSL环境搭建实验（GmSSL-关志教授）：</h2><ul>
+<li><a href="https://cloud.tencent.com/developer/article/1597165">搭建国密SSL开发测试环境</a>：结合前面的<em><strong>GmSSL-关志教师-Github</strong></em>进行，在CentOS 7环境上进行实验<strong>（成功）</strong></li>
+</ul>
+<ol>
+<li>决定换一个，换成guanzhi的GmSSL环境搭建，试一下有无用，如果在不行，就换成TaSSL的环境。</li>
+<li>先安装CentOS 7，接下来安装相关软件，Openssl、Gcc、GmSSL，环境都搭建好了，且都能成功运行测试。</li>
+<li>接下来进行server的创建，然后本地连接服务器，进行国密SSL测试</li>
+<li>出了一个问题，就是提示libcrypto.so.1.1和libssl.so.1.1文件有问题。这里打算重新安装d版本的openssl试一下是否有错误。这次重装了一次GmSSL之后，就没有出现错误了。</li>
+<li>开始打开GmSSL的服务端，试一下国密浏览器是否能连接。</li>
+<li>又出现了一个问题，就是主机上并不能访问虚拟机openssl的ip地址，这就很奇怪了，能相互ping通，但是不能在主机浏览器上进行访问，但是能在虚拟机上对本地进行连接。尝试关闭虚拟机的防火墙之后，主机能对虚拟机进行正常访问。</li>
+<li>通过在Mac上下载GmBrowser并且访问CentOS服务器的地址，成功进行国密连接。</li>
+<li>接下来，使用TLS-Attacker和TLS-Scnner对本地环境进行测试。开始着手TLS-Attacker和TLS-Scanner的熟悉和编程修改优化。</li>
+</ol>
+<h2 id="正式实验记录："><a href="#正式实验记录：" class="headerlink" title="正式实验记录："></a>正式实验记录：</h2><ol>
+<li><p>先熟悉GmSSL的生成证书以及国密算法组件</p>
+<ul>
+<li>新增国密密码套件如下，有对应的16进制表示</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 ECDHE-SM1-SM3   0xE001</span><br><span class="line"> 2 ECC-SM1-SM3     0xE003</span><br><span class="line"> 3 IBSDH-SM1-SM3   0xE005</span><br><span class="line"> 4 IBC-SM1-SM3     0xE007</span><br><span class="line"> 5 RSA-SM1-SM3     0xE009</span><br><span class="line"> 6 RSA-SM1-SHA1    0xE00A</span><br><span class="line"> 7 ECDHE-SM4-SM3   0xE011</span><br><span class="line"> 8 ECC-SM4-SM3     0xE013</span><br><span class="line"> 9 IBSDH-SM4-SM3   0xE015</span><br><span class="line">10 IBC-SM4-SM3     0xE017</span><br><span class="line">11 RSA-SM4-SM3     0xE019</span><br><span class="line">12 RSA-SM4-SHA1    0xE01A</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gmssl对国标支持</span><br><span class="line"></span><br><span class="line">gmssl ciphers -V |grep GMTLS</span><br><span class="line">0xE0,0x17 - SM9-WITH-SMS4-SM3 GMTLSv1.1 Kx&#x3D;SM9 Au&#x3D;SM9 Enc&#x3D;SMS4(128) Mac&#x3D;SM3</span><br><span class="line">0xE0,0x15 - SM9DHE-WITH-SMS4-SM3 GMTLSv1.1 Kx&#x3D;SM9DHE Au&#x3D;SM9 Enc&#x3D;SMS4(128) Mac&#x3D;SM3</span><br><span class="line">0xE0,0x13 - SM2-WITH-SMS4-SM3 GMTLSv1.1 Kx&#x3D;SM2 Au&#x3D;SM2 Enc&#x3D;SMS4(128) Mac&#x3D;SM3</span><br><span class="line">0xE0,0x11 - SM2DHE-WITH-SMS4-SM3 GMTLSv1.1 Kx&#x3D;SM2DHE Au&#x3D;SM2 Enc&#x3D;SMS4(128) Mac&#x3D;SM3</span><br><span class="line">0xE0,0x1A - RSA-WITH-SMS4-SHA1 GMTLSv1.1 Kx&#x3D;RSA Au&#x3D;RSA Enc&#x3D;SMS4(128) Mac&#x3D;SHA1</span><br><span class="line">0xE0,0x19 - RSA-WITH-SMS4-SM3 GMTLSv1.1 Kx&#x3D;RSA Au&#x3D;RSA Enc&#x3D;SMS4(128) Mac&#x3D;SM3</span><br></pre></td></tr></table></figure>
+
+<p>GMBroswer链接GM服务器之后网页显示的内容：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">s_server -key user.key -cert user_cert.pem -port 44330 -www -debug </span><br><span class="line">Secure Renegotiation IS supported</span><br><span class="line">Ciphers supported in s_server binary</span><br><span class="line">TLSv1.2    :ECDHE-ECDSA-AES256-GCM-SHA384 TLSv1.2    :ECDHE-RSA-AES256-GCM-SHA384 </span><br><span class="line">TLSv1.2    :DHE-RSA-AES256-GCM-SHA384 TLSv1.2    :ECDHE-ECDSA-CHACHA20-POLY1305 </span><br><span class="line">TLSv1.2    :ECDHE-RSA-CHACHA20-POLY1305 TLSv1.2    :DHE-RSA-CHACHA20-POLY1305 </span><br><span class="line">TLSv1.2    :ECDHE-ECDSA-AES128-GCM-SHA256 TLSv1.2    :ECDHE-RSA-AES128-GCM-SHA256 </span><br><span class="line">TLSv1.2    :DHE-RSA-AES128-GCM-SHA256 TLSv1.2    :ECDHE-SM2-WITH-SMS4-GCM-SM3 </span><br><span class="line">TLSv1.2    :ECDHE-ECDSA-AES256-SHA384 TLSv1.2    :ECDHE-RSA-AES256-SHA384   </span><br><span class="line">TLSv1.2    :DHE-RSA-AES256-SHA256     TLSv1.2    :ECDHE-ECDSA-AES128-SHA256 </span><br><span class="line">TLSv1.2    :ECDHE-RSA-AES128-SHA256   TLSv1.2    :DHE-RSA-AES128-SHA256     </span><br><span class="line">TLSv1.2    :ECDHE-SM2-WITH-SMS4-SM3   SSLv3      :ECDHE-ECDSA-AES256-SHA    </span><br><span class="line">SSLv3      :ECDHE-RSA-AES256-SHA      SSLv3      :DHE-RSA-AES256-SHA        </span><br><span class="line">SSLv3      :ECDHE-ECDSA-AES128-SHA    SSLv3      :ECDHE-RSA-AES128-SHA      </span><br><span class="line">SSLv3      :DHE-RSA-AES128-SHA        TLSv1.2    :RSA-PSK-AES256-GCM-SHA384 </span><br><span class="line">TLSv1.2    :DHE-PSK-AES256-GCM-SHA384 TLSv1.2    :RSA-PSK-CHACHA20-POLY1305 </span><br><span class="line">TLSv1.2    :DHE-PSK-CHACHA20-POLY1305 TLSv1.2    :ECDHE-PSK-CHACHA20-POLY1305 </span><br><span class="line">TLSv1.2    :AES256-GCM-SHA384         TLSv1.2    :PSK-AES256-GCM-SHA384     </span><br><span class="line">TLSv1.2    :PSK-CHACHA20-POLY1305     TLSv1.2    :RSA-PSK-AES128-GCM-SHA256 </span><br><span class="line">TLSv1.2    :DHE-PSK-AES128-GCM-SHA256 TLSv1.2    :AES128-GCM-SHA256         </span><br><span class="line">TLSv1.2    :PSK-AES128-GCM-SHA256     TLSv1.2    :AES256-SHA256             </span><br><span class="line">TLSv1.2    :AES128-SHA256             TLSv1.0    :ECDHE-PSK-AES256-CBC-SHA384 </span><br><span class="line">SSLv3      :ECDHE-PSK-AES256-CBC-SHA  SSLv3      :SRP-RSA-AES-256-CBC-SHA   </span><br><span class="line">SSLv3      :SRP-AES-256-CBC-SHA       TLSv1.0    :RSA-PSK-AES256-CBC-SHA384 </span><br><span class="line">TLSv1.0    :DHE-PSK-AES256-CBC-SHA384 SSLv3      :RSA-PSK-AES256-CBC-SHA    </span><br><span class="line">SSLv3      :DHE-PSK-AES256-CBC-SHA    SSLv3      :AES256-SHA                </span><br><span class="line">TLSv1.0    :PSK-AES256-CBC-SHA384     SSLv3      :PSK-AES256-CBC-SHA        </span><br><span class="line">TLSv1.0    :ECDHE-PSK-AES128-CBC-SHA256 SSLv3      :ECDHE-PSK-AES128-CBC-SHA  </span><br><span class="line">SSLv3      :SRP-RSA-AES-128-CBC-SHA   SSLv3      :SRP-AES-128-CBC-SHA       </span><br><span class="line">TLSv1.0    :RSA-PSK-AES128-CBC-SHA256 TLSv1.0    :DHE-PSK-AES128-CBC-SHA256 </span><br><span class="line">SSLv3      :RSA-PSK-AES128-CBC-SHA    SSLv3      :DHE-PSK-AES128-CBC-SHA    </span><br><span class="line">TLSv1.0    :ECDHE-PSK-WITH-SMS4-CBC-SM3 GMTLSv1.1  :SM9-WITH-SMS4-SM3         </span><br><span class="line">GMTLSv1.1  :SM9DHE-WITH-SMS4-SM3      GMTLSv1.1  :SM2-WITH-SMS4-SM3         </span><br><span class="line">GMTLSv1.1  :SM2DHE-WITH-SMS4-SM3      SSLv3      :AES128-SHA                </span><br><span class="line">GMTLSv1.1  :RSA-WITH-SMS4-SHA1        GMTLSv1.1  :RSA-WITH-SMS4-SM3         </span><br><span class="line">TLSv1.0    :PSK-AES128-CBC-SHA256     SSLv3      :PSK-AES128-CBC-SHA        </span><br><span class="line">SSLv3      :PSK-WITH-SMS4-CBC-SM3     </span><br><span class="line">---</span><br><span class="line">Ciphers common between both SSL end points:</span><br><span class="line">ECDHE-ECDSA-AES128-GCM-SHA256 ECDHE-RSA-AES128-GCM-SHA256 ECDHE-ECDSA-AES256-GCM-SHA384</span><br><span class="line">ECDHE-RSA-AES256-GCM-SHA384 ECDHE-ECDSA-CHACHA20-POLY1305 ECDHE-RSA-CHACHA20-POLY1305</span><br><span class="line">ECDHE-RSA-AES128-SHA       ECDHE-RSA-AES256-SHA       ECDHE-SM2-WITH-SMS4-SM3   </span><br><span class="line">AES128-GCM-SHA256          AES256-GCM-SHA384          AES128-SHA                </span><br><span class="line">AES256-SHA</span><br><span class="line">Signature Algorithms: ECDSA+SHA256:0x04+0x08:RSA+SHA256:SM2+SM3:ECDSA+SHA384:0x05+0x08:RSA+SHA384:0x06+0x08:RSA+SHA512:RSA+SHA1</span><br><span class="line">Shared Signature Algorithms: ECDSA+SHA256:RSA+SHA256:SM2+SM3:ECDSA+SHA384:RSA+SHA384:RSA+SHA512:RSA+SHA1</span><br><span class="line">Supported Elliptic Curves: 0x7A7A:X25519:P-256:P-384:SM2</span><br><span class="line">Shared Elliptic curves: X25519:P-256:P-384:SM2</span><br><span class="line">---</span><br><span class="line">New, TLSv1.2, Cipher is ECDHE-SM2-WITH-SMS4-SM3</span><br><span class="line">SSL-Session:</span><br><span class="line">    Protocol  : TLSv1.2</span><br><span class="line">    Cipher    : ECDHE-SM2-WITH-SMS4-SM3</span><br><span class="line">    Session-ID: </span><br><span class="line">    Session-ID-ctx: 01000000</span><br><span class="line">    Master-Key: 7C4F28BB5846F9DFE42BFD295E441A8520D50A3FA0E9D6C51C31AA3C153A69C46126ADE3CC77D6074F8127B2C93043A6</span><br><span class="line">    PSK identity: None</span><br><span class="line">    PSK identity hint: None</span><br><span class="line">    SRP username: None</span><br><span class="line">    Start Time: 1620646292</span><br><span class="line">    Timeout   : 7200 (sec)</span><br><span class="line">    Verify return code: 0 (ok)</span><br><span class="line">    Extended master secret: yes</span><br><span class="line">---</span><br><span class="line">   0 items in the session cache</span><br><span class="line">   0 client connects (SSL_connect())</span><br><span class="line">   0 client renegotiates (SSL_connect())</span><br><span class="line">   0 client connects that finished</span><br><span class="line">   1 server accepts (SSL_accept())</span><br><span class="line">   0 server renegotiates (SSL_accept())</span><br><span class="line">   1 server accepts that finished</span><br><span class="line">   0 session cache hits</span><br><span class="line">   1 session cache misses</span><br><span class="line">   0 session cache timeouts</span><br><span class="line">   0 callback cache hits</span><br><span class="line">   0 cache full overflows (128 allowed)</span><br><span class="line">---</span><br><span class="line">no client certificate available</span><br></pre></td></tr></table></figure></li>
+<li><p>GmSSL国密证书生成以及单向和双向认证</p>
+<p><a href="https://www.cnblogs.com/skills/p/13620478.html">GmSSL开发环境搭建及双证书生成</a>：在生成证书里面是讲的最详细也是最好的一个博客文章（注意博客生成根证书的时候命令有一处错误，Root.key应该改成CA.key）（注意里面的key和crt文件）（如果这里的证书不行，直接去国密SSL实验室进行生成就行，都有）</p>
+<ul>
+<li>实验结果：</li>
+</ul>
+<p>单证书单向双向认证都能完成进行，且在GMBroswer也可以连接；双证书的单项认证完成通信，但是双向认证可能还存在问题（源码问题），并不能如愿进行，而且双证书都不能和GMBroswer进行连接。如果需要360安全浏览器进行连接，需要在编译GmSSL修改其中的一个C文件，具体见：<a href="https://blog.csdn.net/qq_15077747/article/details/108602988?spm=1001.2014.3001.5501">gmssl编译后不支持360浏览器双向https问题</a></p>
+<ul>
+<li>实验记录：</li>
+</ul>
+<p>（5.14从这继续开始写）</p>
+</li>
+</ol>
+<h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><h2 id="国密SSL-HTTP"><a href="#国密SSL-HTTP" class="headerlink" title="国密SSL/HTTP"></a>国密SSL/HTTP</h2><ul>
+<li><p><a href="https://blog.csdn.net/WoTrusCA">沃通的CSDN官方博客</a>有许多GM相关的东西，可以多看看</p>
+<p><a href="https://blog.csdn.net/WoTrusCA/article/details/108366659?spm=1001.2014.3001.5501">沃通：关于国密HTTPS的那些事（一）</a>：国密SSL的协议过程的图解详细分析（双证书和双向认证）。</p>
+<p><img src="/images/GMSSL/GM-SSL-Process.png" alt="GM-SSL-Process"></p>
+<p><a href="https://blog.csdn.net/WoTrusCA/article/details/108398730?spm=1001.2014.3001.5501">沃通：关于国密HTTPS的那些事（二）</a>：每个协议版本和密码组件都有其对应的值（Value)，ClientHello中包含客户端本地支持的所有密码组件，以供服务端可以选择。</p>
+<p><a href="https://blog.csdn.net/WoTrusCA/article/details/108440658?spm=1001.2014.3001.5501">沃通：关于国密HTTPS的那些事（三）</a>：12个国密组件及其对应值，简单阐述了国密SSL和Openssl的区别。</p>
+<p><img src="/images/GMSSL/GM-CipherSuites.png" alt="GM-CipherSuites"></p>
+</li>
+<li><p><strong>GmSSL-Github-guanzhi相关：</strong></p>
+<p>CSDN-viqjeee：<a href="https://blog.csdn.net/qq_39952971/article/details/115178980">gmssl 国密ssl流程测试</a></p>
+<p>CSDN-viqjeee：<a href="https://blog.csdn.net/qq_39952971/article/details/115168241">gmssl国密双证书制作</a></p>
+<p>CSDN-viqjeee：<a href="https://blog.csdn.net/qq_39952971/article/details/115251306?spm=1001.2014.3001.5501">登录过程中密码的安全和攻击风险</a></p>
+<p>CSDN-viqjeee：<a href="https://blog.csdn.net/qq_39952971/article/details/114868960?spm=1001.2014.3001.5501">使用第三方PC对通信设备进行抓包的方法</a></p>
+<p>CSDN-小火龙呢：<a href="https://blog.csdn.net/qq_15077747/article/details/108218240">GMSSL编译及https链接(一)</a></p>
+<p>CSDN-小火龙呢：<a href="https://blog.csdn.net/qq_15077747/article/details/102501978?spm=1001.2014.3001.5501">TCP的三次握手与四次挥手理解</a></p>
+<p><a href="https://kb.cnblogs.com/page/162080/">SSL协议详解</a></p>
+<p>CSDN-小火龙呢：<a href="https://blog.csdn.net/qq_15077747/article/details/108220046?spm=1001.2014.3001.5501">编译配置nginx支持国密（二）</a></p>
+<p>CSDN-小火龙呢：<a href="https://blog.csdn.net/qq_15077747/article/details/108602988?spm=1001.2014.3001.5501">gmssl编译后不支持360浏览器双向https问题</a></p>
+<p><a href="https://www.cnblogs.com/bigben0123/p/12650545.html">OpenSSL和GmSSL在Windows下编译过程</a></p>
+<p><a href="https://www.cnblogs.com/cherishui/p/14626196.html">SSL/TLS 与国密算法</a></p>
+<p><a href="https://www.cnblogs.com/skills/p/13620478.html">GmSSL开发环境搭建及双证书生成</a>：在生成证书里面是讲的最详细也是最好的一个博客文章（注意博客生成根证书的时候命令有一处错误，Root.key应该改成CA.key）（注意里面的key和crt文件）（如果这里的证书不行，直接去国密SSL实验室进行生成就行，都有）</p>
+</li>
+</ul>
+<h2 id="初期资料"><a href="#初期资料" class="headerlink" title="初期资料"></a>初期资料</h2><p><a href="https://juejin.cn/post/6844904114879463438">掘金：浅谈国密算法</a>；</p>
+<p><a href="https://www.jianshu.com/p/3ac6d7b3cf02">简书：国密算法</a>；</p>
+<p><a href="https://github.com/PopezLotado/SM2Java">SM2的Java算法实现</a></p>
+<p><a href="https://github.com/windard/sm4/blob/master/README.md">SM4：Github的一个项目</a>；</p>
+<p><a href="https://www.huaweicloud.com/theme/484689-1-G">华为云：国产密码算法</a>；</p>
+<p><a href="https://github.com/hwyqb/SM2_SM3_SM4Encrypt">SM2/SM3/SM4的Java算法实现-Github</a>；</p>
+<p><a href="https://www.wosign.com/FAQ/faq_2019062501.htm">国密SSL协议</a>；</p>
+<p><a href="https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/articles/3_features/36_cryptographic/index.html">国密算法和协议</a>；</p>
+<p><a href="https://patents.google.com/patent/CN106656939A/zh">专利：国密SSL协议和标准SSL协议转发系统及方法</a>；</p>
+<p><a href="https://patents.google.com/patent/CN104394179A/zh">专利：支持国密算法的安全套接层协议扩展方法</a>；</p>
+<p><a href="https://blog.csdn.net/mrpre/article/details/78015580">CSDN：国密SSL协议</a>；CSDN的源码：<a href="https://github.com/mrpre/atls">Github：ATls</a>；有wireshark抓包进行分析</p>
+<p><a href="https://blog.csdn.net/WoTrusCA/article/details/108440658">关于国密HTTPS的那些事</a></p>
+<p><a href="https://blog.csdn.net/upset_ming/article/details/79880688">国密SSL协议开发总结（附报文详细分析）</a>：详细分析了GMSSL协议的合格部分和过程（很全了），其<a href="https://blog.csdn.net/upset_ming">大宝CA国密SSL国密TOMCAT_CSDN博客</a>)有一些相关的东西，注意还有一个<a href="https://www.doubleca.com/test_toIndexPage.action">大宝CA数字证书测试平台</a>。</p>
+<p><em><strong>segmentfault平台：</strong></em><a href="https://segmentfault.com/a/1190000024448440">国密SSL性能测试</a>-可以结合前面国密SSL实验室的测试工具进行。<a href="https://segmentfault.com/a/1190000023890321?utm_source=sf-similar-article">国密SSL之Java实现</a>-有Java源码，感觉可能会存在一些问题。<a href="https://segmentfault.com/a/1190000016808783?utm_source=sf-similar-article">Bytom国密网说明和指南</a>-有Github源码。</p>
+<p><a href="https://developer.aliyun.com/article/770830">国密SSL协议之Nginx集成</a>：结合前面的<em>国密SSL实验室</em>进行，在CentOS 7环境上实验（失败）</p>
+<p><a href="https://cloud.tencent.com/developer/article/1597165">搭建国密SSL开发测试环境</a>：结合前面的<em><strong>GmSSL-关志教师-Github</strong></em>进行，在CentOS 7环境上进行实验（成功）</p>
+]]></content>
+      <tags>
+        <tag>algorithm</tag>
+        <tag>protocol</tag>
+        <tag>Industrial control</tag>
       </tags>
   </entry>
   <entry>
@@ -317,80 +417,6 @@
 ]]></content>
       <tags>
         <tag>paper</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>国密算法/协议/工控</title>
-    <url>/2021/04/28/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95-%E5%8D%8F%E8%AE%AE-%E5%B7%A5%E6%8E%A7/</url>
-    <content><![CDATA[<h1 id="国密SSL-TLS"><a href="#国密SSL-TLS" class="headerlink" title="国密SSL/TLS"></a>国密SSL/TLS</h1><p>🌟🌟🌟<a href="https://www.gmssl.cn/gmssl/index.jsp?go=down">国密SSL实验室</a>（重点）：好多使用的工具，包括国密Web浏览器、国密Web服务器、国密性能测试、国密工具箱等等。可以从这里面下载Web服务器，搭建并进行TLS-Attacker的测试。一个<a href="https://developer.aliyun.com/article/770830">阿里云的实战博客</a>，该博客实战了GMSSL的Nginx安装和使用。一个相关测试的专栏文章-<a href="https://segmentfault.com/a/1190000024448440">国密SSL之性能测试</a>。</p>
-<p>一个在线工具：<a href="https://myssl.com/">SSL/TLS安全评估报告-在线网站检测</a>。其支持国密HTTPS的检测分析。</p>
-<p>江南天安<a href="https://github.com/jntass">Github主页-jntass</a>：提供源码下载和Nginx服务器的安装。</p>
-<p><a href="http://gmssl.org/">GmSSL</a>：支持国密的密码工具箱，GmSSL作者关志教授的Github主页：<a href="https://github.com/guanzhi">GmSSL-guanzhi</a>。其中关志教授将<a href="https://github.com/guanzhi/GM-Standards">GM-Standards</a>都列了出来，所有国密行业的标准pdf。</p>
-<p><a href="https://www.doubleca.com/test_toIndexPage.action">大宝CA数字证书测试平台</a>（工具平台/Java/服务器）：该平台有Java国密算法基本组件（JSE），有Java国密SSL算法基础套件，有国密SSL规范的Tomcat组件，有国密SSL规范Nginx服务器。</p>
-<h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><h2 id="第一次GmSSL环境搭建实验（国密SSL实验室）："><a href="#第一次GmSSL环境搭建实验（国密SSL实验室）：" class="headerlink" title="第一次GmSSL环境搭建实验（国密SSL实验室）："></a>第一次GmSSL环境搭建实验（国密SSL实验室）：</h2><ul>
-<li><a href="https://developer.aliyun.com/article/770830">国密SSL协议之Nginx集成</a>：结合前面的<em>国密SSL实验室</em>进行，在CentOS 7环境上实验<del>（失败）</del></li>
-</ul>
-<ol>
-<li>先在国密SSL实验室官网下载国密Web服务器：gmssl_openssl_1.1_b4.tar.gz</li>
-<li>在CentOS8虚拟机中，解压文件到/usr/local目录下面，解压后文件为/gmssl</li>
-<li>从Nginx官网下载Nginx：nginx-1.18.0.tar.gz，将conf中的OPENSSL位置进行更改（这里改文件出了一点小差错，还好看出来并解决了）</li>
-<li>从GMSSL中生成证书，然后开启nginx服务</li>
-<li>下载360极速浏览器，访问centos服务器的地址。出错误了，在这里访问CentOS的IP地址并不能成功进行访问。这里能正常访问http但是不能访问https，无论如何都不行，也不知道是不是浏览器的问题。无法解决，换一个环境。</li>
-</ol>
-<h2 id="第二次GmSSL环境搭建实验（GmSSL-关志教授）："><a href="#第二次GmSSL环境搭建实验（GmSSL-关志教授）：" class="headerlink" title="第二次GmSSL环境搭建实验（GmSSL-关志教授）："></a>第二次GmSSL环境搭建实验（GmSSL-关志教授）：</h2><ul>
-<li><a href="https://cloud.tencent.com/developer/article/1597165">搭建国密SSL开发测试环境</a>：结合前面的<em><strong>GmSSL-关志教师-Github</strong></em>进行，在CentOS 7环境上进行实验<strong>（成功）</strong></li>
-</ul>
-<ol>
-<li>决定换一个，换成guanzhi的GmSSL环境搭建，试一下有无用，如果在不行，就换成TaSSL的环境。</li>
-<li>先安装CentOS 7，接下来安装相关软件，Openssl、Gcc、GmSSL，环境都搭建好了，且都能成功运行测试。</li>
-<li>接下来进行server的创建，然后本地连接服务器，进行国密SSL测试</li>
-<li>出了一个问题，就是提示libcrypto.so.1.1和libssl.so.1.1文件有问题。这里打算重新安装d版本的openssl试一下是否有错误。这次重装了一次GmSSL之后，就没有出现错误了。</li>
-<li>开始打开GmSSL的服务端，试一下国密浏览器是否能连接。</li>
-<li>又出现了一个问题，就是主机上并不能访问虚拟机openssl的ip地址，这就很奇怪了，能相互ping通，但是不能在主机浏览器上进行访问，但是能在虚拟机上对本地进行连接。尝试关闭虚拟机的防火墙之后，主机能对虚拟机进行正常访问。</li>
-<li>通过在Mac上下载GmBrowser并且访问CentOS服务器的地址，成功进行国密连接。</li>
-<li>接下来，使用TLS-Attacker和TLS-Scnner对本地环境进行测试。开始着手TLS-Attacker和TLS-Scanner的熟悉和编程修改优化。</li>
-</ol>
-<h2 id="正式实验记录："><a href="#正式实验记录：" class="headerlink" title="正式实验记录："></a>正式实验记录：</h2><ol>
-<li><p>先熟悉GmSSL的生成证书以及国密算法组件</p>
-<ul>
-<li>新增国密密码套件如下，有对应的16进制表示</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> 1 ECDHE-SM1-SM3   0xE001</span><br><span class="line"> 2 ECC-SM1-SM3     0xE003</span><br><span class="line"> 3 IBSDH-SM1-SM3   0xE005</span><br><span class="line"> 4 IBC-SM1-SM3     0xE007</span><br><span class="line"> 5 RSA-SM1-SM3     0xE009</span><br><span class="line"> 6 RSA-SM1-SHA1    0xE00A</span><br><span class="line"> 7 ECDHE-SM4-SM3   0xE011</span><br><span class="line"> 8 ECC-SM4-SM3     0xE013</span><br><span class="line"> 9 IBSDH-SM4-SM3   0xE015</span><br><span class="line">10 IBC-SM4-SM3     0xE017</span><br><span class="line">11 RSA-SM4-SM3     0xE019</span><br><span class="line">12 RSA-SM4-SHA1    0xE01A</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gmssl对国标支持</span><br><span class="line"></span><br><span class="line">gmssl ciphers -V |grep GMTLS</span><br><span class="line">0xE0,0x17 - SM9-WITH-SMS4-SM3 GMTLSv1.1 Kx&#x3D;SM9 Au&#x3D;SM9 Enc&#x3D;SMS4(128) Mac&#x3D;SM3</span><br><span class="line">0xE0,0x15 - SM9DHE-WITH-SMS4-SM3 GMTLSv1.1 Kx&#x3D;SM9DHE Au&#x3D;SM9 Enc&#x3D;SMS4(128) Mac&#x3D;SM3</span><br><span class="line">0xE0,0x13 - SM2-WITH-SMS4-SM3 GMTLSv1.1 Kx&#x3D;SM2 Au&#x3D;SM2 Enc&#x3D;SMS4(128) Mac&#x3D;SM3</span><br><span class="line">0xE0,0x11 - SM2DHE-WITH-SMS4-SM3 GMTLSv1.1 Kx&#x3D;SM2DHE Au&#x3D;SM2 Enc&#x3D;SMS4(128) Mac&#x3D;SM3</span><br><span class="line">0xE0,0x1A - RSA-WITH-SMS4-SHA1 GMTLSv1.1 Kx&#x3D;RSA Au&#x3D;RSA Enc&#x3D;SMS4(128) Mac&#x3D;SHA1</span><br><span class="line">0xE0,0x19 - RSA-WITH-SMS4-SM3 GMTLSv1.1 Kx&#x3D;RSA Au&#x3D;RSA Enc&#x3D;SMS4(128) Mac&#x3D;SM3</span><br></pre></td></tr></table></figure>
-
-<p>GMBroswer链接GM服务器之后网页显示的内容：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">s_server -key user.key -cert user_cert.pem -port 44330 -www -debug </span><br><span class="line">Secure Renegotiation IS supported</span><br><span class="line">Ciphers supported in s_server binary</span><br><span class="line">TLSv1.2    :ECDHE-ECDSA-AES256-GCM-SHA384 TLSv1.2    :ECDHE-RSA-AES256-GCM-SHA384 </span><br><span class="line">TLSv1.2    :DHE-RSA-AES256-GCM-SHA384 TLSv1.2    :ECDHE-ECDSA-CHACHA20-POLY1305 </span><br><span class="line">TLSv1.2    :ECDHE-RSA-CHACHA20-POLY1305 TLSv1.2    :DHE-RSA-CHACHA20-POLY1305 </span><br><span class="line">TLSv1.2    :ECDHE-ECDSA-AES128-GCM-SHA256 TLSv1.2    :ECDHE-RSA-AES128-GCM-SHA256 </span><br><span class="line">TLSv1.2    :DHE-RSA-AES128-GCM-SHA256 TLSv1.2    :ECDHE-SM2-WITH-SMS4-GCM-SM3 </span><br><span class="line">TLSv1.2    :ECDHE-ECDSA-AES256-SHA384 TLSv1.2    :ECDHE-RSA-AES256-SHA384   </span><br><span class="line">TLSv1.2    :DHE-RSA-AES256-SHA256     TLSv1.2    :ECDHE-ECDSA-AES128-SHA256 </span><br><span class="line">TLSv1.2    :ECDHE-RSA-AES128-SHA256   TLSv1.2    :DHE-RSA-AES128-SHA256     </span><br><span class="line">TLSv1.2    :ECDHE-SM2-WITH-SMS4-SM3   SSLv3      :ECDHE-ECDSA-AES256-SHA    </span><br><span class="line">SSLv3      :ECDHE-RSA-AES256-SHA      SSLv3      :DHE-RSA-AES256-SHA        </span><br><span class="line">SSLv3      :ECDHE-ECDSA-AES128-SHA    SSLv3      :ECDHE-RSA-AES128-SHA      </span><br><span class="line">SSLv3      :DHE-RSA-AES128-SHA        TLSv1.2    :RSA-PSK-AES256-GCM-SHA384 </span><br><span class="line">TLSv1.2    :DHE-PSK-AES256-GCM-SHA384 TLSv1.2    :RSA-PSK-CHACHA20-POLY1305 </span><br><span class="line">TLSv1.2    :DHE-PSK-CHACHA20-POLY1305 TLSv1.2    :ECDHE-PSK-CHACHA20-POLY1305 </span><br><span class="line">TLSv1.2    :AES256-GCM-SHA384         TLSv1.2    :PSK-AES256-GCM-SHA384     </span><br><span class="line">TLSv1.2    :PSK-CHACHA20-POLY1305     TLSv1.2    :RSA-PSK-AES128-GCM-SHA256 </span><br><span class="line">TLSv1.2    :DHE-PSK-AES128-GCM-SHA256 TLSv1.2    :AES128-GCM-SHA256         </span><br><span class="line">TLSv1.2    :PSK-AES128-GCM-SHA256     TLSv1.2    :AES256-SHA256             </span><br><span class="line">TLSv1.2    :AES128-SHA256             TLSv1.0    :ECDHE-PSK-AES256-CBC-SHA384 </span><br><span class="line">SSLv3      :ECDHE-PSK-AES256-CBC-SHA  SSLv3      :SRP-RSA-AES-256-CBC-SHA   </span><br><span class="line">SSLv3      :SRP-AES-256-CBC-SHA       TLSv1.0    :RSA-PSK-AES256-CBC-SHA384 </span><br><span class="line">TLSv1.0    :DHE-PSK-AES256-CBC-SHA384 SSLv3      :RSA-PSK-AES256-CBC-SHA    </span><br><span class="line">SSLv3      :DHE-PSK-AES256-CBC-SHA    SSLv3      :AES256-SHA                </span><br><span class="line">TLSv1.0    :PSK-AES256-CBC-SHA384     SSLv3      :PSK-AES256-CBC-SHA        </span><br><span class="line">TLSv1.0    :ECDHE-PSK-AES128-CBC-SHA256 SSLv3      :ECDHE-PSK-AES128-CBC-SHA  </span><br><span class="line">SSLv3      :SRP-RSA-AES-128-CBC-SHA   SSLv3      :SRP-AES-128-CBC-SHA       </span><br><span class="line">TLSv1.0    :RSA-PSK-AES128-CBC-SHA256 TLSv1.0    :DHE-PSK-AES128-CBC-SHA256 </span><br><span class="line">SSLv3      :RSA-PSK-AES128-CBC-SHA    SSLv3      :DHE-PSK-AES128-CBC-SHA    </span><br><span class="line">TLSv1.0    :ECDHE-PSK-WITH-SMS4-CBC-SM3 GMTLSv1.1  :SM9-WITH-SMS4-SM3         </span><br><span class="line">GMTLSv1.1  :SM9DHE-WITH-SMS4-SM3      GMTLSv1.1  :SM2-WITH-SMS4-SM3         </span><br><span class="line">GMTLSv1.1  :SM2DHE-WITH-SMS4-SM3      SSLv3      :AES128-SHA                </span><br><span class="line">GMTLSv1.1  :RSA-WITH-SMS4-SHA1        GMTLSv1.1  :RSA-WITH-SMS4-SM3         </span><br><span class="line">TLSv1.0    :PSK-AES128-CBC-SHA256     SSLv3      :PSK-AES128-CBC-SHA        </span><br><span class="line">SSLv3      :PSK-WITH-SMS4-CBC-SM3     </span><br><span class="line">---</span><br><span class="line">Ciphers common between both SSL end points:</span><br><span class="line">ECDHE-ECDSA-AES128-GCM-SHA256 ECDHE-RSA-AES128-GCM-SHA256 ECDHE-ECDSA-AES256-GCM-SHA384</span><br><span class="line">ECDHE-RSA-AES256-GCM-SHA384 ECDHE-ECDSA-CHACHA20-POLY1305 ECDHE-RSA-CHACHA20-POLY1305</span><br><span class="line">ECDHE-RSA-AES128-SHA       ECDHE-RSA-AES256-SHA       ECDHE-SM2-WITH-SMS4-SM3   </span><br><span class="line">AES128-GCM-SHA256          AES256-GCM-SHA384          AES128-SHA                </span><br><span class="line">AES256-SHA</span><br><span class="line">Signature Algorithms: ECDSA+SHA256:0x04+0x08:RSA+SHA256:SM2+SM3:ECDSA+SHA384:0x05+0x08:RSA+SHA384:0x06+0x08:RSA+SHA512:RSA+SHA1</span><br><span class="line">Shared Signature Algorithms: ECDSA+SHA256:RSA+SHA256:SM2+SM3:ECDSA+SHA384:RSA+SHA384:RSA+SHA512:RSA+SHA1</span><br><span class="line">Supported Elliptic Curves: 0x7A7A:X25519:P-256:P-384:SM2</span><br><span class="line">Shared Elliptic curves: X25519:P-256:P-384:SM2</span><br><span class="line">---</span><br><span class="line">New, TLSv1.2, Cipher is ECDHE-SM2-WITH-SMS4-SM3</span><br><span class="line">SSL-Session:</span><br><span class="line">    Protocol  : TLSv1.2</span><br><span class="line">    Cipher    : ECDHE-SM2-WITH-SMS4-SM3</span><br><span class="line">    Session-ID: </span><br><span class="line">    Session-ID-ctx: 01000000</span><br><span class="line">    Master-Key: 7C4F28BB5846F9DFE42BFD295E441A8520D50A3FA0E9D6C51C31AA3C153A69C46126ADE3CC77D6074F8127B2C93043A6</span><br><span class="line">    PSK identity: None</span><br><span class="line">    PSK identity hint: None</span><br><span class="line">    SRP username: None</span><br><span class="line">    Start Time: 1620646292</span><br><span class="line">    Timeout   : 7200 (sec)</span><br><span class="line">    Verify return code: 0 (ok)</span><br><span class="line">    Extended master secret: yes</span><br><span class="line">---</span><br><span class="line">   0 items in the session cache</span><br><span class="line">   0 client connects (SSL_connect())</span><br><span class="line">   0 client renegotiates (SSL_connect())</span><br><span class="line">   0 client connects that finished</span><br><span class="line">   1 server accepts (SSL_accept())</span><br><span class="line">   0 server renegotiates (SSL_accept())</span><br><span class="line">   1 server accepts that finished</span><br><span class="line">   0 session cache hits</span><br><span class="line">   1 session cache misses</span><br><span class="line">   0 session cache timeouts</span><br><span class="line">   0 callback cache hits</span><br><span class="line">   0 cache full overflows (128 allowed)</span><br><span class="line">---</span><br><span class="line">no client certificate available</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><h2 id="国密SSL-HTTP"><a href="#国密SSL-HTTP" class="headerlink" title="国密SSL/HTTP"></a>国密SSL/HTTP</h2><ul>
-<li><a href="https://blog.csdn.net/WoTrusCA">沃通的CSDN官方博客</a>有许多GM相关的东西，可以多看看</li>
-</ul>
-<p><a href="https://blog.csdn.net/WoTrusCA/article/details/108366659?spm=1001.2014.3001.5501">沃通：关于国密HTTPS的那些事（一）</a>：国密SSL的协议过程的图解详细分析（双证书和双向认证）。</p>
-<p><img src="/images/GMSSL/GM-SSL-Process.png" alt="GM-SSL-Process"></p>
-<p><a href="https://blog.csdn.net/WoTrusCA/article/details/108398730?spm=1001.2014.3001.5501">沃通：关于国密HTTPS的那些事（二）</a>：每个协议版本和密码组件都有其对应的值（Value），ClientHello中包含客户端本地支持的所有密码组件，以供服务端可以选择。</p>
-<p><a href="https://blog.csdn.net/WoTrusCA/article/details/108440658?spm=1001.2014.3001.5501">沃通：关于国密HTTPS的那些事（三）</a>：12个国密组件及其对应值，简单阐述了国密SSL和Openssl的区别。</p>
-<p><img src="/images/GMSSL/GM-CipherSuites.png" alt="GM-CipherSuites"></p>
-<h2 id="初期资料"><a href="#初期资料" class="headerlink" title="初期资料"></a>初期资料</h2><p><a href="https://juejin.cn/post/6844904114879463438">掘金：浅谈国密算法</a>；</p>
-<p><a href="https://www.jianshu.com/p/3ac6d7b3cf02">简书：国密算法</a>；</p>
-<p><a href="https://github.com/PopezLotado/SM2Java">SM2的Java算法实现</a></p>
-<p><a href="https://github.com/windard/sm4/blob/master/README.md">SM4：Github的一个项目</a>；</p>
-<p><a href="https://www.huaweicloud.com/theme/484689-1-G">华为云：国产密码算法</a>；</p>
-<p><a href="https://github.com/hwyqb/SM2_SM3_SM4Encrypt">SM2/SM3/SM4的Java算法实现-Github</a>；</p>
-<p><a href="https://www.wosign.com/FAQ/faq_2019062501.htm">国密SSL协议</a>；</p>
-<p><a href="https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/articles/3_features/36_cryptographic/index.html">国密算法和协议</a>；</p>
-<p><a href="https://patents.google.com/patent/CN106656939A/zh">专利：国密SSL协议和标准SSL协议转发系统及方法</a>；</p>
-<p><a href="https://patents.google.com/patent/CN104394179A/zh">专利：支持国密算法的安全套接层协议扩展方法</a>；</p>
-<p><a href="https://blog.csdn.net/mrpre/article/details/78015580">CSDN：国密SSL协议</a>；CSDN的源码：<a href="https://github.com/mrpre/atls">Github：ATls</a></p>
-<p><a href="https://blog.csdn.net/WoTrusCA/article/details/108440658">关于国密HTTPS的那些事</a></p>
-<p><a href="https://blog.csdn.net/upset_ming/article/details/79880688">国密SSL协议开发总结（附报文详细分析）</a>：详细分析了GMSSL协议的合格部分和过程（很全了），其<a href="https://blog.csdn.net/upset_ming">大宝CA国密SSL国密TOMCAT_CSDN博客</a>)有一些相关的东西，注意还有一个<a href="https://www.doubleca.com/test_toIndexPage.action">大宝CA数字证书测试平台</a>。</p>
-<p><em><strong>segmentfault平台：</strong></em><a href="https://segmentfault.com/a/1190000024448440">国密SSL性能测试</a>-可以结合前面国密SSL实验室的测试工具进行。<a href="https://segmentfault.com/a/1190000023890321?utm_source=sf-similar-article">国密SSL之Java实现</a>-有Java源码，感觉可能会存在一些问题。<a href="https://segmentfault.com/a/1190000016808783?utm_source=sf-similar-article">Bytom国密网说明和指南</a>-有Github源码。</p>
-<p><a href="https://developer.aliyun.com/article/770830">国密SSL协议之Nginx集成</a>：结合前面的<em>国密SSL实验室</em>进行，在CentOS 7环境上实验（失败）</p>
-<p><a href="https://cloud.tencent.com/developer/article/1597165">搭建国密SSL开发测试环境</a>：结合前面的<em><strong>GmSSL-关志教师-Github</strong></em>进行，在CentOS 7环境上进行实验（成功）</p>
-]]></content>
-      <tags>
-        <tag>algorithm</tag>
-        <tag>protocol</tag>
-        <tag>Industrial control</tag>
       </tags>
   </entry>
   <entry>
