@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>LeetCode</title>
-    <url>/2021/04/27/LeetCode/</url>
-    <content><![CDATA[<h1 id="Array-35（search-insert-position）"><a href="#Array-35（search-insert-position）" class="headerlink" title="Array_35（search-insert-position）"></a>Array_35（search-insert-position）</h1><p>先确认查找算法是二分查找（binary-search），将<a href="https://leetcode-cn.com/problems/binary-search/">二分查找的算法</a>解了一次。问题：执行用时很少，但内存占用多</p>
-<p>当没找到index后，比较target和nums[pivot]，返回插入位置就行。问题：空间复杂度高</p>
-<p><img src="/images/LeetCode/search-insert-position-1.jpg"></p>
-]]></content>
-      <tags>
-        <tag>leetcode</tag>
-        <tag>algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo博客搭建记录</title>
     <url>/2021/04/24/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h1 id="问题1-Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）"><a href="#问题1-Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）" class="headerlink" title="问题1:Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）"></a>问题1:Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）</h1><p>最开始，我使用的是Next主题，在网上找过许多答案，其中一种针对Next主题以前的一个问题所进行的修改：<a href="https://github.com/iissnan/hexo-theme-next/issues/1214">vendors文件修改</a>，但是vendors文件夹问题在随后的Next版本中得到了解决。</p>
@@ -42,6 +30,18 @@
 ]]></content>
       <tags>
         <tag>blog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode</title>
+    <url>/2021/04/27/LeetCode/</url>
+    <content><![CDATA[<h1 id="Array-35（search-insert-position）"><a href="#Array-35（search-insert-position）" class="headerlink" title="Array_35（search-insert-position）"></a>Array_35（search-insert-position）</h1><p>先确认查找算法是二分查找（binary-search），将<a href="https://leetcode-cn.com/problems/binary-search/">二分查找的算法</a>解了一次。问题：执行用时很少，但内存占用多</p>
+<p>当没找到index后，比较target和nums[pivot]，返回插入位置就行。问题：空间复杂度高</p>
+<p><img src="/images/LeetCode/search-insert-position-1.jpg"></p>
+]]></content>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>algorithm</tag>
       </tags>
   </entry>
   <entry>
@@ -150,6 +150,7 @@
 <p><a href="https://www.cnblogs.com/bigben0123/p/12650545.html">OpenSSL和GmSSL在Windows下编译过程</a></p>
 <p><a href="https://www.cnblogs.com/cherishui/p/14626196.html">SSL/TLS 与国密算法</a></p>
 <p><a href="https://www.cnblogs.com/skills/p/13620478.html">GmSSL开发环境搭建及双证书生成</a>：在生成证书里面是讲的最详细也是最好的一个博客文章（注意博客生成根证书的时候命令有一处错误，Root.key应该改成CA.key）（注意里面的key和crt文件）（如果这里的证书不行，直接去国密SSL实验室进行生成就行，都有）</p>
+<p><a href="https://blog.csdn.net/mogoweb/article/details/105020965">何为单证书和双证书？</a></p>
 </li>
 </ul>
 <h2 id="初期资料"><a href="#初期资料" class="headerlink" title="初期资料"></a>初期资料</h2><p><a href="https://juejin.cn/post/6844904114879463438">掘金：浅谈国密算法</a>；</p>
