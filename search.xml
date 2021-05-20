@@ -6,6 +6,8 @@
     <content><![CDATA[<h1 id="Array-35（search-insert-position）"><a href="#Array-35（search-insert-position）" class="headerlink" title="Array_35（search-insert-position）"></a>Array_35（search-insert-position）</h1><p>先确认查找算法是二分查找（binary-search），将<a href="https://leetcode-cn.com/problems/binary-search/">二分查找的算法</a>解了一次。问题：执行用时很少，但内存占用多</p>
 <p>当没找到index后，比较target和nums[pivot]，返回插入位置就行。问题：空间复杂度高</p>
 <p><img src="/images/LeetCode/search-insert-position-1.jpg"></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://leetcode-cn.com/circle/article/wGp7Y9/">LeetCode最强刷题指南</a></p>
+<p><a href="https://github.com/youngyangyang04/leetcode-master">LeetCode刷题攻略</a></p>
 ]]></content>
       <tags>
         <tag>leetcode</tag>
@@ -32,8 +34,7 @@
 <li><p>删除一些无关的插件，<a href="https://www.dazhuanlan.com/2019/10/12/5da110cdd9a7b/">卸载 hexo 插件</a></p>
 </li>
 </ol>
-<p>参考：</p>
-<ol>
+<h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><ol>
 <li><a href="https://www.jianshu.com/p/c9d3a53fb8e3">Hexo页面加载性能优化</a></li>
 <li><a href="https://link.jianshu.com/?t=http://www.ieclipse.cn/2016/08/29/Web/Hexo-deploy-lines/">Hexo博客双线部署</a></li>
 <li><a href="https://gaomf.cn/2015/11/01/Hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6/">Hexo博客优化加载速度</a></li>
@@ -47,10 +48,23 @@
   <entry>
     <title>SSL/TLS相关</title>
     <url>/2021/05/19/SSL-TLS%E7%9B%B8%E5%85%B3/</url>
-    <content><![CDATA[<p><a href="https://www.rfc-editor.org/">RFC官方文档</a>（PDF|HTML）：<a href="https://www.rfc-editor.org/info/rfc5878">RFC-5878</a>、<a href="https://www.rfc-editor.org/info/rfc5077">RFC-5077</a>、<a href="https://www.rfc-editor.org/info/rfc2246">RFC-2246（TLS1.0）</a>、<a href="https://www.rfc-editor.org/info/rfc4346">RFC-4346（TLS1.1）</a>、<a href="https://www.rfc-editor.org/info/rfc5246">RFC-5246（TLS1.2）</a>、RFC-4492、RFC-5764</p>
+    <content><![CDATA[<p><a href="https://www.rfc-editor.org/">RFC官方文档</a>（PDF|HTML）：<a href="https://www.rfc-editor.org/info/rfc2246">RFC-2246（TLS1.0）</a>、<a href="https://www.rfc-editor.org/info/rfc4346">RFC-4346（TLS1.1）</a>、<a href="https://www.rfc-editor.org/info/rfc5246">RFC-5246（TLS1.2）</a>、<a href="https://www.rfc-editor.org/info/rfc8446">RFC-8446（TLS1.3）</a>、RFC-4492、RFC-5764、<a href="https://www.rfc-editor.org/info/rfc5878">RFC-5878</a>、<a href="https://www.rfc-editor.org/info/rfc5077">RFC-5077</a>、</p>
 ]]></content>
       <tags>
         <tag>ssl/tls</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>TLS1.2 RFC-5246文档翻译学习</title>
+    <url>/2021/05/20/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<p>官方文档：<a href="https://www.rfc-editor.org/info/rfc5246">RFC-5246</a></p>
+<ul>
+<li><strong>文章结构请看右边的目录</strong>👉</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>RFC6246</tag>
+        <tag>TLS1.2</tag>
       </tags>
   </entry>
   <entry>
@@ -135,40 +149,14 @@
       </tags>
   </entry>
   <entry>
-    <title>TLS1.2 RFC-5246文档翻译学习</title>
-    <url>/2021/05/20/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>「送你一朵小红花」</title>
-    <url>/2021/04/26/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/</url>
-    <content><![CDATA[<p><img src="https://img0.utuku.china.com/550x0/ent/20200612/8f5ba9c8-3738-4c6f-bc10-9c64c27d1c58.jpg"></p>
-<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC3.jpg"></p>
-<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC4.JPG"></p>
-<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC5.jpg"></p>
-<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC6.GIF"></p>
-<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC8.jpg"></p>
-<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC9.jpg"></p>
-<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC10.JPG"></p>
-<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC11.jpg"></p>
-<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC12.jpg"></p>
-<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC13.jpg"></p>
-<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC14.JPG"></p>
-<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC15.JPG"></p>
-<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC16.JPG"></p>
-<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC17.JPG"></p>
-]]></content>
-      <tags>
-        <tag>movie</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Paper Reading: Scalable Scanning and Automatic Classification of TLS Padding Oracle Vulnerabilities</title>
     <url>/2021/04/24/Paper-Reading-Scalable-Scanning-and-Automatic-Classification-of-TLS-Padding-Oracle-Vulnerabilities/</url>
     <content><![CDATA[<h1 id="「TLS-Padding-Oracle漏洞的可拓展扫描和自动分类」"><a href="#「TLS-Padding-Oracle漏洞的可拓展扫描和自动分类」" class="headerlink" title="「TLS Padding Oracle漏洞的可拓展扫描和自动分类」"></a>「TLS Padding Oracle漏洞的可拓展扫描和自动分类」</h1><p>该论文发表在第28次USS会议上，<a href="https://www.youtube.com/results?search_query=Scalable+Scanning+and+Automatic+Classification+of+TLS+Padding+Oracle+Vulnerabilities">USS会议演讲视频</a>，<a href="https://www.youtube.com/results?search_query=Scalable+Scanning+and+Automatic+Classification+of+TLS+Padding+Oracle+Vulnerabilities">国际密码研究协会演讲视频</a></p>
 <p>论文项目也已在Github上开源：<a href="https://github.com/tls-attacker/TLS-Padding-Oracles">TLS Padding Oracles</a></p>
 <p>相关：<a href="https://pentesterlab.com/exercises/padding_oracle/course">PentesterLab: Padding Oracle攻击实战</a></p>
-<p>文章结构请看右边的目录👉</p>
+<ul>
+<li><strong>文章结构请看右边的目录</strong>👉</li>
+</ul>
 <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>TLS协议在现代Internet上提供加密、数据完整性和身份验证。尽管该协议很重要，但目前部署的TLS版本使用的是过时的加密算法，这些算法已被各种攻击攻破。此类攻击的一个突出类别是CBC Padding Oracle（CBC填充预示）攻击。这些攻击使得攻击者能够通过观察取决于CBC填充有效性的不同服务器行为来解密TLS通信数据。</p>
 <p>我们首次对现代互联网上TLS实现中的CBC Padding Oracle进行了大规模扫描。我们的扫描显示Alexa排名前百万的网站中有1.83%的网站存在漏洞，且检测到近100个不同的漏洞。我们的扫描仪能观察到服务器行为的细微差别，例如使用不同的TLS Alert或使用不同的TCP Header标志进行响应。</p>
 <p>我们使用了一种新的扫描方法，包括三个步骤。首先，我们创建了一大组探探针，以相当高的扫描成本来检测漏洞。然后，我们使用初步扫描减少了探针的数量，使得这样一组较小的探针具有相同的检测率，但足够小，可以用于大规模扫描。最后，我们使用减少的探针集合进行大规模扫描，并用一种新的方法使用图形绘制算法对我们的发现进行了聚类。</p>
@@ -407,6 +395,29 @@
       </tags>
   </entry>
   <entry>
+    <title>「送你一朵小红花」</title>
+    <url>/2021/04/26/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/</url>
+    <content><![CDATA[<p><img src="https://img0.utuku.china.com/550x0/ent/20200612/8f5ba9c8-3738-4c6f-bc10-9c64c27d1c58.jpg"></p>
+<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC3.jpg"></p>
+<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC4.JPG"></p>
+<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC5.jpg"></p>
+<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC6.GIF"></p>
+<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC8.jpg"></p>
+<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC9.jpg"></p>
+<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC10.JPG"></p>
+<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC11.jpg"></p>
+<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC12.jpg"></p>
+<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC13.jpg"></p>
+<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC14.JPG"></p>
+<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC15.JPG"></p>
+<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC16.JPG"></p>
+<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC17.JPG"></p>
+]]></content>
+      <tags>
+        <tag>movie</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>国密算法/协议/工控</title>
     <url>/2021/04/28/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95-%E5%8D%8F%E8%AE%AE-%E5%B7%A5%E6%8E%A7/</url>
     <content><![CDATA[<h1 id="国密SSL-TLS"><a href="#国密SSL-TLS" class="headerlink" title="国密SSL/TLS"></a>国密SSL/TLS</h1><p>🌟🌟🌟<a href="https://www.gmssl.cn/gmssl/index.jsp?go=down">国密SSL实验室</a>（重点）：好多使用的工具，包括国密Web浏览器、国密Web服务器、国密性能测试、国密工具箱等等。可以从这里面下载Web服务器，搭建并进行TLS-Attacker的测试。一个<a href="https://developer.aliyun.com/article/770830">阿里云的实战博客</a>，该博客实战了GMSSL的Nginx安装和使用。一个相关测试的专栏文章-<a href="https://segmentfault.com/a/1190000024448440">国密SSL之性能测试</a>。</p>
@@ -556,14 +567,6 @@
     <content><![CDATA[{"name":"Koper","short_name":"Koper","start_url":"/","icons":[{"src":"/images/siteicon/android-chrome-36x36.png","sizes":"36x36","type":"image/png"},{"src":"/images/siteicon/android-chrome-48x48.png","sizes":"48x48","type":"image/png"},{"src":"/images/siteicon/android-chrome-72x72.png","sizes":"72x72","type":"image/png"},{"src":"/images/siteicon/android-chrome-96x96.png","sizes":"96x96","type":"image/png"},{"src":"/images/siteicon/android-chrome-144x144.png","sizes":"144x144","type":"image/png"},{"src":"/images/siteicon/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/images/siteicon/android-chrome-256x256.png","sizes":"256x256","type":"image/png"},{"src":"/images/siteicon/android-chrome-384x384.png","sizes":"384x384","type":"image/png"},{"src":"/images/siteicon/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#ffffff","background_color":"#ffffff","display":"standalone"}]]></content>
   </entry>
   <entry>
-    <title>about</title>
-    <url>/about/index.html</url>
-    <content><![CDATA[<p>关于我：</p>
-<p>一名在读的打工人，每天的事就是科研科研</p>
-<p>同时分享自己在读的生活和一些日常</p>
-]]></content>
-  </entry>
-  <entry>
     <title>archives</title>
     <url>/archives/index.html</url>
     <content><![CDATA[]]></content>
@@ -577,6 +580,14 @@
     <title>tags</title>
     <url>/tags/index.html</url>
     <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>about</title>
+    <url>/about/index.html</url>
+    <content><![CDATA[<p>关于我：</p>
+<p>一名在读的打工人，每天的事就是科研科研</p>
+<p>同时分享自己在读的生活和一些日常</p>
+]]></content>
   </entry>
   <entry>
     <title></title>
