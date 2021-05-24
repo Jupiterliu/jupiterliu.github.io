@@ -32,6 +32,25 @@
       </tags>
   </entry>
   <entry>
+    <title>Java多线程高并发</title>
+    <url>/2021/05/24/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%AB%98%E5%B9%B6%E5%8F%91/</url>
+    <content><![CDATA[<h3 id="线程简介"><a href="#线程简介" class="headerlink" title="线程简介"></a>线程简介</h3><p>多任务、多线程、程序–&gt;进程process–&gt;线程thread</p>
+<h3 id="线程创建"><a href="#线程创建" class="headerlink" title="线程创建"></a>线程创建</h3><h4 id="Thread-class–-gt-继承Thread类（重点）"><a href="#Thread-class–-gt-继承Thread类（重点）" class="headerlink" title="Thread.class–&gt;继承Thread类（重点）"></a>Thread.class–&gt;继承Thread类（重点）</h4><p>run()方法和start()方法的区别：</p>
+<p><img src="/images/Java-multiThread/run&start%E6%96%B9%E6%B3%95%E5%8C%BA%E5%88%AB.jpg" alt="run&amp;start方法区别"></p>
+<p>根据Java手册，Thread实现的接口有Runnable接口，创建一个新的执行线程有两种方法。 </p>
+<p><img src="/images/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%AB%98%E5%B9%B6%E5%8F%91/Xnip2021-05-20_09-38-56.jpg" alt="Xnip2021-05-20_09-38-56"></p>
+<p>一个是将一个类声明为<code>Thread</code>的子类。 这个子类应该重写<code>run</code>类的方法<code>Thread</code> 。 然后可以分配并启动子类的实例。 例如，计算大于规定值的素数的线程可以写成如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PrimeThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="keyword">long</span> minPrime;</span><br><span class="line">    PrimeThread(<span class="keyword">long</span> minPrime) &#123;</span><br><span class="line">        <span class="keyword">this</span>.minPrime = minPrime;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// compute primes larger than minPrime</span></span><br><span class="line">         . . .</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后，以下代码将创建一个线程并启动它运行：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">PrimeThread p = <span class="keyword">new</span> PrimeThread(<span class="number">143</span>);</span><br><span class="line">p.start();</span><br></pre></td></tr></table></figure>
+
+<p>自己编写的代码示例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> xidian.edu.cn.stu.ltf.multithread03;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 继承Thread类，重写run()方法，调用start开启线程</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrimeThread</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// run方法线程体</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;run()-&quot;</span> + i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// main线程，主线程</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建一个线程对象，然后调用start()方法</span></span><br><span class="line">        PrimeThread newThread1 = <span class="keyword">new</span> PrimeThread();</span><br><span class="line">        newThread1.start();  <span class="comment">// start()方法，会发现两条线程是同时执行的，穿插实现，且每次执行结果不一样</span></span><br><span class="line">        <span class="comment">//newThread1.run();  // run()方法会先执行run方法，然后执行main()方法（这是因为方法之间是固定顺序）</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;Main()---&quot;</span> + i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="Runnable接口–-gt-实现Runnable接口（格外重点）🌟🌟🌟"><a href="#Runnable接口–-gt-实现Runnable接口（格外重点）🌟🌟🌟" class="headerlink" title="Runnable接口–&gt;实现Runnable接口（格外重点）🌟🌟🌟"></a>Runnable接口–&gt;实现Runnable接口（格外重点）🌟🌟🌟</h4><h4 id="Callable接口–-gt-实现Callable接口（了解）"><a href="#Callable接口–-gt-实现Callable接口（了解）" class="headerlink" title="Callable接口–&gt;实现Callable接口（了解）"></a>Callable接口–&gt;实现Callable接口（了解）</h4>]]></content>
+  </entry>
+  <entry>
     <title>LeetCode</title>
     <url>/2021/04/27/LeetCode/</url>
     <content><![CDATA[<h1 id="Array-35（search-insert-position）"><a href="#Array-35（search-insert-position）" class="headerlink" title="Array_35（search-insert-position）"></a>Array_35（search-insert-position）</h1><p>先确认查找算法是二分查找（binary-search），将<a href="https://leetcode-cn.com/problems/binary-search/">二分查找的算法</a>解了一次。问题：执行用时很少，但内存占用多</p>
@@ -153,19 +172,6 @@
 <h4 id="HeartbeatByteLength-class"><a href="#HeartbeatByteLength-class" class="headerlink" title="HeartbeatByteLength.class"></a>HeartbeatByteLength.class</h4>]]></content>
       <tags>
         <tag>github project</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>TLS1.2 RFC-5246文档翻译学习</title>
-    <url>/2021/05/20/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<p>官方文档：<a href="https://www.rfc-editor.org/info/rfc5246">RFC-5246</a></p>
-<ul>
-<li><strong>文章结构请看右边的目录</strong>👉</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>RFC6246</tag>
-        <tag>TLS1.2</tag>
       </tags>
   </entry>
   <entry>
@@ -438,6 +444,19 @@
       </tags>
   </entry>
   <entry>
+    <title>TLS1.2 RFC-5246文档翻译学习</title>
+    <url>/2021/05/20/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<p>官方文档：<a href="https://www.rfc-editor.org/info/rfc5246">RFC-5246</a></p>
+<ul>
+<li><strong>文章结构请看右边的目录</strong>👉</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>RFC6246</tag>
+        <tag>TLS1.2</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>国密算法/协议/工控</title>
     <url>/2021/04/28/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95-%E5%8D%8F%E8%AE%AE-%E5%B7%A5%E6%8E%A7/</url>
     <content><![CDATA[<h1 id="国密SSL-TLS"><a href="#国密SSL-TLS" class="headerlink" title="国密SSL/TLS"></a>国密SSL/TLS</h1><p>🌟🌟🌟<a href="https://www.gmssl.cn/gmssl/index.jsp?go=down">国密SSL实验室</a>（重点）：好多使用的工具，包括国密Web浏览器、国密Web服务器、国密性能测试、国密工具箱等等。可以从这里面下载Web服务器，搭建并进行TLS-Attacker的测试。一个<a href="https://developer.aliyun.com/article/770830">阿里云的实战博客</a>，该博客实战了GMSSL的Nginx安装和使用。一个相关测试的专栏文章-<a href="https://segmentfault.com/a/1190000024448440">国密SSL之性能测试</a>。</p>
@@ -587,6 +606,14 @@
     <content><![CDATA[{"name":"Koper","short_name":"Koper","start_url":"/","icons":[{"src":"/images/siteicon/android-chrome-36x36.png","sizes":"36x36","type":"image/png"},{"src":"/images/siteicon/android-chrome-48x48.png","sizes":"48x48","type":"image/png"},{"src":"/images/siteicon/android-chrome-72x72.png","sizes":"72x72","type":"image/png"},{"src":"/images/siteicon/android-chrome-96x96.png","sizes":"96x96","type":"image/png"},{"src":"/images/siteicon/android-chrome-144x144.png","sizes":"144x144","type":"image/png"},{"src":"/images/siteicon/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/images/siteicon/android-chrome-256x256.png","sizes":"256x256","type":"image/png"},{"src":"/images/siteicon/android-chrome-384x384.png","sizes":"384x384","type":"image/png"},{"src":"/images/siteicon/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#ffffff","background_color":"#ffffff","display":"standalone"}]]></content>
   </entry>
   <entry>
+    <title>about</title>
+    <url>/about/index.html</url>
+    <content><![CDATA[<p>关于我：</p>
+<p>一名在读的打工人，每天的事就是科研科研</p>
+<p>同时分享自己在读的生活和一些日常</p>
+]]></content>
+  </entry>
+  <entry>
     <title>archives</title>
     <url>/archives/index.html</url>
     <content><![CDATA[]]></content>
@@ -600,14 +627,6 @@
     <title>tags</title>
     <url>/tags/index.html</url>
     <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>about</title>
-    <url>/about/index.html</url>
-    <content><![CDATA[<p>关于我：</p>
-<p>一名在读的打工人，每天的事就是科研科研</p>
-<p>同时分享自己在读的生活和一些日常</p>
-]]></content>
   </entry>
   <entry>
     <title></title>
