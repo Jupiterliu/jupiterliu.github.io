@@ -1,56 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hexo博客搭建记录</title>
-    <url>/2021/04/24/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h1 id="问题1-Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）"><a href="#问题1-Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）" class="headerlink" title="问题1:Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）"></a>问题1:Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）</h1><p>最开始，我使用的是Next主题，在网上找过许多答案，其中一种针对Next主题以前的一个问题所进行的修改：<a href="https://github.com/iissnan/hexo-theme-next/issues/1214">vendors文件修改</a>，但是vendors文件夹问题在随后的Next版本中得到了解决。</p>
-<p>如今又出现这样的问题，我根据网上的各种回答进行了许多地方的一个修改，这里做个总结：</p>
-<ol>
-<li>首先是在本地deploy之前，先执行<strong>hexo clean</strong>，来清除相关缓存，然后hexo g &amp;&amp; hexo d（可以多执行几遍）</li>
-<li>在之前搭建github主页时，github默认给我设置的分支是main，看到过网上的一个解决方案是将分支名从main改成master（github权限问题？？？）</li>
-<li><strong>清除浏览器的缓存</strong>，在我的实际刷新来看，这个办法应该是最有用的，我用chrome和safari都验证过了。<a href="https://www.cnblogs.com/Chesky/p/chrome_disabling_cache.html">清除Chrome浏览器指定网页缓存</a>，每次加载网站都能重新载入。</li>
-<li>Hexo本地网站根目录下面的_config.yml文件配置不对。在deploy设置中branch选项的值应该和你在github项目的分支保持一致。至于配置文件的url设置，个人认为没影响，在我的使用来看，这个url主要是影响网站sitemap.xml文件的生成和有效性。</li>
-</ol>
-<h1 id="问题2-Hexo博客页面加载缓慢或者卡顿"><a href="#问题2-Hexo博客页面加载缓慢或者卡顿" class="headerlink" title="问题2:Hexo博客页面加载缓慢或者卡顿"></a>问题2:Hexo博客页面加载缓慢或者卡顿</h1><p>现在，我使用的是<a href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly主题</a>，所做的更改基本都是<a href="https://butterfly.js.org/">Jerry的教程</a>建议的</p>
-<ol>
-<li><p>最直观的方法就是在加载网页后，F12打开浏览器的开发者模式，选到Console，然后就能看到加载Hexo网页时出现了哪些错误。下图是我第一次打开Console时出现的错误图：</p>
-<p><img src="/images/Hexo-blog-build-record/chrome-F12-Console-errors.jpg"></p>
-<p>然后就可以根据错误对主题或者站点配置文件进行响应的改动，记得改动之前备份，不然你可能会后悔的</p>
-</li>
-<li><p>删除一些无关的插件，<a href="https://www.dazhuanlan.com/2019/10/12/5da110cdd9a7b/">卸载 hexo 插件</a></p>
-</li>
-</ol>
-<h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><ol>
-<li><a href="https://www.jianshu.com/p/c9d3a53fb8e3">Hexo页面加载性能优化</a></li>
-<li><a href="https://link.jianshu.com/?t=http://www.ieclipse.cn/2016/08/29/Web/Hexo-deploy-lines/">Hexo博客双线部署</a></li>
-<li><a href="https://gaomf.cn/2015/11/01/Hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6/">Hexo博客优化加载速度</a></li>
-<li><a href="https://blog.csdn.net/weixin_44676935/article/details/107440479">Hexo博客因图标失效导致加载过慢（icarus主题）</a></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>blog</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java多线程高并发</title>
-    <url>/2021/05/24/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%AB%98%E5%B9%B6%E5%8F%91/</url>
-    <content><![CDATA[<h3 id="线程简介"><a href="#线程简介" class="headerlink" title="线程简介"></a>线程简介</h3><p>多任务、多线程、程序–&gt;进程process–&gt;线程thread</p>
-<h3 id="线程创建"><a href="#线程创建" class="headerlink" title="线程创建"></a>线程创建</h3><h4 id="Thread-class–-gt-继承Thread类（重点）"><a href="#Thread-class–-gt-继承Thread类（重点）" class="headerlink" title="Thread.class–&gt;继承Thread类（重点）"></a>Thread.class–&gt;继承Thread类（重点）</h4><p>run()方法和start()方法的区别：</p>
-<p><img src="/images/Java-multiThread/run&start%E6%96%B9%E6%B3%95%E5%8C%BA%E5%88%AB.jpg" alt="run&amp;start方法区别"></p>
-<p>根据Java手册，Thread实现的接口有Runnable接口，创建一个新的执行线程有两种方法。 </p>
-<p><img src="/images/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%AB%98%E5%B9%B6%E5%8F%91/Xnip2021-05-20_09-38-56.jpg" alt="Xnip2021-05-20_09-38-56"></p>
-<p>一个是将一个类声明为<code>Thread</code>的子类。 这个子类应该重写<code>run</code>类的方法<code>Thread</code> 。 然后可以分配并启动子类的实例。 例如，计算大于规定值的素数的线程可以写成如下：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PrimeThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="keyword">long</span> minPrime;</span><br><span class="line">    PrimeThread(<span class="keyword">long</span> minPrime) &#123;</span><br><span class="line">        <span class="keyword">this</span>.minPrime = minPrime;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// compute primes larger than minPrime</span></span><br><span class="line">         . . .</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>然后，以下代码将创建一个线程并启动它运行：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">PrimeThread p = <span class="keyword">new</span> PrimeThread(<span class="number">143</span>);</span><br><span class="line">p.start();</span><br></pre></td></tr></table></figure>
-
-<p>自己编写的代码示例：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> xidian.edu.cn.stu.ltf.multithread03;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 继承Thread类，重写run()方法，调用start开启线程</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrimeThread</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// run方法线程体</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;run()-&quot;</span> + i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// main线程，主线程</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建一个线程对象，然后调用start()方法</span></span><br><span class="line">        PrimeThread newThread1 = <span class="keyword">new</span> PrimeThread();</span><br><span class="line">        newThread1.start();  <span class="comment">// start()方法，会发现两条线程是同时执行的，穿插实现，且每次执行结果不一样</span></span><br><span class="line">        <span class="comment">//newThread1.run();  // run()方法会先执行run方法，然后执行main()方法（这是因为方法之间是固定顺序）</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;Main()---&quot;</span> + i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="Runnable接口–-gt-实现Runnable接口（格外重点）🌟🌟🌟"><a href="#Runnable接口–-gt-实现Runnable接口（格外重点）🌟🌟🌟" class="headerlink" title="Runnable接口–&gt;实现Runnable接口（格外重点）🌟🌟🌟"></a>Runnable接口–&gt;实现Runnable接口（格外重点）🌟🌟🌟</h4><h4 id="Callable接口–-gt-实现Callable接口（了解）"><a href="#Callable接口–-gt-实现Callable接口（了解）" class="headerlink" title="Callable接口–&gt;实现Callable接口（了解）"></a>Callable接口–&gt;实现Callable接口（了解）</h4>]]></content>
-  </entry>
-  <entry>
     <title>LeetCode</title>
     <url>/2021/04/27/LeetCode/</url>
     <content><![CDATA[<h1 id="Array-35（search-insert-position）"><a href="#Array-35（search-insert-position）" class="headerlink" title="Array_35（search-insert-position）"></a>Array_35（search-insert-position）</h1><p>先确认查找算法是二分查找（binary-search），将<a href="https://leetcode-cn.com/problems/binary-search/">二分查找的算法</a>解了一次。问题：执行用时很少，但内存占用多</p>
@@ -72,6 +22,26 @@
       <tags>
         <tag>ssl/tls</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Java多线程高并发</title>
+    <url>/2021/05/24/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%AB%98%E5%B9%B6%E5%8F%91/</url>
+    <content><![CDATA[<h1 id="线程简介"><a href="#线程简介" class="headerlink" title="线程简介"></a>线程简介</h1><p>多任务、多线程、程序–&gt;进程process–&gt;线程thread</p>
+<h1 id="线程创建"><a href="#线程创建" class="headerlink" title="线程创建"></a>线程创建</h1><h2 id="Thread-class–-gt-继承Thread类（重点）"><a href="#Thread-class–-gt-继承Thread类（重点）" class="headerlink" title="Thread.class–&gt;继承Thread类（重点）"></a>Thread.class–&gt;继承Thread类（重点）</h2><p>run()方法和start()方法的区别：</p>
+<p><img src="/images/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%AB%98%E5%B9%B6%E5%8F%91/run&start%E6%96%B9%E6%B3%95%E5%8C%BA%E5%88%AB.jpg" alt="run&amp;start方法区别"></p>
+<p>根据Java手册，Thread实现的接口有Runnable接口，创建一个新的执行线程有两种方法。 </p>
+<p>一个是将一个类声明为<code>Thread</code>的子类。 这个子类应该重写<code>run</code>类的方法<code>Thread</code> 。 然后可以分配并启动子类的实例。 例如，计算大于规定值的素数的线程可以写成如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PrimeThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="keyword">long</span> minPrime;</span><br><span class="line">    PrimeThread(<span class="keyword">long</span> minPrime) &#123;</span><br><span class="line">        <span class="keyword">this</span>.minPrime = minPrime;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// compute primes larger than minPrime</span></span><br><span class="line">         . . .</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后，以下代码将创建一个线程并启动它运行：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">PrimeThread p = <span class="keyword">new</span> PrimeThread(<span class="number">143</span>);</span><br><span class="line">p.start();</span><br></pre></td></tr></table></figure>
+
+<p>自己编写的代码示例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> xidian.edu.cn.stu.ltf.multithread03;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 继承Thread类，重写run()方法，调用start开启线程</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrimeThread</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// run方法线程体</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;run()-&quot;</span> + i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// main线程，主线程</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建一个线程对象，然后调用start()方法</span></span><br><span class="line">        PrimeThread newThread1 = <span class="keyword">new</span> PrimeThread();</span><br><span class="line">        newThread1.start();  <span class="comment">// start()方法，会发现两条线程是同时执行的，穿插实现，且每次执行结果不一样</span></span><br><span class="line">        <span class="comment">//newThread1.run();  // run()方法会先执行run方法，然后执行main()方法（这是因为方法之间是固定顺序）</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;Main()---&quot;</span> + i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Runnable接口–-gt-实现Runnable接口（格外重点）🌟🌟🌟"><a href="#Runnable接口–-gt-实现Runnable接口（格外重点）🌟🌟🌟" class="headerlink" title="Runnable接口–&gt;实现Runnable接口（格外重点）🌟🌟🌟"></a>Runnable接口–&gt;实现Runnable接口（格外重点）🌟🌟🌟</h2><h2 id="Callable接口–-gt-实现Callable接口（了解）"><a href="#Callable接口–-gt-实现Callable接口（了解）" class="headerlink" title="Callable接口–&gt;实现Callable接口（了解）"></a>Callable接口–&gt;实现Callable接口（了解）</h2>]]></content>
   </entry>
   <entry>
     <title>TLS-Attacker框架：项目复现</title>
@@ -172,29 +142,6 @@
 <h4 id="HeartbeatByteLength-class"><a href="#HeartbeatByteLength-class" class="headerlink" title="HeartbeatByteLength.class"></a>HeartbeatByteLength.class</h4>]]></content>
       <tags>
         <tag>github project</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>「送你一朵小红花」</title>
-    <url>/2021/04/26/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/</url>
-    <content><![CDATA[<p><img src="https://img0.utuku.china.com/550x0/ent/20200612/8f5ba9c8-3738-4c6f-bc10-9c64c27d1c58.jpg"></p>
-<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC3.jpg"></p>
-<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC4.JPG"></p>
-<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC5.jpg"></p>
-<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC6.GIF"></p>
-<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC8.jpg"></p>
-<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC9.jpg"></p>
-<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC10.JPG"></p>
-<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC11.jpg"></p>
-<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC12.jpg"></p>
-<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC13.jpg"></p>
-<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC14.JPG"></p>
-<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC15.JPG"></p>
-<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC16.JPG"></p>
-<p><img src="/images/%E5%88%98%E6%B5%A9%E5%AD%98/LHC17.JPG"></p>
-]]></content>
-      <tags>
-        <tag>movie</tag>
       </tags>
   </entry>
   <entry>
@@ -454,6 +401,62 @@
       <tags>
         <tag>RFC6246</tag>
         <tag>TLS1.2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>「送你一朵小红花」</title>
+    <url>/2021/04/26/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/</url>
+    <content><![CDATA[<p><img src="https://img0.utuku.china.com/550x0/ent/20200612/8f5ba9c8-3738-4c6f-bc10-9c64c27d1c58.jpg"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC17.JPG" alt="LHC17"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC16.JPG" alt="LHC16"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC15.JPG" alt="LHC15"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC14.JPG" alt="LHC14"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC13.jpg" alt="LHC13"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC12.jpg" alt="LHC12"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC11.jpg" alt="LHC11"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC10.JPG" alt="LHC10"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC9.jpg" alt="LHC9"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC8.jpg" alt="LHC8"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC6.GIF" alt="LHC6"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC5.jpg" alt="LHC5"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC4.JPG" alt="LHC4"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC3.jpg" alt="LHC3"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/run&start%E6%96%B9%E6%B3%95%E5%8C%BA%E5%88%AB.jpg" alt="run&amp;start方法区别"></p>
+]]></content>
+      <tags>
+        <tag>movie</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo博客搭建记录</title>
+    <url>/2021/04/24/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h1 id="问题1-Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）"><a href="#问题1-Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）" class="headerlink" title="问题1:Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）"></a>问题1:Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）</h1><p>最开始，我使用的是Next主题，在网上找过许多答案，其中一种针对Next主题以前的一个问题所进行的修改：<a href="https://github.com/iissnan/hexo-theme-next/issues/1214">vendors文件修改</a>，但是vendors文件夹问题在随后的Next版本中得到了解决。</p>
+<p>如今又出现这样的问题，我根据网上的各种回答进行了许多地方的一个修改，这里做个总结：</p>
+<ol>
+<li>首先是在本地deploy之前，先执行<strong>hexo clean</strong>，来清除相关缓存，然后hexo g &amp;&amp; hexo d（可以多执行几遍）</li>
+<li>在之前搭建github主页时，github默认给我设置的分支是main，看到过网上的一个解决方案是将分支名从main改成master（github权限问题？？？）</li>
+<li><strong>清除浏览器的缓存</strong>，在我的实际刷新来看，这个办法应该是最有用的，我用chrome和safari都验证过了。<a href="https://www.cnblogs.com/Chesky/p/chrome_disabling_cache.html">清除Chrome浏览器指定网页缓存</a>，每次加载网站都能重新载入。</li>
+<li>Hexo本地网站根目录下面的_config.yml文件配置不对。在deploy设置中branch选项的值应该和你在github项目的分支保持一致。至于配置文件的url设置，个人认为没影响，在我的使用来看，这个url主要是影响网站sitemap.xml文件的生成和有效性。</li>
+</ol>
+<h1 id="问题2-Hexo博客页面加载缓慢或者卡顿"><a href="#问题2-Hexo博客页面加载缓慢或者卡顿" class="headerlink" title="问题2:Hexo博客页面加载缓慢或者卡顿"></a>问题2:Hexo博客页面加载缓慢或者卡顿</h1><p>现在，我使用的是<a href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly主题</a>，所做的更改基本都是<a href="https://butterfly.js.org/">Jerry的教程</a>建议的</p>
+<ol>
+<li><p>最直观的方法就是在加载网页后，F12打开浏览器的开发者模式，选到Console，然后就能看到加载Hexo网页时出现了哪些错误。下图是我第一次打开Console时出现的错误图：</p>
+<p><img src="/images/Hexo-blog-build-record/chrome-F12-Console-errors.jpg"></p>
+<p>然后就可以根据错误对主题或者站点配置文件进行响应的改动，记得改动之前备份，不然你可能会后悔的</p>
+</li>
+<li><p>删除一些无关的插件，<a href="https://www.dazhuanlan.com/2019/10/12/5da110cdd9a7b/">卸载 hexo 插件</a></p>
+</li>
+</ol>
+<h1 id="问题3-Hexo和Typora图像存储和设置问题"><a href="#问题3-Hexo和Typora图像存储和设置问题" class="headerlink" title="问题3:Hexo和Typora图像存储和设置问题"></a>问题3:Hexo和Typora图像存储和设置问题</h1><p>已解决-个人觉得很好的一个回答：<a href="https://yinyoupoet.github.io/2019/09/03/hexo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/">typora + hexo博客中插入图片</a></p>
+<h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><ol>
+<li><a href="https://www.jianshu.com/p/c9d3a53fb8e3">Hexo页面加载性能优化</a></li>
+<li><a href="https://link.jianshu.com/?t=http://www.ieclipse.cn/2016/08/29/Web/Hexo-deploy-lines/">Hexo博客双线部署</a></li>
+<li><a href="https://gaomf.cn/2015/11/01/Hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6/">Hexo博客优化加载速度</a></li>
+<li><a href="https://blog.csdn.net/weixin_44676935/article/details/107440479">Hexo博客因图标失效导致加载过慢（icarus主题）</a></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
