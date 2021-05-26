@@ -1,26 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>LeetCode</title>
-    <url>/2021/04/27/LeetCode/</url>
-    <content><![CDATA[<h1 id="Array-35（search-insert-position）"><a href="#Array-35（search-insert-position）" class="headerlink" title="Array_35（search-insert-position）"></a>Array_35（search-insert-position）</h1><p>先确认查找算法是二分查找（binary-search），将<a href="https://leetcode-cn.com/problems/binary-search/">二分查找的算法</a>解了一次。问题：执行用时很少，但内存占用多</p>
-<p>当没找到index后，比较target和nums[pivot]，返回插入位置就行。问题：空间复杂度高</p>
-<p><img src="/images/LeetCode/search-insert-position-1.jpg"></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://leetcode-cn.com/circle/article/wGp7Y9/">LeetCode最强刷题指南</a></p>
-<p><a href="https://github.com/youngyangyang04/leetcode-master">LeetCode刷题攻略</a></p>
+    <title>Hexo博客搭建记录</title>
+    <url>/2021/04/24/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h1 id="问题1-Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）"><a href="#问题1-Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）" class="headerlink" title="问题1:Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）"></a>问题1:Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）</h1><p>最开始，我使用的是Next主题，在网上找过许多答案，其中一种针对Next主题以前的一个问题所进行的修改：<a href="https://github.com/iissnan/hexo-theme-next/issues/1214">vendors文件修改</a>，但是vendors文件夹问题在随后的Next版本中得到了解决。</p>
+<p>如今又出现这样的问题，我根据网上的各种回答进行了许多地方的一个修改，这里做个总结：</p>
+<ol>
+<li>首先是在本地deploy之前，先执行<strong>hexo clean</strong>，来清除相关缓存，然后hexo g &amp;&amp; hexo d（可以多执行几遍）</li>
+<li>在之前搭建github主页时，github默认给我设置的分支是main，看到过网上的一个解决方案是将分支名从main改成master（github权限问题？？？）</li>
+<li><strong>清除浏览器的缓存</strong>，在我的实际刷新来看，这个办法应该是最有用的，我用chrome和safari都验证过了。<a href="https://www.cnblogs.com/Chesky/p/chrome_disabling_cache.html">清除Chrome浏览器指定网页缓存</a>，每次加载网站都能重新载入。</li>
+<li>Hexo本地网站根目录下面的_config.yml文件配置不对。在deploy设置中branch选项的值应该和你在github项目的分支保持一致。至于配置文件的url设置，个人认为没影响，在我的使用来看，这个url主要是影响网站sitemap.xml文件的生成和有效性。</li>
+</ol>
+<h1 id="问题2-Hexo博客页面加载缓慢或者卡顿"><a href="#问题2-Hexo博客页面加载缓慢或者卡顿" class="headerlink" title="问题2:Hexo博客页面加载缓慢或者卡顿"></a>问题2:Hexo博客页面加载缓慢或者卡顿</h1><p>现在，我使用的是<a href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly主题</a>，所做的更改基本都是<a href="https://butterfly.js.org/">Jerry的教程</a>建议的</p>
+<ol>
+<li><p>最直观的方法就是在加载网页后，F12打开浏览器的开发者模式，选到Console，然后就能看到加载Hexo网页时出现了哪些错误。下图是我第一次打开Console时出现的错误图：</p>
+<p><img src="/images/Hexo-blog-build-record/chrome-F12-Console-errors.jpg"></p>
+<p>然后就可以根据错误对主题或者站点配置文件进行响应的改动，记得改动之前备份，不然你可能会后悔的</p>
+</li>
+<li><p>删除一些无关的插件，<a href="https://www.dazhuanlan.com/2019/10/12/5da110cdd9a7b/">卸载 hexo 插件</a></p>
+</li>
+</ol>
+<h1 id="问题3-Hexo和Typora图像存储和设置问题"><a href="#问题3-Hexo和Typora图像存储和设置问题" class="headerlink" title="问题3:Hexo和Typora图像存储和设置问题"></a>问题3:Hexo和Typora图像存储和设置问题</h1><p>已解决-个人觉得很好的一个回答：<a href="https://yinyoupoet.github.io/2019/09/03/hexo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/">typora + hexo博客中插入图片</a></p>
+<h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><ol>
+<li><a href="https://www.jianshu.com/p/c9d3a53fb8e3">Hexo页面加载性能优化</a></li>
+<li><a href="https://link.jianshu.com/?t=http://www.ieclipse.cn/2016/08/29/Web/Hexo-deploy-lines/">Hexo博客双线部署</a></li>
+<li><a href="https://gaomf.cn/2015/11/01/Hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6/">Hexo博客优化加载速度</a></li>
+<li><a href="https://blog.csdn.net/weixin_44676935/article/details/107440479">Hexo博客因图标失效导致加载过慢（icarus主题）</a></li>
+</ol>
 ]]></content>
       <tags>
-        <tag>leetcode</tag>
-        <tag>algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SSL/TLS相关</title>
-    <url>/2021/05/19/SSL-TLS%E7%9B%B8%E5%85%B3/</url>
-    <content><![CDATA[<p><a href="https://www.rfc-editor.org/">RFC官方文档</a>（PDF|HTML）：<a href="https://www.rfc-editor.org/info/rfc2246">RFC-2246（TLS1.0）</a>、<a href="https://www.rfc-editor.org/info/rfc4346">RFC-4346（TLS1.1）</a>、<a href="https://www.rfc-editor.org/info/rfc5246">RFC-5246（TLS1.2）</a>、<a href="https://www.rfc-editor.org/info/rfc8446">RFC-8446（TLS1.3）</a>、RFC-4492、RFC-5764、<a href="https://www.rfc-editor.org/info/rfc5878">RFC-5878</a>、<a href="https://www.rfc-editor.org/info/rfc5077">RFC-5077</a>、</p>
-]]></content>
-      <tags>
-        <tag>ssl/tls</tag>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -67,6 +76,29 @@
 <h2 id="Callable接口–-gt-实现Callable接口（了解）"><a href="#Callable接口–-gt-实现Callable接口（了解）" class="headerlink" title="Callable接口–&gt;实现Callable接口（了解）"></a>Callable接口–&gt;实现Callable接口（了解）</h2><p>自己的代码实现-网图多线程下载-实现Callable接口：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> xidian.edu.cn.stu.ltf.multithread08;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.commons.io.FileUtils;</span><br><span class="line"><span class="keyword">import</span> xidian.edu.cn.stu.ltf.multithread04.MultiPhotosDownload;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.net.URL;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>: TaifengLiu</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: 实现Callable多线程</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2021/5/25</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ImpCallable</span> <span class="keyword">implements</span> <span class="title">Callable</span>&lt;<span class="title">Boolean</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String url;  <span class="comment">// 网络图片地址</span></span><br><span class="line">    <span class="keyword">private</span> String name;   <span class="comment">// 保存的文件名</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ImpCallable</span><span class="params">(String url, String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.url = url;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 下载图片的结构体</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Boolean <span class="title">call</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        WebDowmloader1 webDowmloader = <span class="keyword">new</span> WebDowmloader1();</span><br><span class="line">        webDowmloader.downloader1(url, name);</span><br><span class="line">        System.out.println(<span class="string">&quot;下载了文件名为：&quot;</span> + name);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ExecutionException, InterruptedException </span>&#123;</span><br><span class="line">        ImpCallable impCallable1 = <span class="keyword">new</span> ImpCallable(</span><br><span class="line">                <span class="string">&quot;https://koper.top/images/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%AB%98%E5%B9%B6%E5%8F%91/run&amp;start%E6%96%B9%E6%B3%95%E5%8C%BA%E5%88%AB.jpg&quot;</span>,</span><br><span class="line">                <span class="string">&quot;1.jpg&quot;</span>);</span><br><span class="line">        ImpCallable impCallable2  = <span class="keyword">new</span> ImpCallable(</span><br><span class="line">                <span class="string">&quot;https://koper.top/images/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%AB%98%E5%B9%B6%E5%8F%91/run&amp;start%E6%96%B9%E6%B3%95%E5%8C%BA%E5%88%AB.jpg&quot;</span>,</span><br><span class="line">                <span class="string">&quot;2.jpg&quot;</span>);</span><br><span class="line">        ImpCallable impCallable3 = <span class="keyword">new</span> ImpCallable(</span><br><span class="line">                <span class="string">&quot;https://koper.top/images/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%AB%98%E5%B9%B6%E5%8F%91/run&amp;start%E6%96%B9%E6%B3%95%E5%8C%BA%E5%88%AB.jpg&quot;</span>,</span><br><span class="line">                <span class="string">&quot;3.jpg&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 可以发现下面不是顺序执行，多线程</span></span><br><span class="line">        ExecutorService ser = Executors.newFixedThreadPool(<span class="number">3</span>);</span><br><span class="line">        Future&lt;Boolean&gt; result1 = ser.submit(impCallable1);</span><br><span class="line">        Future&lt;Boolean&gt; result2 = ser.submit(impCallable2);</span><br><span class="line">        Future&lt;Boolean&gt; result3 = ser.submit(impCallable3);</span><br><span class="line">        <span class="keyword">boolean</span> r1 = result1.get();</span><br><span class="line">        <span class="keyword">boolean</span> r2 = result2.get();</span><br><span class="line">        <span class="keyword">boolean</span> r3 = result3.get();</span><br><span class="line"></span><br><span class="line">        ser.shutdownNow();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: 下载器</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2021/5/25</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WebDowmloader1</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 下载方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">downloader1</span><span class="params">(String url, String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            FileUtils.copyURLToFile(<span class="keyword">new</span> URL(url),<span class="keyword">new</span> File(name));</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            System.out.println(<span class="string">&quot;IO异常,downloader()方法出现问题&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
+  </entry>
+  <entry>
+    <title>LeetCode</title>
+    <url>/2021/04/27/LeetCode/</url>
+    <content><![CDATA[<h1 id="Array-35（search-insert-position）"><a href="#Array-35（search-insert-position）" class="headerlink" title="Array_35（search-insert-position）"></a>Array_35（search-insert-position）</h1><p>先确认查找算法是二分查找（binary-search），将<a href="https://leetcode-cn.com/problems/binary-search/">二分查找的算法</a>解了一次。问题：执行用时很少，但内存占用多</p>
+<p>当没找到index后，比较target和nums[pivot]，返回插入位置就行。问题：空间复杂度高</p>
+<p><img src="/images/LeetCode/search-insert-position-1.jpg"></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://leetcode-cn.com/circle/article/wGp7Y9/">LeetCode最强刷题指南</a></p>
+<p><a href="https://github.com/youngyangyang04/leetcode-master">LeetCode刷题攻略</a></p>
+]]></content>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SSL/TLS相关</title>
+    <url>/2021/05/19/SSL-TLS%E7%9B%B8%E5%85%B3/</url>
+    <content><![CDATA[<p><a href="https://www.rfc-editor.org/">RFC官方文档</a>（PDF|HTML）：<a href="https://www.rfc-editor.org/info/rfc2246">RFC-2246（TLS1.0）</a>、<a href="https://www.rfc-editor.org/info/rfc4346">RFC-4346（TLS1.1）</a>、<a href="https://www.rfc-editor.org/info/rfc5246">RFC-5246（TLS1.2）</a>、<a href="https://www.rfc-editor.org/info/rfc8446">RFC-8446（TLS1.3）</a>、RFC-4492、RFC-5764、<a href="https://www.rfc-editor.org/info/rfc5878">RFC-5878</a>、<a href="https://www.rfc-editor.org/info/rfc5077">RFC-5077</a>、</p>
+]]></content>
+      <tags>
+        <tag>ssl/tls</tag>
+      </tags>
   </entry>
   <entry>
     <title>TLS-Attacker框架：项目复现</title>
@@ -147,6 +179,19 @@
 <h4 id="HeartbeatByteLength-class"><a href="#HeartbeatByteLength-class" class="headerlink" title="HeartbeatByteLength.class"></a>HeartbeatByteLength.class</h4>]]></content>
       <tags>
         <tag>github project</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>TLS1.2 RFC-5246文档翻译学习</title>
+    <url>/2021/05/20/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<p>官方文档：<a href="https://www.rfc-editor.org/info/rfc5246">RFC-5246</a></p>
+<ul>
+<li><strong>文章结构请看右边的目录</strong>👉</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>RFC6246</tag>
+        <tag>TLS1.2</tag>
       </tags>
   </entry>
   <entry>
@@ -396,19 +441,6 @@
       </tags>
   </entry>
   <entry>
-    <title>TLS1.2 RFC-5246文档翻译学习</title>
-    <url>/2021/05/20/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<p>官方文档：<a href="https://www.rfc-editor.org/info/rfc5246">RFC-5246</a></p>
-<ul>
-<li><strong>文章结构请看右边的目录</strong>👉</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>RFC6246</tag>
-        <tag>TLS1.2</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>「送你一朵小红花」</title>
     <url>/2021/04/26/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/</url>
     <content><![CDATA[<p><img src="https://img0.utuku.china.com/550x0/ent/20200612/8f5ba9c8-3738-4c6f-bc10-9c64c27d1c58.jpg"></p>
@@ -430,38 +462,6 @@
 ]]></content>
       <tags>
         <tag>movie</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo博客搭建记录</title>
-    <url>/2021/04/24/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h1 id="问题1-Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）"><a href="#问题1-Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）" class="headerlink" title="问题1:Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）"></a>问题1:Hexo本地博客预览正常，deploy到github之后无格式显示（空白显示）</h1><p>最开始，我使用的是Next主题，在网上找过许多答案，其中一种针对Next主题以前的一个问题所进行的修改：<a href="https://github.com/iissnan/hexo-theme-next/issues/1214">vendors文件修改</a>，但是vendors文件夹问题在随后的Next版本中得到了解决。</p>
-<p>如今又出现这样的问题，我根据网上的各种回答进行了许多地方的一个修改，这里做个总结：</p>
-<ol>
-<li>首先是在本地deploy之前，先执行<strong>hexo clean</strong>，来清除相关缓存，然后hexo g &amp;&amp; hexo d（可以多执行几遍）</li>
-<li>在之前搭建github主页时，github默认给我设置的分支是main，看到过网上的一个解决方案是将分支名从main改成master（github权限问题？？？）</li>
-<li><strong>清除浏览器的缓存</strong>，在我的实际刷新来看，这个办法应该是最有用的，我用chrome和safari都验证过了。<a href="https://www.cnblogs.com/Chesky/p/chrome_disabling_cache.html">清除Chrome浏览器指定网页缓存</a>，每次加载网站都能重新载入。</li>
-<li>Hexo本地网站根目录下面的_config.yml文件配置不对。在deploy设置中branch选项的值应该和你在github项目的分支保持一致。至于配置文件的url设置，个人认为没影响，在我的使用来看，这个url主要是影响网站sitemap.xml文件的生成和有效性。</li>
-</ol>
-<h1 id="问题2-Hexo博客页面加载缓慢或者卡顿"><a href="#问题2-Hexo博客页面加载缓慢或者卡顿" class="headerlink" title="问题2:Hexo博客页面加载缓慢或者卡顿"></a>问题2:Hexo博客页面加载缓慢或者卡顿</h1><p>现在，我使用的是<a href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly主题</a>，所做的更改基本都是<a href="https://butterfly.js.org/">Jerry的教程</a>建议的</p>
-<ol>
-<li><p>最直观的方法就是在加载网页后，F12打开浏览器的开发者模式，选到Console，然后就能看到加载Hexo网页时出现了哪些错误。下图是我第一次打开Console时出现的错误图：</p>
-<p><img src="/images/Hexo-blog-build-record/chrome-F12-Console-errors.jpg"></p>
-<p>然后就可以根据错误对主题或者站点配置文件进行响应的改动，记得改动之前备份，不然你可能会后悔的</p>
-</li>
-<li><p>删除一些无关的插件，<a href="https://www.dazhuanlan.com/2019/10/12/5da110cdd9a7b/">卸载 hexo 插件</a></p>
-</li>
-</ol>
-<h1 id="问题3-Hexo和Typora图像存储和设置问题"><a href="#问题3-Hexo和Typora图像存储和设置问题" class="headerlink" title="问题3:Hexo和Typora图像存储和设置问题"></a>问题3:Hexo和Typora图像存储和设置问题</h1><p>已解决-个人觉得很好的一个回答：<a href="https://yinyoupoet.github.io/2019/09/03/hexo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/">typora + hexo博客中插入图片</a></p>
-<h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><ol>
-<li><a href="https://www.jianshu.com/p/c9d3a53fb8e3">Hexo页面加载性能优化</a></li>
-<li><a href="https://link.jianshu.com/?t=http://www.ieclipse.cn/2016/08/29/Web/Hexo-deploy-lines/">Hexo博客双线部署</a></li>
-<li><a href="https://gaomf.cn/2015/11/01/Hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6/">Hexo博客优化加载速度</a></li>
-<li><a href="https://blog.csdn.net/weixin_44676935/article/details/107440479">Hexo博客因图标失效导致加载过慢（icarus主题）</a></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -495,7 +495,17 @@
 <li>通过在Mac上下载GmBrowser并且访问CentOS服务器的地址，成功进行国密连接。</li>
 <li>接下来，使用TLS-Attacker和TLS-Scnner对本地环境进行测试。开始着手TLS-Attacker和TLS-Scanner的熟悉和编程修改优化。</li>
 </ol>
-<h1 id="第三次GMSSL环境搭建（Double-cA大宝CA）"><a href="#第三次GMSSL环境搭建（Double-cA大宝CA）" class="headerlink" title="第三次GMSSL环境搭建（Double cA大宝CA）"></a>第三次GMSSL环境搭建（Double cA大宝CA）</h1><h2 id="正式实验记录："><a href="#正式实验记录：" class="headerlink" title="正式实验记录："></a>正式实验记录：</h2><ol>
+<h1 id="第三次GMSSL环境搭建（国密SSL实验室）"><a href="#第三次GMSSL环境搭建（国密SSL实验室）" class="headerlink" title="第三次GMSSL环境搭建（国密SSL实验室）"></a>第三次GMSSL环境搭建（国密SSL实验室）</h1><p>主要是在外部服务器上进行搭建测试，这次测试了2种搭建（特殊：这个支持CBC模式）</p>
+<ol>
+<li><p>Nginx（国密版）搭建（完成）</p>
+</li>
+<li><p>Apache（国密版）搭建（完成）</p>
+</li>
+<li><p>国密HTTPS在线Demo</p>
+<p><img src="../images/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95-%E5%8D%8F%E8%AE%AE-%E5%B7%A5%E6%8E%A7/%E5%9B%BD%E5%AF%86HTTPS%E5%9C%A8%E7%BA%BFDemo.png" alt="image-20210526112422358"></p>
+</li>
+</ol>
+<h2 id="正式实验记录："><a href="#正式实验记录：" class="headerlink" title="正式实验记录："></a>正式实验记录：</h2><ol>
 <li><p>先熟悉GmSSL的生成证书以及国密算法组件</p>
 <ul>
 <li>新增国密密码套件如下，有对应的16进制表示</li>
