@@ -506,7 +506,9 @@
 <p><img src="/images/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95-%E5%8D%8F%E8%AE%AE-%E5%B7%A5%E6%8E%A7/%E5%9B%BD%E5%AF%86HTTPS%E5%9C%A8%E7%BA%BFDemo.png" alt="国密HTTPS在线Demo"></p>
 </li>
 </ol>
-<p>问题：能访问，但是Mac上用Wireshark抓包失败？？？</p>
+<p>问题：能访问，但是Mac上用Wireshark抓包失败</p>
+<p>分析：服务器在国外，产生的流并不是直接指向服务器地址，而是在本地代理的环境下进行了转发。</p>
+<p>解决：找到本地代理的固定口，让流量只通过这个，不更换，更好的捕获流量（5.27中午吃饭之前要解决，然后TLS-Attacker底层）</p>
 <h2 id="正式实验记录："><a href="#正式实验记录：" class="headerlink" title="正式实验记录："></a>正式实验记录：</h2><ol>
 <li><p>先熟悉GmSSL的生成证书以及国密算法组件</p>
 <ul>
@@ -626,14 +628,6 @@
     <content><![CDATA[{"name":"Koper","short_name":"Koper","start_url":"/","icons":[{"src":"/images/siteicon/android-chrome-36x36.png","sizes":"36x36","type":"image/png"},{"src":"/images/siteicon/android-chrome-48x48.png","sizes":"48x48","type":"image/png"},{"src":"/images/siteicon/android-chrome-72x72.png","sizes":"72x72","type":"image/png"},{"src":"/images/siteicon/android-chrome-96x96.png","sizes":"96x96","type":"image/png"},{"src":"/images/siteicon/android-chrome-144x144.png","sizes":"144x144","type":"image/png"},{"src":"/images/siteicon/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/images/siteicon/android-chrome-256x256.png","sizes":"256x256","type":"image/png"},{"src":"/images/siteicon/android-chrome-384x384.png","sizes":"384x384","type":"image/png"},{"src":"/images/siteicon/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#ffffff","background_color":"#ffffff","display":"standalone"}]]></content>
   </entry>
   <entry>
-    <title>about</title>
-    <url>/about/index.html</url>
-    <content><![CDATA[<p>关于我：</p>
-<p>一名在读的打工人，每天的事就是科研科研</p>
-<p>同时分享自己在读的生活和一些日常</p>
-]]></content>
-  </entry>
-  <entry>
     <title>archives</title>
     <url>/archives/index.html</url>
     <content><![CDATA[]]></content>
@@ -647,6 +641,14 @@
     <title>tags</title>
     <url>/tags/index.html</url>
     <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>about</title>
+    <url>/about/index.html</url>
+    <content><![CDATA[<p>关于我：</p>
+<p>一名在读的打工人，每天的事就是科研科研</p>
+<p>同时分享自己在读的生活和一些日常</p>
+]]></content>
   </entry>
   <entry>
     <title></title>
