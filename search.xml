@@ -182,19 +182,6 @@
       </tags>
   </entry>
   <entry>
-    <title>TLS1.2 RFC-5246文档翻译学习</title>
-    <url>/2021/05/20/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<p>官方文档：<a href="https://www.rfc-editor.org/info/rfc5246">RFC-5246</a></p>
-<ul>
-<li><strong>文章结构请看右边的目录</strong>👉</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>RFC6246</tag>
-        <tag>TLS1.2</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Paper Reading: Scalable Scanning and Automatic Classification of TLS Padding Oracle Vulnerabilities</title>
     <url>/2021/04/24/Paper-Reading-Scalable-Scanning-and-Automatic-Classification-of-TLS-Padding-Oracle-Vulnerabilities/</url>
     <content><![CDATA[<h1 id="「TLS-Padding-Oracle漏洞的可拓展扫描和自动分类」"><a href="#「TLS-Padding-Oracle漏洞的可拓展扫描和自动分类」" class="headerlink" title="「TLS Padding Oracle漏洞的可拓展扫描和自动分类」"></a>「TLS Padding Oracle漏洞的可拓展扫描和自动分类」</h1><p>该论文发表在第28次USS会议上，<a href="https://www.youtube.com/results?search_query=Scalable+Scanning+and+Automatic+Classification+of+TLS+Padding+Oracle+Vulnerabilities">USS会议演讲视频</a>，<a href="https://www.youtube.com/results?search_query=Scalable+Scanning+and+Automatic+Classification+of+TLS+Padding+Oracle+Vulnerabilities">国际密码研究协会演讲视频</a></p>
@@ -441,6 +428,19 @@
       </tags>
   </entry>
   <entry>
+    <title>TLS1.2 RFC-5246文档翻译学习</title>
+    <url>/2021/05/20/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<p>官方文档：<a href="https://www.rfc-editor.org/info/rfc5246">RFC-5246</a></p>
+<ul>
+<li><strong>文章结构请看右边的目录</strong>👉</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>RFC6246</tag>
+        <tag>TLS1.2</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>「送你一朵小红花」</title>
     <url>/2021/04/26/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/</url>
     <content><![CDATA[<p><img src="https://img0.utuku.china.com/550x0/ent/20200612/8f5ba9c8-3738-4c6f-bc10-9c64c27d1c58.jpg"></p>
@@ -495,14 +495,15 @@
 <li>通过在Mac上下载GmBrowser并且访问CentOS服务器的地址，成功进行国密连接。</li>
 <li>接下来，使用TLS-Attacker和TLS-Scnner对本地环境进行测试。开始着手TLS-Attacker和TLS-Scanner的熟悉和编程修改优化。</li>
 </ol>
-<h1 id="第三次GMSSL环境搭建（国密SSL实验室）"><a href="#第三次GMSSL环境搭建（国密SSL实验室）" class="headerlink" title="第三次GMSSL环境搭建（国密SSL实验室）"></a>第三次GMSSL环境搭建（国密SSL实验室）</h1><p>主要是在外部服务器上进行搭建测试，这次测试了2种搭建（特殊：这个支持CBC模式）</p>
+<h2 id="第三次GMSSL环境搭建（国密SSL实验室）"><a href="#第三次GMSSL环境搭建（国密SSL实验室）" class="headerlink" title="第三次GMSSL环境搭建（国密SSL实验室）"></a>第三次GMSSL环境搭建（国密SSL实验室）</h2><p>结合前面的<em>国密SSL实验室</em>进行，在CentOS 7环境上实验（<strong>成功</strong>）</p>
+<p>主要是在外部服务器上进行搭建测试，这次测试了2种搭建（特殊：这个支持CBC模式）</p>
 <ol>
 <li><p>Nginx（国密版）搭建（完成）</p>
 </li>
 <li><p>Apache（国密版）搭建（完成）</p>
 </li>
-<li><p>国密HTTPS在线Demo</p>
-<p><img src="../images/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95-%E5%8D%8F%E8%AE%AE-%E5%B7%A5%E6%8E%A7/%E5%9B%BD%E5%AF%86HTTPS%E5%9C%A8%E7%BA%BFDemo.png" alt="image-20210526112422358"></p>
+<li><p>国密HTTPS在线Demo（完成），Demo如下图所示：</p>
+<p><img src="/images/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95-%E5%8D%8F%E8%AE%AE-%E5%B7%A5%E6%8E%A7/%E5%9B%BD%E5%AF%86HTTPS%E5%9C%A8%E7%BA%BFDemo.png" alt="国密HTTPS在线Demo"></p>
 </li>
 </ol>
 <h2 id="正式实验记录："><a href="#正式实验记录：" class="headerlink" title="正式实验记录："></a>正式实验记录：</h2><ol>
@@ -540,7 +541,7 @@
 <p>在<em><strong>ClientHello</strong></em>提供的国密Hash+签名算法有：0x0707（<strong>SM3+SM2</strong>）</p>
 <p>此时共同协商的密码组件是<strong>ECDHE-SM2-WITH-SMS4-GCM-SM3</strong>，在数据包中其值表示为“0xe107”，传输协议为<strong>TLSv1.2</strong>，其值为“0x0303”</p>
 <p>图解数据包：</p>
-<p><img src="/images/GMSSL/1-one-cert-one-auth-anlysis.jpg" alt="1-one-cert-one-auth-anlysis"></p>
+<p><img src="/images/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95-%E5%8D%8F%E8%AE%AE-%E5%B7%A5%E6%8E%A7/1-one-cert-one-auth-anlysis.jpg" alt="1-one-cert-one-auth-anlysis"></p>
 <h3 id="单证书双向认证"><a href="#单证书双向认证" class="headerlink" title="单证书双向认证"></a>单证书双向认证</h3><p>抓包文件：2-one-cert-two-auth.pcapng</p>
 <p>首先打开服务器s_server，服务端命令和输出如下：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@localhost demoCA]# gmssl s_server -key .&#x2F;sm2.server&#x2F;sm2.server.sig.key.pem -cert .&#x2F;sm2.server&#x2F;sm2.server.sig.crt.pem -CAfile sm2.trust.pem -state -accept 44330 -verify 1</span><br><span class="line">verify depth is 1</span><br><span class="line">Using default temp DH parameters</span><br><span class="line">[GMTLS_DEBUG] set sm2 signing certificate</span><br><span class="line">[GMTLS_DEBUG] set sm2 signing private key</span><br><span class="line">ACCEPT</span><br></pre></td></tr></table></figure>
@@ -574,10 +575,10 @@
 <h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><h2 id="国密SSL-HTTP"><a href="#国密SSL-HTTP" class="headerlink" title="国密SSL/HTTP"></a>国密SSL/HTTP</h2><ul>
 <li><p><a href="https://blog.csdn.net/WoTrusCA">沃通的CSDN官方博客</a>有许多GM相关的东西，可以多看看</p>
 <p><a href="https://blog.csdn.net/WoTrusCA/article/details/108366659?spm=1001.2014.3001.5501">沃通：关于国密HTTPS的那些事（一）</a>：国密SSL的协议过程的图解详细分析（双证书和双向认证）。</p>
-<p><img src="/images/GMSSL/GM-SSL-Process.png" alt="GM-SSL-Process"></p>
+<p><img src="/images/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95-%E5%8D%8F%E8%AE%AE-%E5%B7%A5%E6%8E%A7/GM-SSL-Process.png" alt="GM-SSL-Process"></p>
 <p><a href="https://blog.csdn.net/WoTrusCA/article/details/108398730?spm=1001.2014.3001.5501">沃通：关于国密HTTPS的那些事（二）</a>：每个协议版本和密码组件都有其对应的值（Value)，ClientHello中包含客户端本地支持的所有密码组件，以供服务端可以选择。</p>
 <p><a href="https://blog.csdn.net/WoTrusCA/article/details/108440658?spm=1001.2014.3001.5501">沃通：关于国密HTTPS的那些事（三）</a>：12个国密组件及其对应值，简单阐述了国密SSL和Openssl的区别。</p>
-<p><img src="/images/GMSSL/GM-CipherSuites.png"></p>
+<p><img src="/images/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95-%E5%8D%8F%E8%AE%AE-%E5%B7%A5%E6%8E%A7/GM-CipherSuites.png" alt="GM-CipherSuites"></p>
 </li>
 <li><p><strong>GmSSL-Github-guanzhi相关：</strong></p>
 <p>CSDN-viqjeee：<a href="https://blog.csdn.net/qq_39952971/article/details/115178980">gmssl 国密ssl流程测试</a></p>
@@ -624,14 +625,6 @@
     <content><![CDATA[{"name":"Koper","short_name":"Koper","start_url":"/","icons":[{"src":"/images/siteicon/android-chrome-36x36.png","sizes":"36x36","type":"image/png"},{"src":"/images/siteicon/android-chrome-48x48.png","sizes":"48x48","type":"image/png"},{"src":"/images/siteicon/android-chrome-72x72.png","sizes":"72x72","type":"image/png"},{"src":"/images/siteicon/android-chrome-96x96.png","sizes":"96x96","type":"image/png"},{"src":"/images/siteicon/android-chrome-144x144.png","sizes":"144x144","type":"image/png"},{"src":"/images/siteicon/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/images/siteicon/android-chrome-256x256.png","sizes":"256x256","type":"image/png"},{"src":"/images/siteicon/android-chrome-384x384.png","sizes":"384x384","type":"image/png"},{"src":"/images/siteicon/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#ffffff","background_color":"#ffffff","display":"standalone"}]]></content>
   </entry>
   <entry>
-    <title>about</title>
-    <url>/about/index.html</url>
-    <content><![CDATA[<p>关于我：</p>
-<p>一名在读的打工人，每天的事就是科研科研</p>
-<p>同时分享自己在读的生活和一些日常</p>
-]]></content>
-  </entry>
-  <entry>
     <title>archives</title>
     <url>/archives/index.html</url>
     <content><![CDATA[]]></content>
@@ -645,6 +638,14 @@
     <title>tags</title>
     <url>/tags/index.html</url>
     <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>about</title>
+    <url>/about/index.html</url>
+    <content><![CDATA[<p>关于我：</p>
+<p>一名在读的打工人，每天的事就是科研科研</p>
+<p>同时分享自己在读的生活和一些日常</p>
+]]></content>
   </entry>
   <entry>
     <title></title>
