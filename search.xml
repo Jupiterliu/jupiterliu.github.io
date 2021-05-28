@@ -182,6 +182,43 @@
       </tags>
   </entry>
   <entry>
+    <title>TLS1.2 RFC-5246文档翻译学习</title>
+    <url>/2021/05/20/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<p>官方文档：<a href="https://www.rfc-editor.org/info/rfc5246">RFC-5246</a></p>
+<ul>
+<li><strong>文章结构请看右边的目录</strong>👉</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>RFC6246</tag>
+        <tag>TLS1.2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>「送你一朵小红花」</title>
+    <url>/2021/04/26/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/</url>
+    <content><![CDATA[<p><img src="https://img0.utuku.china.com/550x0/ent/20200612/8f5ba9c8-3738-4c6f-bc10-9c64c27d1c58.jpg"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC17.JPG" alt="LHC17"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC16.JPG" alt="LHC16"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC15.JPG" alt="LHC15"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC14.JPG" alt="LHC14"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC13.jpg" alt="LHC13"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC12.jpg" alt="LHC12"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC11.jpg" alt="LHC11"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC10.JPG" alt="LHC10"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC9.jpg" alt="LHC9"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC8.jpg" alt="LHC8"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC6.GIF" alt="LHC6"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC5.jpg" alt="LHC5"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC4.JPG" alt="LHC4"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC3.jpg" alt="LHC3"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/run&start%E6%96%B9%E6%B3%95%E5%8C%BA%E5%88%AB.jpg" alt="run&amp;start方法区别"></p>
+]]></content>
+      <tags>
+        <tag>movie</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Paper Reading: Scalable Scanning and Automatic Classification of TLS Padding Oracle Vulnerabilities</title>
     <url>/2021/04/24/Paper-Reading-Scalable-Scanning-and-Automatic-Classification-of-TLS-Padding-Oracle-Vulnerabilities/</url>
     <content><![CDATA[<h1 id="「TLS-Padding-Oracle漏洞的可拓展扫描和自动分类」"><a href="#「TLS-Padding-Oracle漏洞的可拓展扫描和自动分类」" class="headerlink" title="「TLS Padding Oracle漏洞的可拓展扫描和自动分类」"></a>「TLS Padding Oracle漏洞的可拓展扫描和自动分类」</h1><p>该论文发表在第28次USS会议上，<a href="https://www.youtube.com/results?search_query=Scalable+Scanning+and+Automatic+Classification+of+TLS+Padding+Oracle+Vulnerabilities">USS会议演讲视频</a>，<a href="https://www.youtube.com/results?search_query=Scalable+Scanning+and+Automatic+Classification+of+TLS+Padding+Oracle+Vulnerabilities">国际密码研究协会演讲视频</a></p>
@@ -428,43 +465,6 @@
       </tags>
   </entry>
   <entry>
-    <title>TLS1.2 RFC-5246文档翻译学习</title>
-    <url>/2021/05/20/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<p>官方文档：<a href="https://www.rfc-editor.org/info/rfc5246">RFC-5246</a></p>
-<ul>
-<li><strong>文章结构请看右边的目录</strong>👉</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>RFC6246</tag>
-        <tag>TLS1.2</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>「送你一朵小红花」</title>
-    <url>/2021/04/26/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/</url>
-    <content><![CDATA[<p><img src="https://img0.utuku.china.com/550x0/ent/20200612/8f5ba9c8-3738-4c6f-bc10-9c64c27d1c58.jpg"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC17.JPG" alt="LHC17"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC16.JPG" alt="LHC16"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC15.JPG" alt="LHC15"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC14.JPG" alt="LHC14"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC13.jpg" alt="LHC13"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC12.jpg" alt="LHC12"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC11.jpg" alt="LHC11"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC10.JPG" alt="LHC10"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC9.jpg" alt="LHC9"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC8.jpg" alt="LHC8"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC6.GIF" alt="LHC6"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC5.jpg" alt="LHC5"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC4.JPG" alt="LHC4"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC3.jpg" alt="LHC3"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/run&start%E6%96%B9%E6%B3%95%E5%8C%BA%E5%88%AB.jpg" alt="run&amp;start方法区别"></p>
-]]></content>
-      <tags>
-        <tag>movie</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>国密算法/协议/工控</title>
     <url>/2021/04/28/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95-%E5%8D%8F%E8%AE%AE-%E5%B7%A5%E6%8E%A7/</url>
     <content><![CDATA[<h1 id="国密SSL-TLS"><a href="#国密SSL-TLS" class="headerlink" title="国密SSL/TLS"></a>国密SSL/TLS</h1><p>🌟🌟🌟<a href="https://www.gmssl.cn/gmssl/index.jsp?go=down">国密SSL实验室</a>（重点）：好多使用的工具，包括国密Web浏览器、国密Web服务器、国密性能测试、国密工具箱等等。可以从这里面下载Web服务器，搭建并进行TLS-Attacker的测试。一个<a href="https://developer.aliyun.com/article/770830">阿里云的实战博客</a>，该博客实战了GMSSL的Nginx安装和使用。一个相关测试的专栏文章-<a href="https://segmentfault.com/a/1190000024448440">国密SSL之性能测试</a>。</p>
@@ -509,7 +509,8 @@
 <p>问题：能访问，但是Mac上用Wireshark抓包失败</p>
 <p>分析：服务器在国外，产生的流并不是直接指向服务器地址，而是在本地代理的环境下进行了转发。</p>
 <p>解决：找到本地代理的固定口，让流量只通过这个，不更换，更好的捕获流量（5.27中午吃饭之前要解决，然后TLS-Attacker底层）</p>
-<h2 id="正式实验记录："><a href="#正式实验记录：" class="headerlink" title="正式实验记录："></a>正式实验记录：</h2><ol>
+<p>结果：代理是clash，不好更改，抓包不方便，该方案取消</p>
+<h2 id="第四次GmSSL环境搭建（百度云VPS主机）"><a href="#第四次GmSSL环境搭建（百度云VPS主机）" class="headerlink" title="第四次GmSSL环境搭建（百度云VPS主机）"></a>第四次GmSSL环境搭建（百度云VPS主机）</h2><h2 id="正式实验记录："><a href="#正式实验记录：" class="headerlink" title="正式实验记录："></a>正式实验记录：</h2><ol>
 <li><p>先熟悉GmSSL的生成证书以及国密算法组件</p>
 <ul>
 <li>新增国密密码套件如下，有对应的16进制表示</li>
@@ -633,6 +634,14 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
+    <title>about</title>
+    <url>/about/index.html</url>
+    <content><![CDATA[<p>关于我：</p>
+<p>一名在读的打工人，每天的事就是科研科研</p>
+<p>同时分享自己在读的生活和一些日常</p>
+]]></content>
+  </entry>
+  <entry>
     <title>categories</title>
     <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
@@ -641,14 +650,6 @@
     <title>tags</title>
     <url>/tags/index.html</url>
     <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>about</title>
-    <url>/about/index.html</url>
-    <content><![CDATA[<p>关于我：</p>
-<p>一名在读的打工人，每天的事就是科研科研</p>
-<p>同时分享自己在读的生活和一些日常</p>
-]]></content>
   </entry>
   <entry>
     <title></title>
