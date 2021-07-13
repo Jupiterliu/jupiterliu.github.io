@@ -33,6 +33,35 @@
       </tags>
   </entry>
   <entry>
+    <title>LeetCode</title>
+    <url>/2021/04/27/LeetCode/</url>
+    <content><![CDATA[<h1 id="Array-35-search-insert-position"><a href="#Array-35-search-insert-position" class="headerlink" title="Array_35(search-insert-position)"></a>Array_35(search-insert-position)</h1><p>先确认查找算法是二分查找（binary-search），将<a href="https://leetcode-cn.com/problems/binary-search/">二分查找的算法</a>解了一次。问题：执行用时很少，但内存占用多</p>
+<p>当没找到index后，比较target和nums[pivot]，返回插入位置就行。</p>
+<p>问题：空间复杂度高</p>
+<p><img src="/images/LeetCode/search-insert-position-1.jpg"></p>
+<h1 id="Array-27-remove-element"><a href="#Array-27-remove-element" class="headerlink" title="Array_27(remove-element)"></a>Array_27(remove-element)</h1><p>两种方法：</p>
+<ol>
+<li><p>暴力破解：双for循环O(n^2),&amp;O(1)</p>
+<p>第一个for循环用于检索数组，第二个for循环用于删除，也即数据往前移动。</p>
+</li>
+<li><p>双指针法：快慢指针法O(n)&amp;O(1)，更常用于数组和链表</p>
+<p>一个for循环，一个快指针，一个慢指针，快指针往前检索，知道遍历完整个数组，然后慢指针负责慢慢检索将后面的数据复制往前移动。右指针 <em>right</em> 指向当前将要处理的元素，左指针<em>left</em> 指向下一个将要赋值的位置</p>
+</li>
+</ol>
+<p><img src="/images/LeetCode/remove-element.jpg"></p>
+<h1 id="ARRAY209-minimum-size-subarray-sum"><a href="#ARRAY209-minimum-size-subarray-sum" class="headerlink" title="ARRAY209(minimum-size-subarray-sum)"></a>ARRAY209(minimum-size-subarray-sum)</h1><p>两种方法：</p>
+<p>1.暴力破解法（两个for循环）</p>
+<p>2.滑动窗口法（双指针法）</p>
+<p><img src="/images/LeetCode/image-20210618114458003.png" alt="image-20210618114458003"></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://leetcode-cn.com/circle/article/wGp7Y9/">LeetCode最强刷题指南</a></p>
+<p><a href="https://github.com/youngyangyang04/leetcode-master">LeetCode刷题攻略</a></p>
+]]></content>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java多线程高并发</title>
     <url>/2021/05/24/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%AB%98%E5%B9%B6%E5%8F%91/</url>
     <content><![CDATA[<h1 id="线程简介"><a href="#线程简介" class="headerlink" title="线程简介"></a>线程简介</h1><p>视频课程地址：<a href="https://www.bilibili.com/video/BV1V4411p7EF?p=9">【狂神说Java】多线程详解</a></p>
@@ -79,35 +108,6 @@
 
 
 ]]></content>
-  </entry>
-  <entry>
-    <title>LeetCode</title>
-    <url>/2021/04/27/LeetCode/</url>
-    <content><![CDATA[<h1 id="Array-35-search-insert-position"><a href="#Array-35-search-insert-position" class="headerlink" title="Array_35(search-insert-position)"></a>Array_35(search-insert-position)</h1><p>先确认查找算法是二分查找（binary-search），将<a href="https://leetcode-cn.com/problems/binary-search/">二分查找的算法</a>解了一次。问题：执行用时很少，但内存占用多</p>
-<p>当没找到index后，比较target和nums[pivot]，返回插入位置就行。</p>
-<p>问题：空间复杂度高</p>
-<p><img src="/images/LeetCode/search-insert-position-1.jpg"></p>
-<h1 id="Array-27-remove-element"><a href="#Array-27-remove-element" class="headerlink" title="Array_27(remove-element)"></a>Array_27(remove-element)</h1><p>两种方法：</p>
-<ol>
-<li><p>暴力破解：双for循环O(n^2),&amp;O(1)</p>
-<p>第一个for循环用于检索数组，第二个for循环用于删除，也即数据往前移动。</p>
-</li>
-<li><p>双指针法：快慢指针法O(n)&amp;O(1)，更常用于数组和链表</p>
-<p>一个for循环，一个快指针，一个慢指针，快指针往前检索，知道遍历完整个数组，然后慢指针负责慢慢检索将后面的数据复制往前移动。右指针 <em>right</em> 指向当前将要处理的元素，左指针<em>left</em> 指向下一个将要赋值的位置</p>
-</li>
-</ol>
-<p><img src="/images/LeetCode/remove-element.jpg"></p>
-<h1 id="ARRAY209-minimum-size-subarray-sum"><a href="#ARRAY209-minimum-size-subarray-sum" class="headerlink" title="ARRAY209(minimum-size-subarray-sum)"></a>ARRAY209(minimum-size-subarray-sum)</h1><p>两种方法：</p>
-<p>1.暴力破解法（两个for循环）</p>
-<p>2.滑动窗口法（双指针法）</p>
-<p><img src="/images/LeetCode/image-20210618114458003.png" alt="image-20210618114458003"></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://leetcode-cn.com/circle/article/wGp7Y9/">LeetCode最强刷题指南</a></p>
-<p><a href="https://github.com/youngyangyang04/leetcode-master">LeetCode刷题攻略</a></p>
-]]></content>
-      <tags>
-        <tag>leetcode</tag>
-        <tag>algorithm</tag>
-      </tags>
   </entry>
   <entry>
     <title>SSL/TLS相关</title>
@@ -178,6 +178,47 @@
 <li>接下来是一些<strong>常量</strong>的定义赋值以及对应的<code>set</code>和<code>get</code>构造方法；这部分<strong>最多</strong>;</li>
 <li>最后是简单的几个<strong>常量</strong>，但是没有对其进行<code>set</code>和<code>get</code>方法构造。</li>
 </ol>
+<h1 id="TLS-ATTACkER框架添加GMSSL"><a href="#TLS-ATTACkER框架添加GMSSL" class="headerlink" title="TLS-ATTACkER框架添加GMSSL"></a>TLS-ATTACkER框架添加GMSSL</h1><h2 id="TLS-COre修改"><a href="#TLS-COre修改" class="headerlink" title="TLS-COre修改"></a>TLS-COre修改</h2><h3 id="AlgorithmResolver-java"><a href="#AlgorithmResolver-java" class="headerlink" title="AlgorithmResolver.java"></a>AlgorithmResolver.java</h3><p>密码组件和密码算法解析</p>
+<p>1.获得PRF算法（伪随机数算法）：getPRFAlgorithm()方法</p>
+<p>添加<code>SM3杂凑算法</code>识别</p>
+<p>2.获得摘要算法：getDigestAlgorithm()方法</p>
+<p>添加<code>SM3摘要算法</code>识别</p>
+<p>3.获取密钥交换算法：getKeyExchangeAlgorithm()方法</p>
+<p>添加<code>ECDHE_SM2</code>和<code>ECC_SM2</code>的SM2密钥交换算法识别</p>
+<p>4.获取证书密钥类型：getCertificateKeyType()方法</p>
+<p>添加<code>SM2</code>证书识别</p>
+<p>5.获取公钥加密算法：getRequiredKeystoreAlgorithms()方法</p>
+<p>添加<code>SM2</code>公钥算法识别</p>
+<p>6.获取对称加密算法：getCipher()方法</p>
+<p>添加<code>SM4_CBC</code>对称加密算法识别</p>
+<p>7.获取批量加密算法：getBulkCipherAlgorithm()方法</p>
+<p>在<code>BulkCipherAlgorithm.java</code>类中添加<code>SM4</code>支持</p>
+<p>8.获取加密类型：getCipherType()方法</p>
+<p>添加<code>SM4</code>和<code>SMS4</code>识别到分组密码中</p>
+<p>9.获取MAC算法：getMacAlgorithm()方法</p>
+<p>添加<code>SM3</code>算法的识别</p>
+<p>10.获取HKDF算法：getHKDFAlgorithm()方法</p>
+<p>添加<code>SM3</code>的HKDF算法识别</p>
+<h3 id="BulkCipherAlgorithm-java（批量对称加密算法）"><a href="#BulkCipherAlgorithm-java（批量对称加密算法）" class="headerlink" title="BulkCipherAlgorithm.java（批量对称加密算法）"></a>BulkCipherAlgorithm.java（批量对称加密算法）</h3><p>添加了<code>SM4</code>的国密对称加密算法</p>
+<h3 id="CipherAlgorithm-java（对称加密算法-分组大小-加密模式）"><a href="#CipherAlgorithm-java（对称加密算法-分组大小-加密模式）" class="headerlink" title="CipherAlgorithm.java（对称加密算法+分组大小+加密模式）"></a>CipherAlgorithm.java（对称加密算法+分组大小+加密模式）</h3><p>添加<code>SM4-CBC</code>的加密模式，包括密钥大小，初始向量的大小，记录大小，分块大小</p>
+<h3 id="PRFAlgorithm-java"><a href="#PRFAlgorithm-java" class="headerlink" title="PRFAlgorithm.java"></a>PRFAlgorithm.java</h3><p>添加<code>TLS_PRF_SM3(MacAlgorithm.SM3)</code>的PRF伪随机函数算法</p>
+<h3 id="MacAlgorithm-java"><a href="#MacAlgorithm-java" class="headerlink" title="MacAlgorithm.java"></a>MacAlgorithm.java</h3><p>添加<code>SM3</code>的MAC算法</p>
+<p>注释：SM3主要用于<a href="https://zh.wikipedia.org/wiki/%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D">数字签名</a>及验证、<a href="https://zh.wikipedia.org/wiki/%E6%B6%88%E6%81%AF%E8%AE%A4%E8%AF%81%E7%A0%81">消息认证码</a>生成及验证、随机数生成等，其算法公开[<a href="https://zh.wikipedia.org/wiki/SM3#cite_note-oscca_1199-5">5]</a>[<a href="https://zh.wikipedia.org/wiki/SM3#cite_note-6">6]</a>，安全性及效率与<a href="https://zh.wikipedia.org/wiki/SHA-2">SHA-256</a>相当</p>
+<h3 id="CipherSuite-java"><a href="#CipherSuite-java" class="headerlink" title="CipherSuite.java"></a>CipherSuite.java</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// GmSSL CipherSuites  添加GM的8个密码组件</span></span><br><span class="line"><span class="comment">//TLS_ECDHE_SM4_SM3(0xE011),</span></span><br><span class="line"><span class="comment">//TLS_ECC_SM4_SM3(0xE013),</span></span><br><span class="line"><span class="comment">//TLS_IBSDH_SM4_SM3(0xE015),</span></span><br><span class="line"><span class="comment">//TLS_IBC_SM4_SM3(0xE017),</span></span><br><span class="line"><span class="comment">//TLS_RSA_SM4_SM3(0xE019),</span></span><br><span class="line"><span class="comment">//TLS_RSA_SM4_SHA1(0xE01a),</span></span><br><span class="line">TLS_ECDHE_SM2_WITH_SMS4_SM3(<span class="number">0xE102</span>),</span><br><span class="line">TLS_ECDHE_SM2_WITH_SMS4_GCM_SM3(<span class="number">0xE107</span>),</span><br><span class="line">TLS_ECC_SM2_WITH_SM4_CBC_SM3(<span class="number">0xE109</span>),</span><br><span class="line">TLS_ECDHE_SM2_WITH_SM4_CBC_SM3(<span class="number">0xE111</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//添加GmSSL支持</span></span><br><span class="line"><span class="comment">//list.add(TLS_ECDHE_SM4_SM3);</span></span><br><span class="line"><span class="comment">//list.add(TLS_ECC_SM4_SM3);</span></span><br><span class="line"><span class="comment">//list.add(TLS_IBSDH_SM4_SM3);</span></span><br><span class="line"><span class="comment">//list.add(TLS_IBC_SM4_SM3);</span></span><br><span class="line"><span class="comment">//list.add(TLS_RSA_SM4_SM3);</span></span><br><span class="line"><span class="comment">//list.add(TLS_RSA_SM4_SHA1);</span></span><br><span class="line">list.add(TLS_ECDHE_SM2_WITH_SMS4_SM3);</span><br><span class="line">list.add(TLS_ECDHE_SM2_WITH_SMS4_GCM_SM3);</span><br><span class="line">list.add(TLS_ECC_SM2_WITH_SM4_CBC_SM3);</span><br><span class="line">list.add(TLS_ECDHE_SM2_WITH_SM4_CBC_SM3);</span><br></pre></td></tr></table></figure>
+
+<p>添加方法<code>usesSM3()</code>识别密码组件最后用的是SM3杂凑算法</p>
+<h3 id="DigestAlgorithm-java"><a href="#DigestAlgorithm-java" class="headerlink" title="DigestAlgorithm.java"></a>DigestAlgorithm.java</h3><p>摘要算法，添加<code>SM3</code>的摘要算法</p>
+<h3 id="KeyExchangeAlgorithm-java"><a href="#KeyExchangeAlgorithm-java" class="headerlink" title="KeyExchangeAlgorithm.java"></a>KeyExchangeAlgorithm.java</h3><p>密钥交换算法，添加<code>ECDHE_SM2</code>和<code>ECC_SM2</code>的SM2密钥交换算法</p>
+<h3 id="CertificateKeyType-java"><a href="#CertificateKeyType-java" class="headerlink" title="CertificateKeyType.java"></a>CertificateKeyType.java</h3><p>证书密钥类型，添加<code>SM2</code>证书类型</p>
+<h3 id="PublicKeyAlgorithm-java"><a href="#PublicKeyAlgorithm-java" class="headerlink" title="PublicKeyAlgorithm.java"></a>PublicKeyAlgorithm.java</h3><p>公钥算法类型，添加<code>SM2</code>公钥算法</p>
+<h3 id="HKDFAlgorithm-java"><a href="#HKDFAlgorithm-java" class="headerlink" title="HKDFAlgorithm.java"></a>HKDFAlgorithm.java</h3><p>HMAC-based Extract-and-Expand Key Derivation Function (HKDF)：基于HAMC的密钥派生函数</p>
+<p>还不知道<code>SM3</code>是否支持HKDF算法，<strong>？？？</strong>，有待查证</p>
+<p>已添加<code>TLS_HKDF_SM3</code>的SM3支持</p>
+<h2 id="TLS-ATTACKs修改"><a href="#TLS-ATTACKs修改" class="headerlink" title="TLS-ATTACKs修改"></a>TLS-ATTACKs修改</h2><h3 id="PaddingOracleCommandConfig-java"><a href="#PaddingOracleCommandConfig-java" class="headerlink" title="PaddingOracleCommandConfig.java"></a>PaddingOracleCommandConfig.java</h3><p>在重写的类createConfig(Config config)中添加GM密码组件支持</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">cipherSuites.add(CipherSuite.TLS_ECDHE_SM2_WITH_SM4_CBC_SM3);    <span class="comment">//添加GmSSL的CBC密码组件支持</span></span><br><span class="line">cipherSuites.add(CipherSuite.TLS_ECC_SM2_WITH_SM4_CBC_SM3);</span><br></pre></td></tr></table></figure>
+
+
+
 <h2 id="Blog-TLS-Attacker"><a href="#Blog-TLS-Attacker" class="headerlink" title="Blog/TLS-Attacker"></a>Blog/TLS-Attacker</h2><p><a href="https://web-in-security.blogspot.com/2019/03/playing-with-tls-attacker.html">On Web-Security and -Insecurity:Playing with TLS-Attacker</a>: 讲述了TLS-Attacker的工作流运行方式，xml文件如何编写创建</p>
 <ol>
 <li><em><strong>-config</strong></em>配置文件：配置一些密码组件，协议版本；该框架默认的config文件<a href="https://github.com/tls-attacker/TLS-Attacker/blob/master/TLS-Core/src/main/resources/default_config.xml">default_config.xml</a>，可以根据默认配置文件修改其中的一些东西。</li>
@@ -326,6 +367,30 @@
       <tags>
         <tag>RFC6246</tag>
         <tag>TLS1.2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>「送你一朵小红花」</title>
+    <url>/2021/04/26/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/</url>
+    <content><![CDATA[<p><img src="https://img0.utuku.china.com/550x0/ent/20200612/8f5ba9c8-3738-4c6f-bc10-9c64c27d1c58.jpg"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC17.JPG" alt="LHC17"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC16.JPG" alt="LHC16"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC15.JPG" alt="LHC15"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC14.JPG" alt="LHC14"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC13.jpg" alt="LHC13"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC12.jpg" alt="LHC12"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC11.jpg" alt="LHC11"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC10.JPG" alt="LHC10"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC9.jpg" alt="LHC9"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC8.jpg" alt="LHC8"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC6.GIF" alt="LHC6"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC5.jpg" alt="LHC5"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC4.JPG" alt="LHC4"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC3.jpg" alt="LHC3"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/run&start%E6%96%B9%E6%B3%95%E5%8C%BA%E5%88%AB.jpg" alt="run&amp;start方法区别"></p>
+]]></content>
+      <tags>
+        <tag>movie</tag>
       </tags>
   </entry>
   <entry>
@@ -575,33 +640,11 @@
       </tags>
   </entry>
   <entry>
-    <title>「送你一朵小红花」</title>
-    <url>/2021/04/26/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/</url>
-    <content><![CDATA[<p><img src="https://img0.utuku.china.com/550x0/ent/20200612/8f5ba9c8-3738-4c6f-bc10-9c64c27d1c58.jpg"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC17.JPG" alt="LHC17"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC16.JPG" alt="LHC16"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC15.JPG" alt="LHC15"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC14.JPG" alt="LHC14"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC13.jpg" alt="LHC13"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC12.jpg" alt="LHC12"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC11.jpg" alt="LHC11"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC10.JPG" alt="LHC10"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC9.jpg" alt="LHC9"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC8.jpg" alt="LHC8"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC6.GIF" alt="LHC6"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC5.jpg" alt="LHC5"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC4.JPG" alt="LHC4"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC3.jpg" alt="LHC3"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/run&start%E6%96%B9%E6%B3%95%E5%8C%BA%E5%88%AB.jpg" alt="run&amp;start方法区别"></p>
-]]></content>
-      <tags>
-        <tag>movie</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>国密算法/协议/工控</title>
     <url>/2021/04/28/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95-%E5%8D%8F%E8%AE%AE-%E5%B7%A5%E6%8E%A7/</url>
-    <content><![CDATA[<h1 id="国密SSL-TLS"><a href="#国密SSL-TLS" class="headerlink" title="国密SSL/TLS"></a>国密SSL/TLS</h1><p>🌟🌟🌟<a href="https://www.gmssl.cn/gmssl/index.jsp?go=down">国密SSL实验室</a>（重点）：好多使用的工具，包括国密Web浏览器、国密Web服务器、国密性能测试、国密工具箱等等。可以从这里面下载Web服务器，搭建并进行TLS-Attacker的测试。一个<a href="https://developer.aliyun.com/article/770830">阿里云的实战博客</a>，该博客实战了GMSSL的Nginx安装和使用。一个相关测试的专栏文章-<a href="https://segmentfault.com/a/1190000024448440">国密SSL之性能测试</a>。</p>
+    <content><![CDATA[<h1 id="国密标准"><a href="#国密标准" class="headerlink" title="国密标准"></a>国密标准</h1><p>关注<a href="http://www.scctc.org.cn/index.aspx">国家商用密码检测中心</a>和<a href="http://openstd.samr.gov.cn/bzgk/gb/">国家标准全文公开系统</a>和<a href="http://std.samr.gov.cn/">全国标准信息公共服务平台</a>发布的标准。</p>
+<p>🌟🌟🌟注意：<strong>GMT_0024-2014</strong>关于GM的SSL VPN标准已经是2015年的标准，现在2020-11-01已经出台新的标准，也就是<a href="http://c.gb688.cn/bzgk/gb/showGb?type=online&hcno=778097598DA2761E94A5FF3F77BD66DA"><strong>GB/T 38636-2020</strong></a>标准（TLCP-传输层密码协议），其中关于密码组件有了新的描述和值，如下图所示：<br><img src="/images/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95-%E5%8D%8F%E8%AE%AE-%E5%B7%A5%E6%8E%A7/image-20210713210116996.png" alt="image-20210713210116996"></p>
+<h1 id="国密SSL-TLS"><a href="#国密SSL-TLS" class="headerlink" title="国密SSL/TLS"></a>国密SSL/TLS</h1><p>🌟🌟🌟<a href="https://www.gmssl.cn/gmssl/index.jsp?go=down">国密SSL实验室</a>（重点）：好多使用的工具，包括国密Web浏览器、国密Web服务器、国密性能测试、国密工具箱等等。可以从这里面下载Web服务器，搭建并进行TLS-Attacker的测试。一个<a href="https://developer.aliyun.com/article/770830">阿里云的实战博客</a>，该博客实战了GMSSL的Nginx安装和使用。一个相关测试的专栏文章-<a href="https://segmentfault.com/a/1190000024448440">国密SSL之性能测试</a>。</p>
 <p>一个在线工具：<a href="https://myssl.com/">SSL/TLS安全评估报告-在线网站检测</a>。其支持国密HTTPS的检测分析。</p>
 <p>江南天安<a href="https://github.com/jntass">Github主页-jntass</a>：提供源码下载和Nginx服务器的安装。</p>
 <p><a href="http://gmssl.org/">GmSSL</a>：支持国密的密码工具箱，GmSSL作者关志教授的Github主页：<a href="https://github.com/guanzhi">GmSSL-guanzhi</a>。其中关志教授将<a href="https://github.com/guanzhi/GM-Standards">GM-Standards</a>都列了出来，所有国密行业的标准pdf。</p>
@@ -647,7 +690,8 @@
 <h2 id="第四次GmSSL环境搭建（百度云VPS主机）"><a href="#第四次GmSSL环境搭建（百度云VPS主机）" class="headerlink" title="第四次GmSSL环境搭建（百度云VPS主机）"></a>第四次GmSSL环境搭建（百度云VPS主机）</h2><p>完成搭建，可以抓包</p>
 <p>下一步改TLS-Attacker框架，适应国密</p>
 <p>GmSSL实验室的Nginx实验室服务器的支持的密码组件是<strong>ECC-SM4-CBC-SM3、ECDHE-SM4-CBC-SM3、ECC-SM4-GCM-SM3、ECDHE-SM4-GCM-SM3</strong>，但是并不知道密码组件所代表的值，其中两个是CBC密码模式的组件。是否可以通过<strong>Wireshark</strong>来抓取服务器的包，然后知道其所代表的值（这估计是不行的）。</p>
-<p>明天任务：找到对应的密码组件的值，从rfc文档中应该可以发现些什么。</p>
+<h3 id="实验过程-amp-amp-问题"><a href="#实验过程-amp-amp-问题" class="headerlink" title="实验过程&amp;&amp;问题"></a>实验过程&amp;&amp;问题</h3><p>遇到的问题：Nginx服务器的密码组件格式是ECDHE-SM4-CBC-SM3形式，而正式标准规定TLS的密码组件格式为ECDHE_SM4_CBC_SM3（下划线分割）格式，GmSSL实验室的服务器是这样，不知道现在其他的服务器是否是如此规定。可以试图修改服务器的组件表达方式。</p>
+<p>找到了/usr/local/gmssl/lib目录下的libcrypto.a文件，解压之后发现了sm2、sm3等的obj类型文件，例如sm3.o文件，该文件不可读，打开是乱码，但是百度有方法可以解码后阅读。</p>
 <h2 id="正式实验记录（第二次搭建实验）："><a href="#正式实验记录（第二次搭建实验）：" class="headerlink" title="正式实验记录（第二次搭建实验）："></a>正式实验记录（第二次搭建实验）：</h2><ol>
 <li><p>先熟悉GmSSL的生成证书以及国密算法组件</p>
 <ul>
@@ -780,13 +824,13 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>categories</title>
-    <url>/categories/index.html</url>
+    <title>tags</title>
+    <url>/tags/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>tags</title>
-    <url>/tags/index.html</url>
+    <title>categories</title>
+    <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
