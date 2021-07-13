@@ -33,6 +33,35 @@
       </tags>
   </entry>
   <entry>
+    <title>LeetCode</title>
+    <url>/2021/04/27/LeetCode/</url>
+    <content><![CDATA[<h1 id="Array-35-search-insert-position"><a href="#Array-35-search-insert-position" class="headerlink" title="Array_35(search-insert-position)"></a>Array_35(search-insert-position)</h1><p>先确认查找算法是二分查找（binary-search），将<a href="https://leetcode-cn.com/problems/binary-search/">二分查找的算法</a>解了一次。问题：执行用时很少，但内存占用多</p>
+<p>当没找到index后，比较target和nums[pivot]，返回插入位置就行。</p>
+<p>问题：空间复杂度高</p>
+<p><img src="/images/LeetCode/search-insert-position-1.jpg"></p>
+<h1 id="Array-27-remove-element"><a href="#Array-27-remove-element" class="headerlink" title="Array_27(remove-element)"></a>Array_27(remove-element)</h1><p>两种方法：</p>
+<ol>
+<li><p>暴力破解：双for循环O(n^2),&amp;O(1)</p>
+<p>第一个for循环用于检索数组，第二个for循环用于删除，也即数据往前移动。</p>
+</li>
+<li><p>双指针法：快慢指针法O(n)&amp;O(1)，更常用于数组和链表</p>
+<p>一个for循环，一个快指针，一个慢指针，快指针往前检索，知道遍历完整个数组，然后慢指针负责慢慢检索将后面的数据复制往前移动。右指针 <em>right</em> 指向当前将要处理的元素，左指针<em>left</em> 指向下一个将要赋值的位置</p>
+</li>
+</ol>
+<p><img src="/images/LeetCode/remove-element.jpg"></p>
+<h1 id="ARRAY209-minimum-size-subarray-sum"><a href="#ARRAY209-minimum-size-subarray-sum" class="headerlink" title="ARRAY209(minimum-size-subarray-sum)"></a>ARRAY209(minimum-size-subarray-sum)</h1><p>两种方法：</p>
+<p>1.暴力破解法（两个for循环）</p>
+<p>2.滑动窗口法（双指针法）</p>
+<p><img src="/images/LeetCode/image-20210618114458003.png" alt="image-20210618114458003"></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://leetcode-cn.com/circle/article/wGp7Y9/">LeetCode最强刷题指南</a></p>
+<p><a href="https://github.com/youngyangyang04/leetcode-master">LeetCode刷题攻略</a></p>
+]]></content>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java多线程高并发</title>
     <url>/2021/05/24/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%AB%98%E5%B9%B6%E5%8F%91/</url>
     <content><![CDATA[<h1 id="线程简介"><a href="#线程简介" class="headerlink" title="线程简介"></a>线程简介</h1><p>视频课程地址：<a href="https://www.bilibili.com/video/BV1V4411p7EF?p=9">【狂神说Java】多线程详解</a></p>
@@ -79,35 +108,6 @@
 
 
 ]]></content>
-  </entry>
-  <entry>
-    <title>LeetCode</title>
-    <url>/2021/04/27/LeetCode/</url>
-    <content><![CDATA[<h1 id="Array-35-search-insert-position"><a href="#Array-35-search-insert-position" class="headerlink" title="Array_35(search-insert-position)"></a>Array_35(search-insert-position)</h1><p>先确认查找算法是二分查找（binary-search），将<a href="https://leetcode-cn.com/problems/binary-search/">二分查找的算法</a>解了一次。问题：执行用时很少，但内存占用多</p>
-<p>当没找到index后，比较target和nums[pivot]，返回插入位置就行。</p>
-<p>问题：空间复杂度高</p>
-<p><img src="/images/LeetCode/search-insert-position-1.jpg"></p>
-<h1 id="Array-27-remove-element"><a href="#Array-27-remove-element" class="headerlink" title="Array_27(remove-element)"></a>Array_27(remove-element)</h1><p>两种方法：</p>
-<ol>
-<li><p>暴力破解：双for循环O(n^2),&amp;O(1)</p>
-<p>第一个for循环用于检索数组，第二个for循环用于删除，也即数据往前移动。</p>
-</li>
-<li><p>双指针法：快慢指针法O(n)&amp;O(1)，更常用于数组和链表</p>
-<p>一个for循环，一个快指针，一个慢指针，快指针往前检索，知道遍历完整个数组，然后慢指针负责慢慢检索将后面的数据复制往前移动。右指针 <em>right</em> 指向当前将要处理的元素，左指针<em>left</em> 指向下一个将要赋值的位置</p>
-</li>
-</ol>
-<p><img src="/images/LeetCode/remove-element.jpg"></p>
-<h1 id="ARRAY209-minimum-size-subarray-sum"><a href="#ARRAY209-minimum-size-subarray-sum" class="headerlink" title="ARRAY209(minimum-size-subarray-sum)"></a>ARRAY209(minimum-size-subarray-sum)</h1><p>两种方法：</p>
-<p>1.暴力破解法（两个for循环）</p>
-<p>2.滑动窗口法（双指针法）</p>
-<p><img src="/images/LeetCode/image-20210618114458003.png" alt="image-20210618114458003"></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://leetcode-cn.com/circle/article/wGp7Y9/">LeetCode最强刷题指南</a></p>
-<p><a href="https://github.com/youngyangyang04/leetcode-master">LeetCode刷题攻略</a></p>
-]]></content>
-      <tags>
-        <tag>leetcode</tag>
-        <tag>algorithm</tag>
-      </tags>
   </entry>
   <entry>
     <title>SSL/TLS相关</title>
@@ -357,43 +357,6 @@
       </tags>
   </entry>
   <entry>
-    <title>TLS1.2 RFC-5246文档翻译学习</title>
-    <url>/2021/05/20/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<p>官方文档：<a href="https://www.rfc-editor.org/info/rfc5246">RFC-5246</a></p>
-<ul>
-<li><strong>文章结构请看右边的目录</strong>👉</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>RFC6246</tag>
-        <tag>TLS1.2</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>「送你一朵小红花」</title>
-    <url>/2021/04/26/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/</url>
-    <content><![CDATA[<p><img src="https://img0.utuku.china.com/550x0/ent/20200612/8f5ba9c8-3738-4c6f-bc10-9c64c27d1c58.jpg"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC17.JPG" alt="LHC17"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC16.JPG" alt="LHC16"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC15.JPG" alt="LHC15"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC14.JPG" alt="LHC14"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC13.jpg" alt="LHC13"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC12.jpg" alt="LHC12"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC11.jpg" alt="LHC11"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC10.JPG" alt="LHC10"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC9.jpg" alt="LHC9"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC8.jpg" alt="LHC8"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC6.GIF" alt="LHC6"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC5.jpg" alt="LHC5"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC4.JPG" alt="LHC4"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC3.jpg" alt="LHC3"></p>
-<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/run&start%E6%96%B9%E6%B3%95%E5%8C%BA%E5%88%AB.jpg" alt="run&amp;start方法区别"></p>
-]]></content>
-      <tags>
-        <tag>movie</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Paper Reading: Scalable Scanning and Automatic Classification of TLS Padding Oracle Vulnerabilities</title>
     <url>/2021/04/24/Paper-Reading-Scalable-Scanning-and-Automatic-Classification-of-TLS-Padding-Oracle-Vulnerabilities/</url>
     <content><![CDATA[<h1 id="「TLS-Padding-Oracle漏洞的可拓展扫描和自动分类」"><a href="#「TLS-Padding-Oracle漏洞的可拓展扫描和自动分类」" class="headerlink" title="「TLS Padding Oracle漏洞的可拓展扫描和自动分类」"></a>「TLS Padding Oracle漏洞的可拓展扫描和自动分类」</h1><p>该论文发表在第28次USS会议上，<a href="https://www.youtube.com/results?search_query=Scalable+Scanning+and+Automatic+Classification+of+TLS+Padding+Oracle+Vulnerabilities">USS会议演讲视频</a>，<a href="https://www.youtube.com/results?search_query=Scalable+Scanning+and+Automatic+Classification+of+TLS+Padding+Oracle+Vulnerabilities">国际密码研究协会演讲视频</a></p>
@@ -640,10 +603,47 @@
       </tags>
   </entry>
   <entry>
+    <title>TLS1.2 RFC-5246文档翻译学习</title>
+    <url>/2021/05/20/TLS1-2-RFC-5246%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<p>官方文档：<a href="https://www.rfc-editor.org/info/rfc5246">RFC-5246</a></p>
+<ul>
+<li><strong>文章结构请看右边的目录</strong>👉</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>RFC6246</tag>
+        <tag>TLS1.2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>「送你一朵小红花」</title>
+    <url>/2021/04/26/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/</url>
+    <content><![CDATA[<p><img src="https://img0.utuku.china.com/550x0/ent/20200612/8f5ba9c8-3738-4c6f-bc10-9c64c27d1c58.jpg"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC17.JPG" alt="LHC17"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC16.JPG" alt="LHC16"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC15.JPG" alt="LHC15"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC14.JPG" alt="LHC14"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC13.jpg" alt="LHC13"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC12.jpg" alt="LHC12"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC11.jpg" alt="LHC11"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC10.JPG" alt="LHC10"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC9.jpg" alt="LHC9"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC8.jpg" alt="LHC8"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC6.GIF" alt="LHC6"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC5.jpg" alt="LHC5"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC4.JPG" alt="LHC4"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/LHC3.jpg" alt="LHC3"></p>
+<p><img src="../images/%E3%80%8C%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1%E3%80%8D/run&start%E6%96%B9%E6%B3%95%E5%8C%BA%E5%88%AB.jpg" alt="run&amp;start方法区别"></p>
+]]></content>
+      <tags>
+        <tag>movie</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>国密算法/协议/工控</title>
     <url>/2021/04/28/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95-%E5%8D%8F%E8%AE%AE-%E5%B7%A5%E6%8E%A7/</url>
     <content><![CDATA[<h1 id="国密标准"><a href="#国密标准" class="headerlink" title="国密标准"></a>国密标准</h1><p>关注<a href="http://www.scctc.org.cn/index.aspx">国家商用密码检测中心</a>和<a href="http://openstd.samr.gov.cn/bzgk/gb/">国家标准全文公开系统</a>和<a href="http://std.samr.gov.cn/">全国标准信息公共服务平台</a>发布的标准。</p>
-<p>🌟🌟🌟注意：<strong>GMT_0024-2014</strong>关于GM的SSL VPN标准已经是2015年的标准，现在2020-11-01已经出台新的标准，也就是<a href="http://c.gb688.cn/bzgk/gb/showGb?type=online&hcno=778097598DA2761E94A5FF3F77BD66DA"><strong>GB/T 38636-2020</strong></a>标准（TLCP-传输层密码协议），其中关于密码组件有了新的描述和值，如下图所示：<br><img src="/images/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95-%E5%8D%8F%E8%AE%AE-%E5%B7%A5%E6%8E%A7/image-20210713210116996.png" alt="image-20210713210116996"></p>
+<p>🌟🌟🌟注意：<strong>GMT_0024-2014</strong>关于GM的SSL VPN标准已经是2015年的标准，现在2020-11-01已经出台新的标准，也就是<a href="http://c.gb688.cn/bzgk/gb/showGb?type=online&hcno=778097598DA2761E94A5FF3F77BD66DA"><strong>GB/T 38636-2020</strong></a>标准（TLCP-传输层密码协议），其中关于密码组件有了新的描述和值，如下图所示：<br><img src="/images/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95-%E5%8D%8F%E8%AE%AE-%E5%B7%A5%E6%8E%A7/image-20210713210116996.png"></p>
 <h1 id="国密SSL-TLS"><a href="#国密SSL-TLS" class="headerlink" title="国密SSL/TLS"></a>国密SSL/TLS</h1><p>🌟🌟🌟<a href="https://www.gmssl.cn/gmssl/index.jsp?go=down">国密SSL实验室</a>（重点）：好多使用的工具，包括国密Web浏览器、国密Web服务器、国密性能测试、国密工具箱等等。可以从这里面下载Web服务器，搭建并进行TLS-Attacker的测试。一个<a href="https://developer.aliyun.com/article/770830">阿里云的实战博客</a>，该博客实战了GMSSL的Nginx安装和使用。一个相关测试的专栏文章-<a href="https://segmentfault.com/a/1190000024448440">国密SSL之性能测试</a>。</p>
 <p>一个在线工具：<a href="https://myssl.com/">SSL/TLS安全评估报告-在线网站检测</a>。其支持国密HTTPS的检测分析。</p>
 <p>江南天安<a href="https://github.com/jntass">Github主页-jntass</a>：提供源码下载和Nginx服务器的安装。</p>
