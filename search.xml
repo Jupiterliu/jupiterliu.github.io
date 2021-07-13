@@ -33,35 +33,6 @@
       </tags>
   </entry>
   <entry>
-    <title>LeetCode</title>
-    <url>/2021/04/27/LeetCode/</url>
-    <content><![CDATA[<h1 id="Array-35-search-insert-position"><a href="#Array-35-search-insert-position" class="headerlink" title="Array_35(search-insert-position)"></a>Array_35(search-insert-position)</h1><p>先确认查找算法是二分查找（binary-search），将<a href="https://leetcode-cn.com/problems/binary-search/">二分查找的算法</a>解了一次。问题：执行用时很少，但内存占用多</p>
-<p>当没找到index后，比较target和nums[pivot]，返回插入位置就行。</p>
-<p>问题：空间复杂度高</p>
-<p><img src="/images/LeetCode/search-insert-position-1.jpg"></p>
-<h1 id="Array-27-remove-element"><a href="#Array-27-remove-element" class="headerlink" title="Array_27(remove-element)"></a>Array_27(remove-element)</h1><p>两种方法：</p>
-<ol>
-<li><p>暴力破解：双for循环O(n^2),&amp;O(1)</p>
-<p>第一个for循环用于检索数组，第二个for循环用于删除，也即数据往前移动。</p>
-</li>
-<li><p>双指针法：快慢指针法O(n)&amp;O(1)，更常用于数组和链表</p>
-<p>一个for循环，一个快指针，一个慢指针，快指针往前检索，知道遍历完整个数组，然后慢指针负责慢慢检索将后面的数据复制往前移动。右指针 <em>right</em> 指向当前将要处理的元素，左指针<em>left</em> 指向下一个将要赋值的位置</p>
-</li>
-</ol>
-<p><img src="/images/LeetCode/remove-element.jpg"></p>
-<h1 id="ARRAY209-minimum-size-subarray-sum"><a href="#ARRAY209-minimum-size-subarray-sum" class="headerlink" title="ARRAY209(minimum-size-subarray-sum)"></a>ARRAY209(minimum-size-subarray-sum)</h1><p>两种方法：</p>
-<p>1.暴力破解法（两个for循环）</p>
-<p>2.滑动窗口法（双指针法）</p>
-<p><img src="/images/LeetCode/image-20210618114458003.png" alt="image-20210618114458003"></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://leetcode-cn.com/circle/article/wGp7Y9/">LeetCode最强刷题指南</a></p>
-<p><a href="https://github.com/youngyangyang04/leetcode-master">LeetCode刷题攻略</a></p>
-]]></content>
-      <tags>
-        <tag>leetcode</tag>
-        <tag>algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java多线程高并发</title>
     <url>/2021/05/24/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%AB%98%E5%B9%B6%E5%8F%91/</url>
     <content><![CDATA[<h1 id="线程简介"><a href="#线程简介" class="headerlink" title="线程简介"></a>线程简介</h1><p>视频课程地址：<a href="https://www.bilibili.com/video/BV1V4411p7EF?p=9">【狂神说Java】多线程详解</a></p>
@@ -108,6 +79,35 @@
 
 
 ]]></content>
+  </entry>
+  <entry>
+    <title>LeetCode</title>
+    <url>/2021/04/27/LeetCode/</url>
+    <content><![CDATA[<h1 id="Array-35-search-insert-position"><a href="#Array-35-search-insert-position" class="headerlink" title="Array_35(search-insert-position)"></a>Array_35(search-insert-position)</h1><p>先确认查找算法是二分查找（binary-search），将<a href="https://leetcode-cn.com/problems/binary-search/">二分查找的算法</a>解了一次。问题：执行用时很少，但内存占用多</p>
+<p>当没找到index后，比较target和nums[pivot]，返回插入位置就行。</p>
+<p>问题：空间复杂度高</p>
+<p><img src="/images/LeetCode/search-insert-position-1.jpg"></p>
+<h1 id="Array-27-remove-element"><a href="#Array-27-remove-element" class="headerlink" title="Array_27(remove-element)"></a>Array_27(remove-element)</h1><p>两种方法：</p>
+<ol>
+<li><p>暴力破解：双for循环O(n^2),&amp;O(1)</p>
+<p>第一个for循环用于检索数组，第二个for循环用于删除，也即数据往前移动。</p>
+</li>
+<li><p>双指针法：快慢指针法O(n)&amp;O(1)，更常用于数组和链表</p>
+<p>一个for循环，一个快指针，一个慢指针，快指针往前检索，知道遍历完整个数组，然后慢指针负责慢慢检索将后面的数据复制往前移动。右指针 <em>right</em> 指向当前将要处理的元素，左指针<em>left</em> 指向下一个将要赋值的位置</p>
+</li>
+</ol>
+<p><img src="/images/LeetCode/remove-element.jpg"></p>
+<h1 id="ARRAY209-minimum-size-subarray-sum"><a href="#ARRAY209-minimum-size-subarray-sum" class="headerlink" title="ARRAY209(minimum-size-subarray-sum)"></a>ARRAY209(minimum-size-subarray-sum)</h1><p>两种方法：</p>
+<p>1.暴力破解法（两个for循环）</p>
+<p>2.滑动窗口法（双指针法）</p>
+<p><img src="/images/LeetCode/image-20210618114458003.png" alt="image-20210618114458003"></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://leetcode-cn.com/circle/article/wGp7Y9/">LeetCode最强刷题指南</a></p>
+<p><a href="https://github.com/youngyangyang04/leetcode-master">LeetCode刷题攻略</a></p>
+]]></content>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>algorithm</tag>
+      </tags>
   </entry>
   <entry>
     <title>SSL/TLS相关</title>
@@ -824,13 +824,13 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>tags</title>
-    <url>/tags/index.html</url>
+    <title>categories</title>
+    <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>categories</title>
-    <url>/categories/index.html</url>
+    <title>tags</title>
+    <url>/tags/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
