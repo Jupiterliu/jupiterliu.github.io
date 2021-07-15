@@ -33,35 +33,6 @@
       </tags>
   </entry>
   <entry>
-    <title>LeetCode</title>
-    <url>/2021/04/27/LeetCode/</url>
-    <content><![CDATA[<h1 id="Array-35-search-insert-position"><a href="#Array-35-search-insert-position" class="headerlink" title="Array_35(search-insert-position)"></a>Array_35(search-insert-position)</h1><p>先确认查找算法是二分查找（binary-search），将<a href="https://leetcode-cn.com/problems/binary-search/">二分查找的算法</a>解了一次。问题：执行用时很少，但内存占用多</p>
-<p>当没找到index后，比较target和nums[pivot]，返回插入位置就行。</p>
-<p>问题：空间复杂度高</p>
-<p><img src="/images/LeetCode/search-insert-position-1.jpg"></p>
-<h1 id="Array-27-remove-element"><a href="#Array-27-remove-element" class="headerlink" title="Array_27(remove-element)"></a>Array_27(remove-element)</h1><p>两种方法：</p>
-<ol>
-<li><p>暴力破解：双for循环O(n^2),&amp;O(1)</p>
-<p>第一个for循环用于检索数组，第二个for循环用于删除，也即数据往前移动。</p>
-</li>
-<li><p>双指针法：快慢指针法O(n)&amp;O(1)，更常用于数组和链表</p>
-<p>一个for循环，一个快指针，一个慢指针，快指针往前检索，知道遍历完整个数组，然后慢指针负责慢慢检索将后面的数据复制往前移动。右指针 <em>right</em> 指向当前将要处理的元素，左指针<em>left</em> 指向下一个将要赋值的位置</p>
-</li>
-</ol>
-<p><img src="/images/LeetCode/remove-element.jpg"></p>
-<h1 id="ARRAY209-minimum-size-subarray-sum"><a href="#ARRAY209-minimum-size-subarray-sum" class="headerlink" title="ARRAY209(minimum-size-subarray-sum)"></a>ARRAY209(minimum-size-subarray-sum)</h1><p>两种方法：</p>
-<p>1.暴力破解法（两个for循环）</p>
-<p>2.滑动窗口法（双指针法）</p>
-<p><img src="/images/LeetCode/image-20210618114458003.png" alt="image-20210618114458003"></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://leetcode-cn.com/circle/article/wGp7Y9/">LeetCode最强刷题指南</a></p>
-<p><a href="https://github.com/youngyangyang04/leetcode-master">LeetCode刷题攻略</a></p>
-]]></content>
-      <tags>
-        <tag>leetcode</tag>
-        <tag>algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java多线程高并发</title>
     <url>/2021/05/24/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%AB%98%E5%B9%B6%E5%8F%91/</url>
     <content><![CDATA[<h1 id="线程简介"><a href="#线程简介" class="headerlink" title="线程简介"></a>线程简介</h1><p>视频课程地址：<a href="https://www.bilibili.com/video/BV1V4411p7EF?p=9">【狂神说Java】多线程详解</a></p>
@@ -108,6 +79,35 @@
 
 
 ]]></content>
+  </entry>
+  <entry>
+    <title>LeetCode</title>
+    <url>/2021/04/27/LeetCode/</url>
+    <content><![CDATA[<h1 id="Array-35-search-insert-position"><a href="#Array-35-search-insert-position" class="headerlink" title="Array_35(search-insert-position)"></a>Array_35(search-insert-position)</h1><p>先确认查找算法是二分查找（binary-search），将<a href="https://leetcode-cn.com/problems/binary-search/">二分查找的算法</a>解了一次。问题：执行用时很少，但内存占用多</p>
+<p>当没找到index后，比较target和nums[pivot]，返回插入位置就行。</p>
+<p>问题：空间复杂度高</p>
+<p><img src="/images/LeetCode/search-insert-position-1.jpg"></p>
+<h1 id="Array-27-remove-element"><a href="#Array-27-remove-element" class="headerlink" title="Array_27(remove-element)"></a>Array_27(remove-element)</h1><p>两种方法：</p>
+<ol>
+<li><p>暴力破解：双for循环O(n^2),&amp;O(1)</p>
+<p>第一个for循环用于检索数组，第二个for循环用于删除，也即数据往前移动。</p>
+</li>
+<li><p>双指针法：快慢指针法O(n)&amp;O(1)，更常用于数组和链表</p>
+<p>一个for循环，一个快指针，一个慢指针，快指针往前检索，知道遍历完整个数组，然后慢指针负责慢慢检索将后面的数据复制往前移动。右指针 <em>right</em> 指向当前将要处理的元素，左指针<em>left</em> 指向下一个将要赋值的位置</p>
+</li>
+</ol>
+<p><img src="/images/LeetCode/remove-element.jpg"></p>
+<h1 id="ARRAY209-minimum-size-subarray-sum"><a href="#ARRAY209-minimum-size-subarray-sum" class="headerlink" title="ARRAY209(minimum-size-subarray-sum)"></a>ARRAY209(minimum-size-subarray-sum)</h1><p>两种方法：</p>
+<p>1.暴力破解法（两个for循环）</p>
+<p>2.滑动窗口法（双指针法）</p>
+<p><img src="/images/LeetCode/image-20210618114458003.png" alt="image-20210618114458003"></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://leetcode-cn.com/circle/article/wGp7Y9/">LeetCode最强刷题指南</a></p>
+<p><a href="https://github.com/youngyangyang04/leetcode-master">LeetCode刷题攻略</a></p>
+]]></content>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>algorithm</tag>
+      </tags>
   </entry>
   <entry>
     <title>SSL/TLS相关</title>
@@ -352,6 +352,14 @@
 <h4 id="HeartbeatMessageType-class"><a href="#HeartbeatMessageType-class" class="headerlink" title="HeartbeatMessageType.class"></a>HeartbeatMessageType.class</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">enum:</span><br><span class="line">HEARTBEAT_REQUEST((byte) 1),</span><br><span class="line">HEARTBEAT_RESPONSE((byte) 2);</span><br></pre></td></tr></table></figure>
 
 <h4 id="HeartbeatByteLength-class"><a href="#HeartbeatByteLength-class" class="headerlink" title="HeartbeatByteLength.class"></a>HeartbeatByteLength.class</h4>]]></content>
+      <tags>
+        <tag>github project</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>TLS-Scanner项目</title>
+    <url>/2021/07/15/TLS-Scanner%E9%A1%B9%E7%9B%AE/</url>
+    <content><![CDATA[]]></content>
       <tags>
         <tag>github project</tag>
       </tags>
@@ -642,13 +650,16 @@
   <entry>
     <title>国密算法/协议/工控</title>
     <url>/2021/04/28/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95-%E5%8D%8F%E8%AE%AE-%E5%B7%A5%E6%8E%A7/</url>
-    <content><![CDATA[<h1 id="国密标准"><a href="#国密标准" class="headerlink" title="国密标准"></a>国密标准</h1><p>关注<a href="http://www.scctc.org.cn/index.aspx">国家商用密码检测中心</a>和<a href="http://openstd.samr.gov.cn/bzgk/gb/">国家标准全文公开系统</a>和<a href="http://std.samr.gov.cn/">全国标准信息公共服务平台</a>发布的标准。</p>
+    <content><![CDATA[<h1 id="国密标准"><a href="#国密标准" class="headerlink" title="国密标准"></a>国密标准</h1><p>关注<a href="http://www.scctc.org.cn/index.aspx"><strong>国家商用密码检测中心</strong></a>和<a href="http://openstd.samr.gov.cn/bzgk/gb/"><strong>国家标准全文公开系统</strong></a>和<a href="http://std.samr.gov.cn/"><strong>全国标准信息公共服务平台</strong></a>以及<a href="https://www.oscca.gov.cn/sca/index.shtml"><strong>国家密码管理局</strong></a>和<a href="https://www.cacrnet.org.cn/">中国密码学会</a>和<a href="http://www.gmbz.org.cn/main/index.html">密码行业标准化技术委员会</a>发布的标准。</p>
 <p>🌟🌟🌟注意：<strong>GMT_0024-2014</strong>关于GM的SSL VPN标准已经是2015年的标准，现在2020-11-01已经出台新的标准，也就是<a href="http://c.gb688.cn/bzgk/gb/showGb?type=online&hcno=778097598DA2761E94A5FF3F77BD66DA"><strong>GB/T 38636-2020</strong></a>标准（TLCP-传输层密码协议），其中关于密码组件有了新的描述和值，如下图所示：<br><img src="/images/%E5%9B%BD%E5%AF%86%E7%AE%97%E6%B3%95-%E5%8D%8F%E8%AE%AE-%E5%B7%A5%E6%8E%A7/image-20210713210116996.png"></p>
+<p>同时，我国的<strong>SM2/3/4/9</strong>已经成为了<strong>ISO/IEC</strong>的标准，以后应用更加广泛</p>
+<p>关于商密和RFC的一些标准文档：<a href="https://www.rfc-editor.org/rfc/rfc8998.html">RFC-8998</a>:ShangMi (SM) Cipher Suites for TLS 1.3</p>
 <h1 id="国密SSL-TLS"><a href="#国密SSL-TLS" class="headerlink" title="国密SSL/TLS"></a>国密SSL/TLS</h1><p>🌟🌟🌟<a href="https://www.gmssl.cn/gmssl/index.jsp?go=down">国密SSL实验室</a>（重点）：好多使用的工具，包括国密Web浏览器、国密Web服务器、国密性能测试、国密工具箱等等。可以从这里面下载Web服务器，搭建并进行TLS-Attacker的测试。一个<a href="https://developer.aliyun.com/article/770830">阿里云的实战博客</a>，该博客实战了GMSSL的Nginx安装和使用。一个相关测试的专栏文章-<a href="https://segmentfault.com/a/1190000024448440">国密SSL之性能测试</a>。</p>
 <p>一个在线工具：<a href="https://myssl.com/">SSL/TLS安全评估报告-在线网站检测</a>。其支持国密HTTPS的检测分析。</p>
 <p>江南天安<a href="https://github.com/jntass">Github主页-jntass</a>：提供源码下载和Nginx服务器的安装。</p>
 <p><a href="http://gmssl.org/">GmSSL</a>：支持国密的密码工具箱，GmSSL作者关志教授的Github主页：<a href="https://github.com/guanzhi">GmSSL-guanzhi</a>。其中关志教授将<a href="https://github.com/guanzhi/GM-Standards">GM-Standards</a>都列了出来，所有国密行业的标准pdf。</p>
 <p><a href="https://www.doubleca.com/test_toIndexPage.action">大宝CA数字证书测试平台</a>（工具平台/Java/服务器）：该平台有Java国密算法基本组件（JSE），有Java国密SSL算法基础套件，有国密SSL规范的Tomcat组件，有国密SSL规范Nginx服务器。</p>
+<p><a href="https://github.com/BabaSSL/BabaSSL">阿里巴巴的BabaSSL</a>，支持国密操作的OpenSSL开源项目，其<a href="https://codeup.openanolis.cn/codeup/crypto">代码库</a></p>
 <h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><h2 id="第一次GmSSL环境搭建实验（国密SSL实验室）："><a href="#第一次GmSSL环境搭建实验（国密SSL实验室）：" class="headerlink" title="第一次GmSSL环境搭建实验（国密SSL实验室）："></a>第一次GmSSL环境搭建实验（国密SSL实验室）：</h2><ul>
 <li><a href="https://developer.aliyun.com/article/770830">国密SSL协议之Nginx集成</a>：结合前面的<em>国密SSL实验室</em>进行，在CentOS 7环境上实验<del>（失败）</del></li>
 </ul>
@@ -692,6 +703,52 @@
 <p>GmSSL实验室的Nginx实验室服务器的支持的密码组件是<strong>ECC-SM4-CBC-SM3、ECDHE-SM4-CBC-SM3、ECC-SM4-GCM-SM3、ECDHE-SM4-GCM-SM3</strong>，但是并不知道密码组件所代表的值，其中两个是CBC密码模式的组件。是否可以通过<strong>Wireshark</strong>来抓取服务器的包，然后知道其所代表的值（这估计是不行的）。</p>
 <h3 id="实验过程-amp-amp-问题"><a href="#实验过程-amp-amp-问题" class="headerlink" title="实验过程&amp;&amp;问题"></a>实验过程&amp;&amp;问题</h3><p>遇到的问题：Nginx服务器的密码组件格式是ECDHE-SM4-CBC-SM3形式，而正式标准规定TLS的密码组件格式为ECDHE_SM4_CBC_SM3（下划线分割）格式，GmSSL实验室的服务器是这样，不知道现在其他的服务器是否是如此规定。可以试图修改服务器的组件表达方式。</p>
 <p>找到了/usr/local/gmssl/lib目录下的libcrypto.a文件，解压之后发现了sm2、sm3等的obj类型文件，例如sm3.o文件，该文件不可读，打开是乱码，但是百度有方法可以解码后阅读。</p>
+<p>测试带有GmTLS的服务器：</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> <a href="https://www.mct.gov.cn/%E3%80%82%E5%85%B6IP%E5%9C%B0%E5%9D%80%E4%B8%BA60.165.153.71%E3%80%82%E7%BB%8F%E8%BF%87MySSL%E6%89%AB%E6%8F%8F%E4%B9%8B%E5%90%8E%E5%8F%91%E7%8E%B0%E5%B9%B6%E6%9C%AA%E4%BD%BF%E7%94%A8GmSSL%E5%8D%8F%E8%AE%AE%E2%9D%8C%E2%9D%8C%E2%9D%8C">https://www.mct.gov.cn/。其IP地址为60.165.153.71。经过MySSL扫描之后发现并未使用GmSSL协议❌❌❌</a></li>
+</ul>
+<ul>
+<li><p><a href="https://sm2test.ovssl.cn/%E3%80%82%E5%85%B6IP%E5%9C%B0%E5%9D%80%E4%B8%BA180.163.248.139%EF%BC%8C%E7%BB%8F%E8%BF%87MySSL%E6%89%AB%E6%8F%8F%E4%B9%8B%E5%90%8E%EF%BC%8C%E5%8F%91%E7%8E%B0%E4%BA%86%E5%85%B6%E4%B8%8B%E9%9D%A2%E7%9A%84%E5%85%B6%E4%BB%96%E5%9F%9F%E5%90%8D%E5%92%8CIP%E5%9C%B0%E5%9D%80%EF%BC%8C">https://sm2test.ovssl.cn/。其IP地址为180.163.248.139，经过MySSL扫描之后，发现了其下面的其他域名和IP地址，</a></p>
+<table>
+<thead>
+<tr>
+<th>域名</th>
+<th>IP</th>
+<th>端口</th>
+<th>地区</th>
+<th>检测日期</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="http://www.ovssl.cn/">www.ovssl.cn</a></td>
+<td>180.163.248.215</td>
+<td>443</td>
+<td>上海</td>
+<td>2021-07-08</td>
+<td><a href="https://myssl.com/www.ovssl.cn?port=443&ip=180.163.248.215">A</a></td>
+</tr>
+<tr>
+<td>sm2test.ovssl.cn</td>
+<td>180.163.248.139</td>
+<td>443</td>
+<td>上海</td>
+<td>2021-07-06</td>
+<td><a href="https://myssl.com/sm2test.ovssl.cn?port=443&ip=180.163.248.139">B</a></td>
+</tr>
+<tr>
+<td>ovssl.cn</td>
+<td>180.163.248.215</td>
+<td>443</td>
+<td>上海</td>
+<td>2021-07-08</td>
+<td><a href="https://myssl.com/ovssl.cn?port=443&ip=180.163.248.215">A</a></td>
+</tr>
+</tbody></table>
+</li>
+<li><p><a href="https://106.12.214.59/%E3%80%82">https://106.12.214.59/。</a></p>
+</li>
+</ul>
 <h2 id="正式实验记录（第二次搭建实验）："><a href="#正式实验记录（第二次搭建实验）：" class="headerlink" title="正式实验记录（第二次搭建实验）："></a>正式实验记录（第二次搭建实验）：</h2><ol>
 <li><p>先熟悉GmSSL的生成证书以及国密算法组件</p>
 <ul>
